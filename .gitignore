@@ -1,4 +1,6 @@
 # MacOS
 .DS_Store
 
+# SSH
+.config/zsh/.zcompdump
 
