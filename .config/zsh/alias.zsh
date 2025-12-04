@@ -30,16 +30,9 @@ function y() {
 
 # Helpers
 zinit::update() {
-  case $1 in
-    update)
-      echo "🔄 Updating Zinit and plugins..."
-      zinit self-update && zinit update --all
-      echo "✅ All Zinit plugins updated!"
-      ;;
-    *)
-      echo "Usage: help-zinit update"
-      ;;
-  esac
+  echo "🔄 Updating Zinit and plugins..."
+  zinit self-update && zinit update --all
+  echo "✅ All Zinit plugins updated!"
 }
 
 alias help::vim-tips='echo "$(cat <<-'EOF'
@@ -48,6 +41,9 @@ x Multiline edit:
   - ctrl+v (visual mode)
   - select, c to delete, type your word (only first line will be visible)
   - double press esc
+x Jump:
+  - by a paragraph: shift+[ or shift+]
+  - to the next parenthesis: %
 EOF
 )"'
 
