@@ -21,3 +21,20 @@ Include git settings in `~/.config/git/config`:
   path = settings
 ```
 
+Sample `.ssh/config`:
+
+```ini
+Include config.d/*.conf
+
+Host github.com
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host github.com:<USERNAME>
+  Host github.com
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519_<USERNAME>
+```
+
