@@ -3,5 +3,7 @@
 [ ] yazi auto install flavours
 [ ] ghostty search
 [ ] allow clicking links in ghostty
-[ ] shai - testing
+[-] mods - testing - better output
+[ ] better copy / paste
+[ ] better navigation (vim motions)
 
