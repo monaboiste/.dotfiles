@@ -72,6 +72,12 @@ x Actions:
 EOF
 )"'
 
+alias help::keychain='echo "$(cat <<-'EOF'
+x Add secret: security add-generic-password -a $USER -s "MY_SECRET" -w "supersecret"
+x Retrieve secret: export SECRET_KEY=$(security find-generic-password -s "MY_SECRET" -w)
+EOF
+)"'
+
 theme::toggle() {
   local config="$XDG_CONFIG_HOME"/alacritty/alacritty.toml
   local light_theme="theme-light"

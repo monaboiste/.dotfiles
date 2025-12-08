@@ -12,3 +12,5 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export MAVEN_OPTS=-Dmaven.repo.local="$XDG_DATA_HOME"/maven/repository
 export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+
+export ANTHROPIC_API_KEY=$(security find-generic-password -s ANTHROPIC_API_KEY -w 2>/dev/null || echo "")
