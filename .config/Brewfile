@@ -1,4 +1,3 @@
-brew "1password-cli"
 brew "awscli"
 brew "charmbracelet/tap/mods"
 brew "curl"
