@@ -6,12 +6,15 @@ ZINIT[COMPINIT_OPTS]="-C"
 
 zinit wait lucid for \
   atinit"zpcompinit; zicdreplay" \
-  zdharma-continuum/fast-syntax-highlighting \
-  Aloxaf/fzf-tab \
+    zdharma-continuum/fast-syntax-highlighting \
+    Aloxaf/fzf-tab \
   blockf \
-  zsh-users/zsh-completions \
+    zsh-users/zsh-completions \
   atload"!_zsh_autosuggest_start" \
-  zsh-users/zsh-autosuggestions
+    zsh-users/zsh-autosuggestions
+
+# Sdkman completion
+zinit snippet OMZP::sdk
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
