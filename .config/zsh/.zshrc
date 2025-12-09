@@ -17,10 +17,10 @@ export PATH
 
 [ -f "$XDG_CONFIG_HOME"/zsh/binding.zsh ] && source "$XDG_CONFIG_HOME"/zsh/binding.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/alias.zsh ] && source "$XDG_CONFIG_HOME"/zsh/alias.zsh
-[ -f "$XDG_CONFIG_HOME"/zsh/devtool.zsh ] && source "$XDG_CONFIG_HOME"/zsh/devtool.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/zinit/zinit.zsh ] && source "$XDG_CONFIG_HOME"/zsh/zinit/zinit.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/zinit/complete.zsh ] && source "$XDG_CONFIG_HOME"/zsh/zinit/complete.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/prompt.zsh ] && source "$XDG_CONFIG_HOME"/zsh/prompt.zsh
+source $XDG_CONFIG_HOME/zsh/devtool/*.zsh(N)
 
 # History
 HISTSIZE=5000
@@ -36,4 +36,3 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
