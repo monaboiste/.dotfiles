@@ -20,7 +20,7 @@ export PATH
 [ -f "$XDG_CONFIG_HOME"/zsh/zinit/zinit.zsh ] && source "$XDG_CONFIG_HOME"/zsh/zinit/zinit.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/zinit/complete.zsh ] && source "$XDG_CONFIG_HOME"/zsh/zinit/complete.zsh
 [ -f "$XDG_CONFIG_HOME"/zsh/prompt.zsh ] && source "$XDG_CONFIG_HOME"/zsh/prompt.zsh
-source $XDG_CONFIG_HOME/zsh/devtool/*.zsh(N)
+for f in $XDG_CONFIG_HOME/zsh/devtool/*.zsh(N); do source $f; done
 
 # History
 HISTSIZE=5000
