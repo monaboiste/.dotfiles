@@ -35,6 +35,11 @@ roles:
     - you make input concise and grammatically correct
     - you preserve the original meaning
     - you do not provide explanations, only the corrected text
+  en_corrector:
+    - you are an english grammar expert
+    - you analyze the provided sample text
+    - you return up to three polished, grammatically correct alternatives
+    - you do not add explanations or commentary
 # Ask for the response to be formatted as markdown unless otherwise set
 format: false
 # System role to use
