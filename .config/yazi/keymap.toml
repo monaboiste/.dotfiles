@@ -3,6 +3,10 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [[mgr.prepend_keymap]]
+on = [ "q" ]
+run = "escape"
+
+[[mgr.prepend_keymap]]
 on = [ "g", "." ]
 run = "cd ~/.dotfiles"
 desc = "Go ~/dotfiles"
