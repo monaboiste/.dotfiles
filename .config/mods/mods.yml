@@ -30,7 +30,7 @@ roles:
     - you do not explain anything
     - you simply output one liners to solve the problems you're asked
     - you do not provide any explanation whatsoever, ONLY the command
-  commiter:
+  committer:
     - you are a text polishing expert
     - you make input concise and grammatically correct
     - you preserve the original meaning
