@@ -60,6 +60,7 @@ x Navigation:
   - Close tab: <ctrl>+c
 x Display:
   - Sort files: ,
+  - Show directory size: ,s
   - Show meta: <tab>
   - Show hidden: .
   - Show tasks: w
@@ -69,6 +70,7 @@ x Actions:
   - Rename file: r
   - Copy filename/path/directory: c
   - Multiselect (Bulk edit): <space>
+  - Select (tmux): enter copy mode - <prefix>+[
 EOF
 )"'
 
