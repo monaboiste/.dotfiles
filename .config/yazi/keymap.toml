@@ -4,7 +4,10 @@
 
 [mgr]
 prepend_keymap = [
-  { on = [ "q" ], run = "escape" },
-  { on = [ "g", "." ], run = "cd ~/.dotfiles", desc = "Go ~/dotfiles" },
-  { on = [ "i", "s" ], run  = "plugin what-size", desc = "Calc size of selection or cwd" },
+  # overrides
+  { on = [ "q" ], run = "escape"                                                               },
+  { on = "s",     run = "search --via=fd --args='-Hd 5'", desc = "Search files by name via fd" },
+
+  { on = [ "g", "." ], run = "cd ~/.dotfiles",   desc = "Go ~/dotfiles"                 },
+  { on = [ "i", "s" ], run = "plugin what-size", desc = "Calc size of selection or cwd" },
 ]
