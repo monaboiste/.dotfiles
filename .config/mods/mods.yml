@@ -57,7 +57,7 @@ topk: 50
 # Turn off the client-side limit on the size of the input into the model
 no-limit: false
 # Wrap formatted output at specific width (default is 80)
-word-wrap: 300
+word-wrap: 120
 # Include the prompt from the arguments in the response
 include-prompt-args: false
 # Include the prompt from the arguments and stdin, truncate stdin to specified number of lines
@@ -74,7 +74,7 @@ theme: catppuccin
 max-input-chars: 12250
 # Maximum number of tokens in response
 # max-tokens: 100
-# 
+#
 max-completion-tokens: 100
 # Aliases and endpoints for OpenAI compatible REST API
 apis:
