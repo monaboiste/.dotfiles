@@ -39,6 +39,5 @@ Host github.com:<USERNAME>
 ```
 Setup themes:
 ```sh
-ya pkg add yazi-rs/flavors:catppuccin-macchiato
 fast-theme XDG:catppuccin-mocha
 ```
