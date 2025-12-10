@@ -2,17 +2,9 @@
 
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[[mgr.prepend_keymap]]
-on = [ "q" ]
-run = "escape"
-
-[[mgr.prepend_keymap]]
-on = [ "g", "." ]
-run = "cd ~/.dotfiles"
-desc = "Go ~/dotfiles"
-
-[[mgr.prepend_keymap]]
-on = [ "i", "s" ]
-run  = "plugin what-size"
-desc = "Calc size of selection or cwd"
-
+[mgr]
+prepend_keymap = [
+  { on = [ "q" ], run = "escape" },
+  { on = [ "g", "." ], run = "cd ~/.dotfiles", desc = "Go ~/dotfiles" },
+  { on = [ "i", "s" ], run  = "plugin what-size", desc = "Calc size of selection or cwd" },
+]
