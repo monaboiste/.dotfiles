@@ -10,3 +10,9 @@ run = "escape"
 on = [ "g", "." ]
 run = "cd ~/.dotfiles"
 desc = "Go ~/dotfiles"
+
+[[mgr.prepend_keymap]]
+on = [ "i", "s" ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
