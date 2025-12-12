@@ -2,10 +2,10 @@
 
 My dotfiles configurations managed by stow.
 
-Install:
+Install bundle:
 
 ```sh
-brew install stow
+brew bundle
 ```
 
 Symlink to parent directory:
