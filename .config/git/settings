@@ -2,6 +2,8 @@
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(brightyellow)%h%C(reset) - %C(green)(%ar)%C(reset) %s%C(reset) %C(red)- %an%C(reset)%C(yellow)%d%C(reset)'
   s = status
   a = add .
+  c = commit
+  ca = commit --amend
 [tag]
   sort = -v:refname
 [diff]
