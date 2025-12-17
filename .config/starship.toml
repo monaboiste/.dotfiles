@@ -9,13 +9,14 @@ $git_commit\
 $git_status\
 $git_metrics\
 $git_state\
+$fill\
+$cmd_duration\
 $java\
 $kotlin\
 $python\
 $package\
 $docker_context\
 $aws\
-$cmd_duration\
 $line_break\
 $character\
 """
