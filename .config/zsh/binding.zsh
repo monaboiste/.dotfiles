@@ -324,6 +324,12 @@ for keyname        kcap   seq                   mode        widget (
   bindkey $seq widget::key-$keyname
 }
 
+# Open current command in the $EDITOR
+# by pressing Ctrl+X followed by Ctrl+E
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
 # Fixes autosuggest completion being overriden by keybindings:
 # to have [zsh] autosuggest [plugin feature] complete visible
 # suggestions, you can assign an array of shell functions to
