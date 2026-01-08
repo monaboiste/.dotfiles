@@ -3,4 +3,5 @@
 
 # Shell
 *.zsh.swp
+*.zsh_sessions/
 
