@@ -14,6 +14,9 @@ keybind = super+alt+arrow_right=goto_split:right
 keybind = super+alt+arrow_up=goto_split:up
 keybind = super+w=close_surface
 
+# Open links: cmd+shift
+link-previews = true
+
 # Looks
 font-size = 14
 font-family = JetBrainsMono Nerd Font
