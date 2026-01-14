@@ -5,3 +5,6 @@
 *.zsh.swp
 *.zsh_sessions/
 
+# Temp
+*.swp
+
