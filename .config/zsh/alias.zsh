@@ -72,6 +72,8 @@ x Actions:
   - Rename file: r
   - Copy filename/path/directory: c
   - Multiselect (Bulk edit): <space>
+  - Reveal/Open: O
+  - Run command: ;, : (block)
   - Select (tmux): enter copy mode - <prefix>+[
 EOF
 )"'
