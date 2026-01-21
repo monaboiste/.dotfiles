@@ -8,14 +8,14 @@ vim.cmd("set shiftwidth=2")
 
 vim.cmd("set number")
 
--- Color scheme
+-- Theme
 vim.cmd.colorscheme "catppuccin"
 
 -- Navigation
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>f", builtin.find_files, {
   desc = "Find files"
-})
+ })
 vim.keymap.set("n", "<C-S>", builtin.live_grep, {
   desc = "Live grep"
  })
