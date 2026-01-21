@@ -1,5 +1,5 @@
 [ ] ghostty search
-[-] mods - testing - better output
 [ ] better navigation (vim motions)
-[ ] nvim
+[-] nvim
 [ ] explore ftp browsers e.g. https://github.com/boydaihungst/gvfs.yazi
+[ ] git status bar in tmux e.g. https://github.com/Djuuu/tmux-git-status
