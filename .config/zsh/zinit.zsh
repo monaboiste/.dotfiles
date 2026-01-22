@@ -33,10 +33,13 @@ zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/con
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# Show dotfiles in completion
+setopt globdots
+
 # Completion styling
 zstyle ':completion:*' cache-path "${ZINIT[ZCOMPDUMP_PATH]}"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Ignore case
 zstyle ':completion:*' menu no                         # Disable default zsh completion menu - we're using fzf
 zstyle ':fzf-tab:*' fzf-flags --color=marker:#bac2de,pointer:#bac2de
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:*' fzf-preview 'ls --color -A $realpath'
+zstyle ':completion::complete:*:paths' wrapper-queries 'fd --type f --hidden'
