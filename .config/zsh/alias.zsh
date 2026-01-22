@@ -46,6 +46,13 @@ x Jump:
   - by a paragraph: shift+[ or shift+]
   - to the next parenthesis: %
   - to char: f
+x Fold:
+  - open/close: za
+  - close all: zM
+  - open all: zR
+x Navigation:
+  - { and }
+  - jump to matching pairs of (), [], {}
 EOF
 )"'
 

@@ -31,3 +31,8 @@ vim.keymap.set("n", "<leader>b", builtin.buffers, {
   desc = "Buffers"
  })
 
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99 -- Start with everything open
+
