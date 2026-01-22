@@ -34,5 +34,25 @@ return {
     keys = {
       { "<leader>n", "<cmd>Neotree filesystem toggle left<cr>", desc = "Toggle File Browser" }
     }
+  },
+  -- "What to press next" overlay
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
+    opts = {
+      preset = "helix"
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)"
+      }
+    }
   }
 }
