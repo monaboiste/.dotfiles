@@ -13,6 +13,9 @@ vim.cmd("set number")
 vim.cmd("set listchars=space:·,tab:->\\ ")
 vim.cmd("set list")
 
+-- Copy yanked selection to clipboard
+vim.cmd("set clipboard=unnamedplus")
+
 -- Theme
 vim.cmd.colorscheme "catppuccin"
 
