@@ -14,14 +14,17 @@ return {
         }
       },
       integrations = {
-        lualine = { enabled = true }
+        lualine = {
+          enabled = true
+        }
       }
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
       vim.cmd.colorscheme("catppuccin-mocha")
     end
-  }, -- Statusbar
+  }, 
+  -- Statusbar
   {
     "nvim-lualine/lualine.nvim",
     lazy = false,
@@ -29,20 +32,23 @@ return {
     opts = {
       options = {
         theme = "catppuccin",
-        section_separators = "", 
+        section_separators = "",
         component_separators = ""
-      },
-      tabline = {
+       },
+      winbar = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_z = { "location" }
       },
-      sections = {}
+      inactive_winbar = {
+        lualine_c = { "filename" }
+      }
     }
-  }, -- Syntax highlighting 
+  }, 
+  -- Syntax highlighting 
   {
     {
       "nvim-treesitter/nvim-treesitter",
@@ -50,7 +56,7 @@ return {
       build = ":TSUpdate",
       opts = {
         ensure_installed = { "java", "javascript", "lua", "vim" }
-       }
+      }
     }
   }
 }

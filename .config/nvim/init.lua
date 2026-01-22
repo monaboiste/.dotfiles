@@ -9,6 +9,11 @@ vim.opt.shiftwidth = 2
 -- Show numer lines
 vim.opt.number = true
 
+-- Hide statusline (we're using winbar)
+vim.opt.laststatus = 0
+vim.opt.cmdheight = 0
+vim.opt.showmode = false
+
 -- Show whitespaces
 vim.opt.list = true
 vim.opt.listchars = {
