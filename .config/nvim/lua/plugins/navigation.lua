@@ -24,6 +24,13 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons"
     },
+    opts = {
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
+      },
+    },
     keys = {
       { "<leader>n", "<cmd>Neotree filesystem toggle left<cr>", desc = "Toggle File Browser" }
     }
