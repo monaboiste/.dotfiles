@@ -4,14 +4,14 @@ return {
     "nvim-telescope/telescope.nvim",
     version = "*",
     dependencies = {
-      "nvim-lua/plenary.nvim", 
+      "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
     keys = {
-      { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      { "<C-S>", "<cmd>Telescope live_grep<cr>", desc = "Live Greo" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
       { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+      { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" }
     }
   },
   -- File browser
@@ -27,9 +27,9 @@ return {
     opts = {
       filesystem = {
         filtered_items = {
-          hide_dotfiles = false,
-        },
-      },
+          hide_dotfiles = false
+        }
+      }
     },
     keys = {
       { "<leader>n", "<cmd>Neotree filesystem toggle left<cr>", desc = "Toggle File Browser" }
