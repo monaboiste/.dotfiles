@@ -1,3 +1,5 @@
+local bg_color_override = "#23232b"
+
 return {
   -- Colorscheme
   {
@@ -8,9 +10,9 @@ return {
     opts = {
       color_overrides = {
         all = {
-          base = "#23232b",
-          mantle = "#23232b",
-          crust = "#23232b"
+          base = bg_color_override,
+          mantle = bg_color_override,
+          crust = bg_color_override
         }
       },
       integrations = {
@@ -36,7 +38,19 @@ return {
         component_separators = ""
        },
       winbar = {
-        lualine_a = { "mode" },
+        lualine_a = { 
+          "mode",
+          -- Macros workaround, see: https://github.com/nvim-lualine/lualine.nvim/issues/1355
+          {
+            function()
+              local reg = vim.fn.reg_recording()
+              if reg == "" then return "" end
+              return "⏺ " .. reg
+            end,
+            cond = function() return vim.fn.reg_recording() ~= "" end,
+            color = { fg = bg_color_override, gui = "bold" }
+          }
+        },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = { "encoding", "fileformat", "filetype" },
