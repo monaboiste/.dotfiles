@@ -11,7 +11,8 @@ return {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
       { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" }
+      { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+      { "<leader>rr", "<cmd>Telescope registers<cr>", desc = "View Macros" }
     }
   },
   -- File browser
