@@ -8,11 +8,13 @@ return {
     opts = {
       color_overrides = {
         all = {
-          base = "#23232b"
+          base = "#23232b",
+          mantle = "#23232b",
+          crust = "#23232b"
          }
       }
     }
-  }, 
+  },
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
