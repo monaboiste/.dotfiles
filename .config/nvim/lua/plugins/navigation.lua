@@ -4,18 +4,15 @@ return {
     "nvim-telescope/telescope.nvim",
     version = "*",
     dependencies = {
-      "nvim-lua/plenary.nvim", {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make"
-      }
+      "nvim-lua/plenary.nvim", 
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
-    config = function()
-      local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>f", builtin.find_files, {})
-      vim.keymap.set("n", "<C-S>", builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>b", builtin.buffers, {})
-      vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
-    end
+    keys = {
+      { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<C-S>", "<cmd>Telescope live_grep<cr>", desc = "Live Greo" },
+      { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+      { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
+    }
   },
   -- File browser
   {
@@ -27,8 +24,8 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons"
     },
-    config = function()
-      vim.keymap.set("n", "<leader>n", ":Neotree filesystem toggle left<CR>")
-    end
+    keys = {
+      { "<leader>n", "<cmd>Neotree filesystem toggle left<cr>", desc = "Toggle File Browser" }
+    }
   }
 }
