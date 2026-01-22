@@ -3,8 +3,8 @@ require("config.lazy")
 -- Indent
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
-vim.opt.softtabstop=2
-vim.opt.shiftwidth=2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Show numer lines
 vim.opt.expandtab = true
@@ -33,6 +33,8 @@ vim.keymap.set("n", "<C-S>", builtin.live_grep, {
 vim.keymap.set("n", "<leader>b", builtin.buffers, {
   desc = "Buffers"
  })
+
+vim.keymap.set("n", "<leader>n", ":Neotree filesystem toggle left<CR>")
 
 -- Folding
 vim.opt.foldmethod = "expr"
