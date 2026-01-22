@@ -6,7 +6,12 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+-- Show numer lines
 vim.cmd("set number")
+
+-- Show whitespaces
+vim.cmd("set listchars=space:·,tab:->\\ ")
+vim.cmd("set list")
 
 -- Theme
 vim.cmd.colorscheme "catppuccin"
