@@ -1,23 +1,26 @@
 require("config.lazy")
 
 -- Indent
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop=2
+vim.opt.shiftwidth=2
 
 -- Show numer lines
-vim.cmd("set number")
+vim.opt.expandtab = true
 
 -- Show whitespaces
-vim.cmd("set listchars=space:·,tab:->\\ ")
-vim.cmd("set list")
+vim.opt.list = true
+vim.opt.listchars = {
+  space = "·",
+  tab = "-> ",
+}
 
--- Copy yanked selection to clipboard
-vim.cmd("set clipboard=unnamedplus")
+-- Copy yanked selection to system clipboard
+vim.opt.clipboard = "unnamedplus"
 
 -- Theme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 
 -- Navigation
 local builtin = require("telescope.builtin")
