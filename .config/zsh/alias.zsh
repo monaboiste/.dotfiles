@@ -40,7 +40,7 @@ alias help::vim_tips='echo "$(cat <<-'EOF'
 x Last line edit: G
 x Multiline edit:
   - ctrl+v (visual mode)
-  - select, c to delete, type your word (only first line will be visible)
+  - select, i to type or c to delete, type your word (only first line will be visible)
   - double press esc
 x Jump:
   - by a paragraph: shift+[ or shift+]
@@ -94,22 +94,3 @@ time zsh -i -c exit
 EOF
 )"'
 
-theme::toggle() {
-  local config="$XDG_CONFIG_HOME"/alacritty/alacritty.toml
-  local light_theme="theme-light"
-  local dark_theme="theme-dark"
-
-  # TODO: tmux:
-  # source-file /home/go/.config/tmux/catppuccin-mocha.conf;
-  # tmux source-file ~.config/tmux/tmux.conf
-  # AND: yazi:
-
-  if grep -q "$dark_theme" "$config"; then
-    sed -i '' "s|$dark_theme|$light_theme|" "$config"
-  elif grep -q "$light_theme" "$config"; then
-    sed -i '' "s|$light_theme|$dark_theme|" "$config"
-  else
-    echo "No known theme found in $config"
-    return 1
-  fi
-}
