@@ -8,6 +8,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
+      transparent_background = true,
       color_overrides = {
         all = {
           base = bg_color_override,
@@ -25,7 +26,7 @@ return {
       require("catppuccin").setup(opts)
       vim.cmd.colorscheme("catppuccin-mocha")
     end
-  }, 
+  },
   -- Statusbar
   {
     "nvim-lualine/lualine.nvim",
@@ -38,7 +39,7 @@ return {
         component_separators = ""
        },
       winbar = {
-        lualine_a = { 
+        lualine_a = {
           "mode",
           -- Macros workaround, see: https://github.com/nvim-lualine/lualine.nvim/issues/1355
           {
@@ -61,8 +62,8 @@ return {
         lualine_c = { "filename" }
       }
     }
-  }, 
-  -- Syntax highlighting 
+  },
+  -- Syntax highlighting
   {
     {
       "nvim-treesitter/nvim-treesitter",
