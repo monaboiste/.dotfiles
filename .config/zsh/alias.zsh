@@ -46,6 +46,7 @@ x Jump:
   - by a paragraph: shift+[ or shift+]
   - to the next parenthesis: %
   - to char: f
+  - scroll by half page: ctrl+d and ctrl+u
 x Fold:
   - open/close: za
   - close all: zM
