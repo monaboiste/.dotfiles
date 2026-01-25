@@ -54,6 +54,8 @@ x Fold:
 x Navigation:
   - { and }
   - jump to matching pairs of (), [], {}
+x Actions:
+  - indent selection: =
 EOF
 )"'
 
