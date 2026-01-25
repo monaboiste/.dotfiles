@@ -13,7 +13,18 @@ return {
       { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       { "<leader><leader>", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
       { "<leader>rr", "<cmd>Telescope registers<cr>", desc = "View Macros" }
+    },
+    opts = {
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown
+        }
+      }
     }
+  },
+  -- Picker (e.g. code actions)
+  {
+    "nvim-telescope/telescope-ui-select.nvim"
   },
   -- File browser
   {
