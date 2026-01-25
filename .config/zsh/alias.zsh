@@ -40,7 +40,7 @@ alias help::vim_tips='echo "$(cat <<-'EOF'
 x Last line edit: G
 x Multiline edit:
   - ctrl+v (visual mode)
-  - select, i to type or c to delete, type your word (only first line will be visible)
+  - select, I to type or c to delete, type your word (only first line will be visible)
   - double press esc
 x Jump:
   - by a paragraph: shift+[ or shift+]
