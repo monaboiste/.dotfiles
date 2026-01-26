@@ -58,6 +58,7 @@ x Navigation:
   - jump to matching pairs of (), [], {}
 x Actions:
   - indent selection: =
+  - find and replace: v to select, :s/old_text/new_text/g
 EOF
 )"'
 
