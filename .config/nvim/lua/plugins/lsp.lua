@@ -15,33 +15,21 @@ return {
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function()
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
-            desc = "Code action",
-          })
-          vim.keymap.set({ "n", "x" }, "<leader>cc", vim.lsp.codelens.run, {
-            desc = "Run codelens",
-          })
-          vim.keymap.set("n", "<leader>cf", function()
-            vim.lsp.buf.format({ async = true })
-          end, {
-            desc = "Format",
-          })
-          vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, {
-            desc = "Show",
-          })
-          vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {
-            desc = "Goto declaration",
-          })
-          vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {
-            desc = "Goto definition",
-          })
-          vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {
-            desc = "Goto implementation",
-          })
-          vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {
-            desc = "References",
-          })
+        callback = function(args)
+          local function opts(desc)
+            return { desc = desc, buffer = args.buf }
+          end
+
+          vim.keymap.set("n", "<leader>cD", "<cmd>Telescope diagnostics bufnr=0<cr>", opts("Document Diagnostics"))
+          vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts("Line Diagnostics"))
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
+          vim.keymap.set({ "n", "x" }, "<leader>cc", vim.lsp.codelens.run, opts("Run codelens"))
+          vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts("Format"))
+          vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts("Show"))
+          vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts("Goto declaration"))
+          vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts("Goto definition"))
+          vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts("Goto implementation"))
+          vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts("References"))
         end,
       })
 
