@@ -21,13 +21,19 @@ vim.opt.listchars = {
   tab = "->",
 }
 
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99 -- Start with everything open
+
 -- Copy yanked selection to system clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- Persistent undo history
 vim.opt.undofile = true
 
--- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99 -- Start with everything open
+-- Panes navigation to better fit tmux convention
+vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
+vim.keymap.set("n", '<leader>w%', ":vsplit<cr>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>wx", ":quit<cr>", { desc = "Close" })
+
