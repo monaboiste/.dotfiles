@@ -2,7 +2,7 @@ return {
   -- File finder
   {
     "nvim-telescope/telescope.nvim",
-    version = "*",
+    version = "v0.*",
     dependencies = {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
@@ -17,10 +17,13 @@ return {
     opts = {
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown
+          require("telescope.themes").get_dropdown()
         }
       }
-    }
+    },
+    config = function()
+      require("telescope").load_extension("ui-select")
+    end
   },
   -- Picker (e.g. code actions)
   {
