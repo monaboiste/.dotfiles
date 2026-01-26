@@ -1,8 +1,7 @@
 [ ] ghostty search, to be released in 1.3.0 (see:
 https://github.com/ghostty-org/ghostty/milestone/7)
 [ ] better navigation (vim motions)
-[-] nvim: add formatter, e.g. https://github.com/stevearc/conform.nvim; handle
-opt+arrow
+[-] nvim: handle opt+arrow; multiple cursors
 [ ] explore ftp browsers e.g. https://github.com/boydaihungst/gvfs.yazi
 [ ] git status bar in tmux e.g. https://github.com/Djuuu/tmux-git-status
 [ ] clipboard maanger, e.g. greenclip
