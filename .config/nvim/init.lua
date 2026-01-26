@@ -24,6 +24,9 @@ vim.opt.listchars = {
 -- Copy yanked selection to system clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- Persistent undo history
+vim.opt.undofile = true
+
 -- Folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
