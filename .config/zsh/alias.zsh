@@ -8,6 +8,9 @@
 
 alias python3='python3.14'
 alias n='nvim'
+alias ta='tmux attach-session -t main'
+alias idea='open -n -g -a "IntelliJ IDEA.app" --args'
+
 alias ls='eza'
 alias ll='eza -lg --icons'
 alias la='eza -lag --icons'
@@ -19,7 +22,6 @@ alias lta='eza -agT --icons'
 alias lta1='eza -agT --icons --level=1'
 alias lta2='eza -agT --icons --level=2'
 alias lta3='eza -agT --icons --level=3'
-alias idea='open -n -g -a "IntelliJ IDEA.app" --args'
 
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
