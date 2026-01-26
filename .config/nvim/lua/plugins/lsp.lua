@@ -20,11 +20,9 @@ return {
             return { desc = desc, buffer = args.buf }
           end
 
-          vim.keymap.set("n", "<leader>cD", "<cmd>Telescope diagnostics bufnr=0<cr>", opts("Document Diagnostics"))
-          vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts("Line Diagnostics"))
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
-          vim.keymap.set({ "n", "x" }, "<leader>cc", vim.lsp.codelens.run, opts("Run codelens"))
           vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts("Format"))
+          vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename"))
           vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts("Show"))
           vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts("Goto declaration"))
           vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts("Goto definition"))
@@ -33,10 +31,10 @@ return {
         end,
       })
 
-      vim.diagnostic.config({
-        -- Inline diagnostics
-        virtual_text = true,
-      })
+     vim.diagnostic.config({
+       -- Inline diagnostics
+       virtual_text = true,
+     })
 
       local servers = { "lua_ls", "vtsls", "eslint" }
       for _, server in ipairs(servers) do
@@ -72,4 +70,12 @@ return {
     },
     opts_extend = { "sources.default" },
   },
+  -- Diagnostics
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    keys = {
+      { "<leader>cD", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics" },
+    }
+  }
 }
