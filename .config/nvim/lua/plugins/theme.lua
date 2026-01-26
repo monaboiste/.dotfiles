@@ -36,8 +36,10 @@ return {
       options = {
         theme = "catppuccin",
         section_separators = "",
-        component_separators = ""
-       },
+        component_separators = "",
+        globalstatus = true,
+        ignore_focus = { "nvim-tree" }
+      },
       winbar = {
         lualine_a = {
           "mode",
@@ -59,7 +61,12 @@ return {
         lualine_z = { "location" }
       },
       inactive_winbar = {
-        lualine_c = { "filename" }
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { "filename" },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
       }
     }
   },
@@ -75,4 +82,3 @@ return {
     }
   }
 }
-
