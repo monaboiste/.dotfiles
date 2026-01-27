@@ -93,6 +93,10 @@ x Actions:
   - Reveal/Open: O
   - Run command: ;, : (block)
   - Select (tmux): enter copy mode - <prefix>+[
+x Registers:
+  - Show registers: "
+  - Copy to register: +yy
+  - Paste from register "(1-7)p
 EOF
 )"'
 
