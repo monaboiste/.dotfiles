@@ -8,7 +8,7 @@
 
 alias python3='python3.14'
 alias n='nvim'
-alias ta='tmux attach-session -t main'
+alias ta='tmux new-session -A -D -s main'
 alias idea='open -n -g -a "IntelliJ IDEA.app" --args'
 
 alias ls='eza'

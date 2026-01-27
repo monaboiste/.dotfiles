@@ -1,9 +1,6 @@
 # General
 macos-icon = chalkboard
 
-# Tmux
-macos-option-as-alt = right
-
 # Keybinds
 keybind = super+alt+'=new_split:right
 keybind = super+alt+5=new_split:down

@@ -33,8 +33,10 @@ vim.opt.clipboard = "unnamedplus"
 -- Persistent undo history
 vim.opt.undofile = true
 
+vim.opt.swapfile = false
+
 -- Panes navigation to better fit tmux convention
 vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
 vim.keymap.set("n", '<leader>w%', ":vsplit<cr>", { desc = "Split vertically" })
-vim.keymap.set("n", "<leader>wx", ":quit<cr>", { desc = "Close" })
+vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
 
