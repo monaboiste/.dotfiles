@@ -59,6 +59,10 @@ x Navigation:
 x Actions:
   - indent selection: =
   - find and replace: v to select, :s/old_text/new_text/g
+  - with relativenumber:
+      d5j   delete next 5 lines
+      y3k   yank 3 lines up
+      >4j   indent next 4 lines
 EOF
 )"'
 

@@ -8,6 +8,7 @@ vim.opt.shiftwidth = 2
 
 -- Show numer lines
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Hide statusline (we're using winbar)
 vim.opt.laststatus = 0
