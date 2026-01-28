@@ -7,7 +7,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
-      ensure_installed = { "lua_ls", "vtsls", "eslint" },
+      ensure_installed = { "lua_ls", "vtsls", "eslint", "bashls" },
     },
   },
   {
@@ -31,12 +31,12 @@ return {
         end,
       })
 
-     vim.diagnostic.config({
-       -- Inline diagnostics
-       virtual_text = true,
-     })
+      vim.diagnostic.config({
+        -- Inline diagnostics
+        virtual_text = true,
+      })
 
-      local servers = { "lua_ls", "vtsls", "eslint" }
+      local servers = { "lua_ls", "vtsls", "eslint", "bashls" }
       for _, server in ipairs(servers) do
         local cfg = vim.lsp.config[server]
         vim.lsp.config(server, cfg)
