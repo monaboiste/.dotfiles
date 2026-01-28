@@ -30,10 +30,10 @@ vim.opt.foldlevel = 99 -- Start with everything open
 -- Copy yanked selection to system clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- Persistent undo history
-vim.opt.undofile = true
-
+-- QOL
+vim.opt.undofile = true -- persistent undo history
 vim.opt.swapfile = false
+vim.opt.wrap = false
 
 -- Panes navigation to better fit tmux convention
 vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
