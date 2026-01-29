@@ -8,3 +8,6 @@
 # Temp
 *.swp
 
+# AI
+AGENTS.md
+
