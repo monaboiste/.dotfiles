@@ -1,7 +1,5 @@
 [ ] ghostty search, to be released in 1.3.0 (see: https://github.com/ghostty-org/ghostty/milestone/7)
-[ ] better navigation (vim motions)
 [-] nvim:
-  [ ] handle opt+arrow
   [ ] multiple cursors
   [ ] open terminal 'here'
   [ ] scratch: remove file

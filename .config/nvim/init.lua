@@ -27,11 +27,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99 -- Start with everything open
 
--- Copy yanked selection to system clipboard
-vim.opt.clipboard = "unnamedplus"
-
 -- QOL
-vim.opt.undofile = true -- persistent undo history
+vim.opt.clipboard = "unnamedplus" -- copy yanked selection to system clipboard
+vim.opt.undofile = true           -- persistent undo history
 vim.opt.swapfile = false
 vim.opt.wrap = false
 
@@ -39,4 +37,8 @@ vim.opt.wrap = false
 vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
 vim.keymap.set("n", '<leader>w%', ":vsplit<cr>", { desc = "Split vertically" })
 vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
+
+-- Jump by n lines
+vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
+vim.keymap.set("n", "<C-[>", "5k", { desc = "Jump up by 5 lines" })
 
