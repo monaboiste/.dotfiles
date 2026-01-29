@@ -39,7 +39,6 @@ zinit::update() {
 }
 
 alias help::vim_tips='echo "$(cat <<-'EOF'
-x Last line edit: G
 x Multiline edit:
   - ctrl+v (visual mode)
   - select, I to type or c to delete, type your word (only first line will be visible)
@@ -57,6 +56,7 @@ x Navigation:
   - { and }
   - jump to matching pairs of (), [], {}
 x Actions:
+  - select entire line: V
   - indent selection: =
   - find and replace: v to select, :s/old_text/new_text/g
   - with relativenumber:
