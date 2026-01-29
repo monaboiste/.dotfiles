@@ -21,7 +21,6 @@ return {
           end
 
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
-          vim.keymap.set("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts("Format"))
           vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename"))
           vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts("Show"))
           vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts("Goto declaration"))
