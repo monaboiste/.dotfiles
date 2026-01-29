@@ -1,3 +1,4 @@
---verbose 
+--verbose
 --target=$HOME
+--ignore=vscode
 

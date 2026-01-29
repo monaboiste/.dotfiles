@@ -14,6 +14,12 @@ Symlink to parent directory:
 stow .
 ```
 
+Symlink Viual Studio Code settings:
+
+```sh
+stow --target "$HOME/Library/Application Support/Code/User" vscode
+```
+
 Include git settings in `~/.config/git/config`:
 
 ```ini
