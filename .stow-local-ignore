@@ -21,6 +21,10 @@
 
 .claude
 
+# JetBrains - ignored due to version-specific paths that break symlink automation
+
+/jetbrains
+
 # Other
 
 .editorconfig
