@@ -22,11 +22,7 @@ vim.opt.clipboard = "unnamedplus" -- copy yanked selection to system clipboard
 vim.opt.undofile = true           -- persistent undo history
 vim.opt.swapfile = false
 vim.opt.wrap = false
-
--- Panes navigation to better fit tmux convention
-vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
-vim.keymap.set("n", '<leader>w%', ":vsplit<cr>", { desc = "Split vertically" })
-vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear last search highlighting
 
 -- Jump by n lines
 vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
@@ -85,4 +81,16 @@ require("lualine").setup({
     lualine_c = { "filename" }
   }
 })
+
+-- Tmux
+-- Panes navigation to better fit tmux convention
+vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
+vim.keymap.set("n", '<leader>w%', ":vsplit<cr>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
+
+vim.pack.add({ "https://github.com/christoomey/vim-tmux-navigator" })
+vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<cr>",  { silent = true })
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<cr>",  { silent = true })
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<cr>",    { silent = true })
+vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<cr>", { silent = true })
 
