@@ -22,7 +22,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear last search highlig
 vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
 vim.keymap.set("n", "<C-[>", "5k", { desc = "Jump up by 5 lines" })
 
-
 require("styling")
 require("tmux")
+require("lsp")
 
