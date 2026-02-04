@@ -63,6 +63,11 @@ x Actions:
       d5j   delete next 5 lines
       y3k   yank 3 lines up
       >4j   indent next 4 lines
+  - black hole register: "_dd, "_yy
+x Registers:
+  - Show registers: "
+  - Copy to register: +yy
+  - Paste from register "(1-7)p
 EOF
 )"'
 
@@ -93,10 +98,6 @@ x Actions:
   - Reveal/Open: O
   - Run command: ;, : (block)
   - Select (tmux): enter copy mode - <prefix>+[
-x Registers:
-  - Show registers: "
-  - Copy to register: +yy
-  - Paste from register "(1-7)p
 EOF
 )"'
 
