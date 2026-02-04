@@ -5,8 +5,9 @@
 *.zsh.swp
 *.zsh_sessions/
 
-# Temp
+# Vim
 *.swp
+.nvimlog
 
 # AI
 AGENTS.md
