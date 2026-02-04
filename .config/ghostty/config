@@ -34,6 +34,7 @@ window-decoration = auto
 window-padding-x = 4
 window-padding-y = 4
 
+shell-integration-features = no-cursor
 cursor-style = underline
 cursor-style-blink = false
 adjust-cursor-thickness = 5
