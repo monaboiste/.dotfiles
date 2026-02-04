@@ -63,6 +63,7 @@ x Actions:
       d5j   delete next 5 lines
       y3k   yank 3 lines up
       >4j   indent next 4 lines
+  - select last highlighted text: gv
   - black hole register: "_dd, "_yy
 x Registers:
   - Show registers: "
