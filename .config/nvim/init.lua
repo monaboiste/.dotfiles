@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 
 -- QOL
 vim.opt.clipboard = "unnamedplus" -- copy yanked selection to system clipboard
-vim.opt.undofile = true           -- persistent undo history
+vim.opt.undofile = true -- persistent undo history
 vim.opt.swapfile = false
 vim.opt.wrap = false
 
@@ -22,7 +22,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear last search highlig
 vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
 vim.keymap.set("n", "<C-[>", "5k", { desc = "Jump up by 5 lines" })
 
-require("styling")
+require("ui.styling")
+require("ui.interface")
 require("tmux")
 require("lsp")
-

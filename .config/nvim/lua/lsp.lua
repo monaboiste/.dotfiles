@@ -85,6 +85,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
     vim.keymap.set(
       "n",
+      "fr",
+      require("fzf-lua").lsp_references,
+      { buffer = args.buf, desc = "Find References" }
+    )
+    vim.keymap.set(
+      "n",
       "<leader>K",
       vim.lsp.buf.hover,
       { desc = "Show", buffer = args.buf }
@@ -106,12 +112,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<leader>gi",
       vim.lsp.buf.implementation,
       { desc = "Goto implementation", buffer = args.buf }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>gr",
-      vim.lsp.buf.references,
-      { desc = "References", buffer = args.buf }
     )
   end,
 })
