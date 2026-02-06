@@ -28,7 +28,10 @@ pick.setup({
 })
 
 vim.keymap.set("n", "<leader><leader>", function()
-  pick.builtin.files()
+  -- Override picking command with ripgrep and include hidden files
+  pick.builtin.cli({
+    command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+  })
 end, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fb", function()
   pick.builtin.buffers()
@@ -60,15 +63,14 @@ vim.keymap.set(
 local miniclue = require("mini.clue")
 miniclue.setup({
   triggers = {
-    { mode = "n", keys = "<leader>" },
-    { mode = "x", keys = "<leader>" },
+    { mode = { "n", "x" }, keys = "<leader>" },
     { mode = "n", keys = "[" },
     { mode = "n", keys = "]" },
     { mode = "n", keys = "g" },
     { mode = "n", keys = "z" },
     { mode = "n", keys = "'" },
     { mode = "n", keys = "`" },
-    { mode = "n", keys = '"' },
+    { mode = { "n", "x" }, keys = '"' },
     { mode = "i", keys = "<C-x>" },
     { mode = "n", keys = "<C-w>" },
   },
