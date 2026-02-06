@@ -79,16 +79,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
     vim.keymap.set(
       "n",
-      "<leader>cr",
+      "<leader>cR",
       vim.lsp.buf.rename,
       { desc = "Rename", buffer = args.buf }
     )
-    vim.keymap.set(
-      "n",
-      "fr",
-      require("fzf-lua").lsp_references,
-      { buffer = args.buf, desc = "Find References" }
-    )
+    vim.keymap.set("n", "<leader>cs", function()
+      ---@diagnostic disable-next-line: undefined-global
+      MiniExtra.pickers.lsp({ scope = "document_symbol" })
+    end, { desc = "Symbols" })
+    vim.keymap.set("n", "<leader>cl", function()
+      ---@diagnostic disable-next-line: undefined-global
+      MiniExtra.pickers.lsp({ scope = "definition" })
+    end, { desc = "Definition" })
+    vim.keymap.set("n", "<leader>cr", function()
+      ---@diagnostic disable-next-line: undefined-global
+      MiniExtra.pickers.lsp({ scope = "references" })
+    end, { buffer = args.buf, desc = "References" })
     vim.keymap.set(
       "n",
       "<leader>K",
@@ -125,51 +131,6 @@ end
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = true })
 vim.cmd([[ set completeopt+=menuone,noselect,popup ]])
-
-require("trouble").setup({
-  auto_close = true,
-  restore_window = false,
-})
-vim.keymap.set(
-  "n",
-  "<leader>xx",
-  "<cmd>Trouble diagnostics toggle<cr>",
-  { desc = "Diagnostics" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>xX",
-  "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-  { desc = "Buffer Diagnostics" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>cs",
-  "<cmd>Trouble symbols toggle focus=false<cr>",
-  { desc = "Symbols" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>cl",
-  "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-  { desc = "LSP Definitions/refs" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>xL",
-  "<cmd>Trouble loclist toggle<cr>",
-  { desc = "Location List" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>xQ",
-  "<cmd>Trouble qflist toggle<cr>",
-  { desc = "Quickfix List" }
-)
-
-local config = require("fzf-lua.config")
-local actions = require("trouble.sources.fzf").actions
-config.defaults.actions.files["ctrl-t"] = actions.open -- in fzf-lua hit <c-t> to open trouble
 
 -- Completions
 require("blink.cmp").setup({
