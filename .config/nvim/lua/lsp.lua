@@ -5,8 +5,16 @@ local registry = {
     formatters = { "stylua" },
   },
   sh = {
-    filetypes = { "sh", "zsh" },
-    servers = { "bashls" },
+    filetypes = { "sh", "bash", "zsh" },
+    servers = {
+      bashls = {
+        settings = {
+          bashIde = {
+            shellcheckArguments = "--shell=bash",
+          },
+        },
+      },
+    },
     tools = { "shellcheck", "shfmt" },
     formatters = { "shfmt" },
   },
@@ -25,14 +33,20 @@ local custom_formatter_configs = {}
 
 for ft, cfg in pairs(registry) do
   if cfg.servers then
-    for _, server in ipairs(cfg.servers) do
-      table.insert(servers_to_install, server)
-      local lsp_cfg = vim.lsp.config[server] or {}
+    for key, val in pairs(cfg.servers) do
+      local name = type(key) == "string" and key or val
+      table.insert(servers_to_install, name)
+
+      local lsp_cfg = vim.lsp.config[name] or {}
       if cfg.filetypes then
         lsp_cfg.filetypes = cfg.filetypes
       end
-      vim.lsp.config(server, lsp_cfg)
-      vim.lsp.enable(server)
+      if type(val) == "table" and val.settings then
+        lsp_cfg.settings = val.settings
+      end
+
+      vim.lsp.config(name, lsp_cfg)
+      vim.lsp.enable(name)
     end
   end
 
@@ -44,11 +58,11 @@ for ft, cfg in pairs(registry) do
 
   if cfg.formatters then
     formatters_by_ft[ft] = {}
-    for key, val in pairs(cfg.formatters) do
-      local name = type(key) == "string" and key or val
-      table.insert(formatters_by_ft[ft], name)
-      if type(key) == "string" then
-        custom_formatter_configs[key] = val
+    for k, v in pairs(cfg.formatters) do
+      local n = type(k) == "string" and k or v
+      table.insert(formatters_by_ft[ft], n)
+      if type(k) == "string" then
+        custom_formatter_configs[k] = v
       end
     end
   end
