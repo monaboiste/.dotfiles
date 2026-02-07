@@ -39,9 +39,12 @@ end, { desc = "Find Buffers" })
 vim.keymap.set("n", "<leader>fg", function()
   pick.builtin.grep_live()
 end, { desc = "Live Grep" })
-vim.keymap.set("n", "<leader>fc", function()
-  pick.builtin.cli({ command = { "history", ":" } })
-end, { desc = "Find Command" })
+vim.keymap.set(
+  "n",
+  "<leader>fc",
+  "<cmd> lua MiniExtra.pickers.history({ scope = ':'})<cr>",
+  { desc = "Find Command" }
+)
 
 vim.keymap.set(
   "n",
