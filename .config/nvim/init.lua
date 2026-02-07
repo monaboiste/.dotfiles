@@ -11,7 +11,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- QOL
-vim.opt.clipboard = "unnamedplus" -- copy yanked selection to system clipboard
 vim.opt.undofile = true -- persistent undo history
 vim.opt.swapfile = false
 vim.opt.wrap = false
