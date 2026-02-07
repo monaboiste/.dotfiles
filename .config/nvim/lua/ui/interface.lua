@@ -102,7 +102,10 @@ miniclue.setup({
   },
 
   window = {
-    config = { border = "rounded", width = "auto" },
+    config = {
+      border = "rounded",
+      width = math.floor(0.3 * vim.o.columns),
+    },
     delay = 0,
   },
 })
