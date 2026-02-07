@@ -5,11 +5,7 @@ local registry = {
     formatters = { "stylua" },
   },
   sh = {
-    servers = { "bashls" },
-    tools = { "shellcheck", "shfmt" },
-    formatters = { "shfmt" },
-  },
-  zsh = {
+    filetypes = { "sh", "zsh" },
     servers = { "bashls" },
     tools = { "shellcheck", "shfmt" },
     formatters = { "shfmt" },
@@ -17,40 +13,42 @@ local registry = {
   sql = {
     tools = { "sqlfluff" },
     formatters = {
-      sqlfluff = {
-        args = { "format", "--dialect", "oracle", "-" },
-      },
+      sqlfluff = { args = { "format", "--dialect", "oracle", "-" } },
     },
   },
 }
 
-local servers = {}
-local tools = {}
+local servers_to_install = {}
+local tools_to_install = {}
 local formatters_by_ft = {}
 local custom_formatter_configs = {}
 
 for ft, cfg in pairs(registry) do
   if cfg.servers then
-    for _, s in ipairs(cfg.servers) do
-      table.insert(servers, s)
+    for _, server in ipairs(cfg.servers) do
+      table.insert(servers_to_install, server)
+      local lsp_cfg = vim.lsp.config[server] or {}
+      if cfg.filetypes then
+        lsp_cfg.filetypes = cfg.filetypes
+      end
+      vim.lsp.config(server, lsp_cfg)
+      vim.lsp.enable(server)
     end
   end
 
   if cfg.tools then
-    for _, t in ipairs(cfg.tools) do
-      table.insert(tools, t)
+    for _, tool in ipairs(cfg.tools) do
+      table.insert(tools_to_install, tool)
     end
   end
 
   if cfg.formatters then
     formatters_by_ft[ft] = {}
-
-    for key, value in pairs(cfg.formatters) do
-      if type(key) == "number" then
-        table.insert(formatters_by_ft[ft], value)
-      else
-        table.insert(formatters_by_ft[ft], key)
-        custom_formatter_configs[key] = value
+    for key, val in pairs(cfg.formatters) do
+      local name = type(key) == "string" and key or val
+      table.insert(formatters_by_ft[ft], name)
+      if type(key) == "string" then
+        custom_formatter_configs[key] = val
       end
     end
   end
@@ -66,8 +64,8 @@ vim.pack.add({
 })
 
 require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = servers })
-require("mason-tool-installer").setup({ ensure_installed = tools })
+require("mason-lspconfig").setup({ ensure_installed = servers_to_install })
+require("mason-tool-installer").setup({ ensure_installed = tools_to_install })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -127,12 +125,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
   end,
 })
-
-for _, server in ipairs(servers) do
-  local cfg = vim.lsp.config[server]
-  vim.lsp.config(server, cfg)
-  vim.lsp.enable(server)
-end
 
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = true })
