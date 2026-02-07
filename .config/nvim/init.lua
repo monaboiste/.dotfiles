@@ -16,6 +16,7 @@ vim.opt.swapfile = false
 vim.opt.wrap = false
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear last search highlighting
+vim.keymap.set("v", "<C-c>", '"+y') -- copy to system clipboard
 
 -- Jump by n lines
 vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
@@ -25,3 +26,4 @@ require("ui.styling")
 require("ui.interface")
 require("tmux")
 require("lsp")
+require("multicursor")
