@@ -83,18 +83,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.rename,
       { desc = "Rename", buffer = args.buf }
     )
-    vim.keymap.set("n", "<leader>cs", function()
-      ---@diagnostic disable-next-line: undefined-global
-      MiniExtra.pickers.lsp({ scope = "document_symbol" })
-    end, { desc = "Symbols" })
-    vim.keymap.set("n", "<leader>cl", function()
-      ---@diagnostic disable-next-line: undefined-global
-      MiniExtra.pickers.lsp({ scope = "definition" })
-    end, { desc = "Definition" })
-    vim.keymap.set("n", "<leader>cr", function()
-      ---@diagnostic disable-next-line: undefined-global
-      MiniExtra.pickers.lsp({ scope = "references" })
-    end, { buffer = args.buf, desc = "References" })
+    vim.keymap.set(
+      "n",
+      "<leader>cs",
+      "<cmd> lua MiniExtra.pickers.lsp({ scope = 'document_symbol' })<cr>",
+      { desc = "Symbols" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>cl",
+      "<cmd> lua MiniExtra.pickers.lsp({ scope = 'definition' })<cr>",
+      { desc = "Definition" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>cr",
+      "<cmd> lua MiniExtra.pickers.lsp({ scope = 'references' })<cr>",
+      { buffer = args.buf, desc = "References" }
+    )
     vim.keymap.set(
       "n",
       "<leader>K",
