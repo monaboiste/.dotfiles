@@ -43,6 +43,13 @@ vim.keymap.set("n", "<leader>fc", function()
   pick.builtin.cli({ command = { "history", ":" } })
 end, { desc = "Find Command" })
 
+vim.keymap.set(
+  "n",
+  "<leader>fr",
+  "<cmd> lua MiniExtra.pickers.registers()<cr>",
+  { desc = "Registers" }
+)
+
 -- Trouble
 require("mini.extra").setup()
 
@@ -86,7 +93,7 @@ miniclue.setup({
     miniclue.gen_clues.builtin_completion(),
     miniclue.gen_clues.g(),
     miniclue.gen_clues.marks(),
-    miniclue.gen_clues.registers(),
+    miniclue.gen_clues.registers({ show_contents = true }),
     miniclue.gen_clues.windows(),
     miniclue.gen_clues.z(),
   },
