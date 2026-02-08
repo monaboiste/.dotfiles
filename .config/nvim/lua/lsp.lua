@@ -1,73 +1,3 @@
-local registry = {
-  lua = {
-    servers = { "lua_ls" },
-    tools = { "stylua" },
-    formatters = { "stylua" },
-  },
-  sh = {
-    filetypes = { "sh", "bash", "zsh" },
-    servers = {
-      bashls = {
-        settings = {
-          bashIde = {
-            shellcheckArguments = "--shell=bash",
-          },
-        },
-      },
-    },
-    tools = { "shellcheck", "shfmt" },
-    formatters = { "shfmt" },
-  },
-  sql = {
-    tools = { "sqlfluff" },
-    formatters = {
-      sqlfluff = { args = { "format", "--dialect", "oracle", "-" } },
-    },
-  },
-}
-
-local servers_to_install = {}
-local tools_to_install = {}
-local formatters_by_ft = {}
-local custom_formatter_configs = {}
-
-for ft, cfg in pairs(registry) do
-  if cfg.servers then
-    for key, val in pairs(cfg.servers) do
-      local name = type(key) == "string" and key or val
-      table.insert(servers_to_install, name)
-
-      local lsp_cfg = vim.lsp.config[name] or {}
-      if cfg.filetypes then
-        lsp_cfg.filetypes = cfg.filetypes
-      end
-      if type(val) == "table" and val.settings then
-        lsp_cfg.settings = val.settings
-      end
-
-      vim.lsp.config(name, lsp_cfg)
-      vim.lsp.enable(name)
-    end
-  end
-
-  if cfg.tools then
-    for _, tool in ipairs(cfg.tools) do
-      table.insert(tools_to_install, tool)
-    end
-  end
-
-  if cfg.formatters then
-    formatters_by_ft[ft] = {}
-    for k, v in pairs(cfg.formatters) do
-      local n = type(k) == "string" and k or v
-      table.insert(formatters_by_ft[ft], n)
-      if type(k) == "string" then
-        custom_formatter_configs[k] = v
-      end
-    end
-  end
-end
-
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/mason-org/mason.nvim",
@@ -78,10 +8,36 @@ vim.pack.add({
 })
 
 require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = servers_to_install })
-require("mason-tool-installer").setup({ ensure_installed = tools_to_install })
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "lua_ls",
+    "bashls",
+  },
+})
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "stylua",
+    "shellcheck",
+    "shfmt",
+    "sqlfluff",
+  },
+})
+
+vim.lsp.config("bashls", {
+  filetypes = { "sh", "bash", "zsh" },
+  settings = {
+    bashIde = {
+      shellcheckArguments = { "--shell=bash" },
+    },
+  },
+})
+vim.lsp.enable({
+  "lua_ls",
+  "bashls",
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp.userlsp", { clear = true }),
   callback = function(args)
     vim.keymap.set(
       "n",
@@ -99,19 +55,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "n",
       "<leader>cs",
       "<cmd> lua MiniExtra.pickers.lsp({ scope = 'document_symbol' })<cr>",
-      { desc = "Symbols" }
+      { desc = "Symbols", buffer = args.buf }
     )
     vim.keymap.set(
       "n",
       "<leader>cl",
       "<cmd> lua MiniExtra.pickers.lsp({ scope = 'definition' })<cr>",
-      { desc = "Definition" }
+      { desc = "Definition", buffer = args.buf }
     )
     vim.keymap.set(
       "n",
       "<leader>cr",
       "<cmd> lua MiniExtra.pickers.lsp({ scope = 'references' })<cr>",
-      { buffer = args.buf, desc = "References" }
+      { desc = "References", buffer = args.buf }
     )
     vim.keymap.set(
       "n",
@@ -141,7 +97,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Diagnostics
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+  virtual_text = { spacing = 2 },
+  severity_sort = true,
+})
 vim.cmd([[ set completeopt+=menuone,noselect,popup ]])
 
 -- Completions
@@ -149,7 +108,7 @@ require("blink.cmp").setup({
   keymap = {
     preset = "default",
     ["<tab>"] = { "accept", "fallback" },
-    ["<C><leader>"] = { "show" },
+    ["<C><Space>"] = { "show" },
   },
 
   appearance = {
@@ -171,8 +130,18 @@ conform.setup({
   default_format_opts = {
     lsp_format = "fallback",
   },
-  formatters_by_ft = formatters_by_ft,
-  formatters = custom_formatter_configs,
+  formatters_by_ft = {
+    lua = { "stylua" },
+    sh = { "shfmt" },
+    bash = { "shfmt" },
+    zsh = { "shfmt" },
+    sql = { "sqlfluff" },
+  },
+  formatters = {
+    sqlfluff = {
+      args = { "format", "--dialect", "oracle", "-" },
+    },
+  },
   format_on_save = {
     timeout_ms = 1000,
     lsp_fallback = true,
