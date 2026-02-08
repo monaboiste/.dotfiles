@@ -6,6 +6,7 @@ brew "eza"
 brew "fd"
 brew "fnm"
 brew "fzf"
+brew "lazygit"
 brew "git"
 brew "jq"
 brew "neovim", args: ["HEAD"]
