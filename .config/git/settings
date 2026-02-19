@@ -4,6 +4,7 @@
   a = add .
   c = commit
   ca = commit --amend
+  fo = "!sh -c 'url=$(git remote get-url origin); if [[ $url == git@github.com:* ]]; then url=\"https://github.com/${url#git@github.com:}\"; fi; if [[ $url == https://github.com/* || $url == https://www.github.com/* ]]; then open \"$url\"; else echo \"Not a GitHub repository\"; fi'"
 [tag]
   sort = -v:refname
 [diff]
