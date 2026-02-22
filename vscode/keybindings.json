@@ -30,21 +30,6 @@
     "when": "editorFocus"
   },
   {
-    "key": "shift+cmd+l",
-    "command": "-editor.action.selectHighlights",
-    "when": "editorFocus"
-  },
-  {
-    "key": "ctrl+cmd+up",
-    "command": "-notebook.cell.focusOutOutput",
-    "when": "notebookEditorFocused && notebookOutputFocused"
-  },
-  {
-    "key": "shift+alt+cmd",
-    "command": "editor.action.inlineSuggest.commit",
-    "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-  },
-  {
     "key": "tab",
     "command": "editor.action.inlineSuggest.commit",
     "when": "editorTextFocus && inlineSuggestionVisible && !editorTabMovesFocus"
@@ -87,11 +72,6 @@
   {
     "key": "shift+alt+up",
     "command": "cursorColumnSelectUp",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+cmd+up",
-    "command": "-cursorColumnSelectUp",
     "when": "textInputFocus"
   },
   {
@@ -172,26 +152,6 @@
   {
     "key": "shift+pagedown",
     "command": "-cursorColumnSelectPageDown",
-    "when": "editorColumnSelection && textInputFocus"
-  },
-  {
-    "key": "shift+alt+cmd+up",
-    "command": "cursorColumnSelectPageUp",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+cmd+pageup",
-    "command": "-cursorColumnSelectPageUp",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+cmd+up",
-    "command": "cursorColumnSelectPageUp",
-    "when": "editorColumnSelection && textInputFocus"
-  },
-  {
-    "key": "shift+pageup",
-    "command": "-cursorColumnSelectPageUp",
     "when": "editorColumnSelection && textInputFocus"
   },
   {

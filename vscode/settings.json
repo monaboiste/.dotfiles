@@ -1,7 +1,6 @@
 {
   // appearance
   "breadcrumbs.enabled": true,
-  "workbench.colorTheme": "Default Light Modern",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#22385111",
   },
@@ -17,53 +16,40 @@
   "editor.renderWhitespace": "all",
   "editor.insertSpaces": true,
   "editor.tabCompletion": "on",
+  "editor.inlayHints.enabled": "on",
+  // lsp
+  "editor.codeActionWidget.includeNearbyQuickFixes": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnPaste.enabled": true,
+  "javascript.suggestionActions.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnPaste.enabled": true,
+  "typescript.suggestionActions.enabled": true,
   // formatters
   "editor.defaultFormatter": "biomejs.biome",
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {},
   // features
   "telemetry.feedback.enabled": false,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
-    "scminput": false,
+    "scminput": false
   },
-  // claude
-  "claudeCode.environmentVariables": [
-    {
-      "name": "AWS_PROFILE",
-      "value": "ai",
-    },
-    {
-      "name": "AWS_REGION",
-      "value": "us-east-1",
-    },
-    {
-      "name": "CLAUDE_CODE_USE_BEDROCK",
-      "value": "1",
-    },
-    {
-      "name": "CLAUDE_CODE_SKIP_AUTH_LOGIN",
-      "value": "1",
-    },
-    {
-      "name": "ANTHROPIC_MODEL",
-      "value": "arn:aws:bedrock:us-east-1:128347688884:inference-profile/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-    },
-    {
-      "name": "ANTHROPIC_SMALL_FAST_MODEL",
-      "value": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-haiku-4-5-20251001-v1:0",
-    },
-  ],
-  "claudeCode.preferredLocation": "panel",
-  "claudeCode.selectedModel": "us.anthropic.claude-opus-4-5-20251101-v1:0",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "explorer.confirmDragAndDrop": false,
   // suggestions
-  "biome.suggestInstallingGlobally": false
+  "biome.suggestInstallingGlobally": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://biomejs.dev": true
+  }
 }
