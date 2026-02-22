@@ -1,9 +1,8 @@
 #!/usr/bin/zsh
 
 # NOTE: use `type <alias>` to see what is assigned to an alias/fn/builtin/keyword
-#       the use of `type` doesn't always work in Zsh so use `whence -c` instead
-#       alternatively use the `list` alias to show all defined alias' from this file
-#       the `alias` function itself with no arguments will actually print all too
+#       the use of `type` doesn't always work in ZSH so use `whence -c` instead.
+#       Alternatively, use `alias <name>` function with no arguments.
 #
 
 alias python3='python3.14'
@@ -26,7 +25,7 @@ alias lta3='eza -agT --icons --level=3'
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd < "$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
@@ -38,7 +37,8 @@ zinit::update() {
   echo "✅ All Zinit plugins updated!"
 }
 
-alias help::vim_tips='echo "$(cat <<-'EOF'
+help::vim_tips() {
+cat <<'EOF'
 x Multiline edit:
   - ctrl+v (visual mode)
   - select, I to type or c to delete, type your word (only first line will be visible)
@@ -70,9 +70,10 @@ x Registers:
   - Copy to register: +yy
   - Paste from register "(1-7)p
 EOF
-)"'
+}
 
-alias help::yazi_tips='echo "$(cat <<-'EOF'
+help::yazi_tips() {
+cat <<'EOF'
 x Search:
   - Search in current directory: /
   - Fuzzy find: Z
@@ -100,20 +101,47 @@ x Actions:
   - Run command: ;, : (block)
   - Select (tmux): enter copy mode - <prefix>+[
 EOF
-)"'
+}
 
-alias help::keychain='echo "$(cat <<-'\''EOF'\''
+help::keychain() {
+cat <<'EOF'
 x Add secret: security add-generic-password -a $USER -s "MY_SECRET" -w "supersecret"
 x Retrieve secret: export SECRET_KEY=$(security find-generic-password -s "MY_SECRET" -w)
 EOF
-)"'
+}
 
-alias help::zsh_perf='echo "$(cat <<-'\''EOF'\''
+help::zsh_perf() {
+cat <<'EOF'
 zmodload zsh/zprof
 #... .zshrc
 zprof
 
 time zsh -i -c exit
 EOF
-)"'
+}
 
+help::misc() {
+cat <<'EOF'
+x Connect to docker host: host,port, protocol must be specified
+  mysql --user=root --password=mysql --port=3306 --host=localhost --protocol=tcp -e "show databases;"
+x Replace recursively in files (git)
+  git grep -lz "lombok.extern.log4j.Log4j2" | xargs -0 sed -i "" -e "s/lombok.extern.log4j.Log4j2/lombok.extern.slf4j.Slf4j/g"
+x Find largest files
+  find carriers/ -name "*.json" -exec ls -lh {} \; -maxdepth 5 | sort -n | head -n 10
+x Compare two files
+  comm -2 -3 file1 file2
+x DNS
+  - view cached records: dscacheutil -q host -a name google.com
+  - flush: sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+x Analyes details of the request, including times
+  httpstat https://example.com/api/v1/resource
+x SSH
+  - local port forwading: ssh -N -L localport:destination.com:destport username@bastion
+  - dynamic port forwarding / ssh as SOCKS5 proxy: ssh -D localport -N username@bastion
+  - jump server: ssh -J username@bastion destination.com -l destuser
+x AWS S3
+  - list and filter: aws s3api list-objects-v2 --bucket bucketname --prefix "dir1/dir2" --query --query "Contents[?LastModified >=$(2023-09-19)]"
+x List running cron jobs
+  pstree -apl $(pidof cron)
+EOF
+}
