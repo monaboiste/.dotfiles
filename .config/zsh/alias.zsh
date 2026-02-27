@@ -5,7 +5,6 @@
 #       Alternatively, use `alias <name>` function with no arguments.
 #
 
-alias python3='python3.14'
 alias n='nvim'
 alias ta='tmux new-session -A -D -s main'
 alias idea='open -n -g -a "IntelliJ IDEA.app" --args'
@@ -38,7 +37,7 @@ zinit::update() {
 }
 
 help::vim_tips() {
-cat <<'EOF'
+  cat <<'EOF'
 x Multiline edit:
   - ctrl+v (visual mode)
   - select, I to type or c to delete, type your word (only first line will be visible)
@@ -73,7 +72,7 @@ EOF
 }
 
 help::yazi_tips() {
-cat <<'EOF'
+  cat <<'EOF'
 x Search:
   - Search in current directory: /
   - Fuzzy find: Z
@@ -104,14 +103,14 @@ EOF
 }
 
 help::keychain() {
-cat <<'EOF'
+  cat <<'EOF'
 x Add secret: security add-generic-password -a $USER -s "MY_SECRET" -w "supersecret"
 x Retrieve secret: export SECRET_KEY=$(security find-generic-password -s "MY_SECRET" -w)
 EOF
 }
 
 help::zsh_perf() {
-cat <<'EOF'
+  cat <<'EOF'
 zmodload zsh/zprof
 #... .zshrc
 zprof
@@ -121,7 +120,7 @@ EOF
 }
 
 help::misc() {
-cat <<'EOF'
+  cat <<'EOF'
 x Connect to docker host: host,port, protocol must be specified
   mysql --user=root --password=mysql --port=3306 --host=localhost --protocol=tcp -e "show databases;"
 x Replace recursively in files (git)
