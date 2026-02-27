@@ -37,7 +37,7 @@ Host github.com
   IdentitiesOnly yes
   IdentityFile ~/.ssh/id_rsa
 
-Host github.com:<USERNAME>
+Host github-<USERNAME>
   Host github.com
   AddKeysToAgent yes
   IdentitiesOnly yes
