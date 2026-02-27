@@ -1,7 +1,6 @@
 brew "awscli"
 brew "charmbracelet/tap/mods"
 brew "curl"
-brew "exa"
 brew "eza"
 brew "fd"
 brew "fnm"
