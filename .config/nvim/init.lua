@@ -15,13 +15,12 @@ vim.opt.undofile = true -- persistent undo history
 vim.opt.swapfile = false
 vim.opt.wrap = false
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>") -- clear last search highlighting
+-- Clear last search highlighting
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
 -- Copy to system clipboard
-vim.keymap.set("v", "<D-c>", '"+y') -- when no tmux session
-vim.keymap.set("n", "<D-c>", 'V"+y') --
-vim.keymap.set("v", "<Esc>c", '"+y') -- when in tmux
-vim.keymap.set("n", "<Esc>c", 'V"+y') --
+vim.keymap.set("v", "<C-c>", '"+y')
+vim.keymap.set("n", "<C-c>", 'V"+y')
 
 -- Jump by n lines
 vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
