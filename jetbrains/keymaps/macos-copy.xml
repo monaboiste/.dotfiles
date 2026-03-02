@@ -1,4 +1,5 @@
 <keymap version="1" name="macOS copy" parent="Mac OS X 10.5+">
+  <action id="ActivateDebugToolWindow" />
   <action id="Adtui.ZoomInAction">
     <keyboard-shortcut first-keystroke="meta add" />
   </action>
@@ -58,12 +59,14 @@
     <keyboard-shortcut first-keystroke="shift meta alt open_bracket" />
     <keyboard-shortcut first-keystroke="shift meta up" />
   </action>
+  <action id="EditorCutLineEnd" />
   <action id="EditorDecreaseFontSize">
     <keyboard-shortcut first-keystroke="meta minus" />
   </action>
   <action id="EditorIncreaseFontSize">
     <keyboard-shortcut first-keystroke="meta equals" />
   </action>
+  <action id="EditorScrollToCenter" />
   <action id="EditorSelectWord" />
   <action id="EditorToggleShowWhitespaces">
     <keyboard-shortcut first-keystroke="meta k" second-keystroke="meta w" />
@@ -95,9 +98,11 @@
     <keyboard-shortcut first-keystroke="shift f6" />
   </action>
   <action id="GotoNextError" />
+  <action id="GotoUrlAction" />
   <action id="GuiDesigner.EditComponent" />
   <action id="GuiDesigner.EditGroup" />
   <action id="GuiDesigner.ShrinkSelection" />
+  <action id="Images.Editor.ToggleGrid" />
   <action id="Images.Editor.ZoomIn">
     <keyboard-shortcut first-keystroke="meta add" />
   </action>
@@ -126,8 +131,18 @@
   </action>
   <action id="MoveStatementDown" />
   <action id="MoveStatementUp" />
+  <action id="NextSplitter">
+    <keyboard-shortcut first-keystroke="ctrl l" />
+  </action>
   <action id="OpenInlineChatAction">
     <keyboard-shortcut first-keystroke="shift ctrl g" />
+  </action>
+  <action id="PrevSplitter">
+    <keyboard-shortcut first-keystroke="ctrl h" />
+  </action>
+  <action id="QuickJavaDoc">
+    <keyboard-shortcut first-keystroke="f1" />
+    <mouse-shortcut keystroke="control button2" />
   </action>
   <action id="ReformatCode">
     <keyboard-shortcut first-keystroke="meta alt l" />
@@ -156,13 +171,26 @@
   <action id="ShowSearchHistory" />
   <action id="SmartSelect" />
   <action id="SmartUnSelect" />
-  <action id="SplitVertically">
-    <keyboard-shortcut first-keystroke="meta back_slash" />
+  <action id="SplitChooser.SplitDown" />
+  <action id="SplitChooser.SplitLeft" />
+  <action id="SplitChooser.SplitRight" />
+  <action id="SplitChooser.SplitTop" />
+  <action id="SplitHorizontally">
+    <keyboard-shortcut first-keystroke="meta quote" />
   </action>
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="meta 5" />
+  </action>
+  <action id="TW.SplitDown" />
+  <action id="TW.SplitRight" />
   <action id="TableResult.GrowSelection" />
   <action id="TableResult.ShrinkSelection" />
   <action id="Terminal.ClearBuffer">
     <keyboard-shortcut first-keystroke="meta l" />
+  </action>
+  <action id="Terminal.ShowDocumentation">
+    <keyboard-shortcut first-keystroke="f1" />
+    <mouse-shortcut keystroke="control button2" />
   </action>
   <action id="ToggleInlayHintsGloballyAction">
     <keyboard-shortcut first-keystroke="alt x" />
@@ -173,7 +201,13 @@
   <action id="Tool_External Tools_Warp">
     <keyboard-shortcut first-keystroke="shift meta c" />
   </action>
+  <action id="TypeHierarchy" />
+  <action id="TypeHierarchyBase.BaseOnThisType" />
   <action id="UsageView.ShowRecentFindUsages" />
+  <action id="Vcs.Log.ShowTooltip">
+    <keyboard-shortcut first-keystroke="f1" />
+    <mouse-shortcut keystroke="control button2" />
+  </action>
   <action id="WelcomeScreen.CopyProjectPath" />
   <action id="XDebugger.MoveWatchDown">
     <keyboard-shortcut first-keystroke="alt down" />
