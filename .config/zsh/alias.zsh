@@ -6,7 +6,7 @@
 #
 
 alias n='nvim'
-alias ta='tmux new-session -A -D -s main'
+alias ta='tmux new-session -A -s main'
 alias idea='open -n -g -a "IntelliJ IDEA.app" --args'
 
 alias ls='eza'
