@@ -140,6 +140,7 @@ conform.setup({
   formatters = {
     sqlfluff = {
       args = { "format", "--dialect", "oracle", "-" },
+      require_cwd = false,
     },
   },
   format_on_save = {
