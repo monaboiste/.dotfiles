@@ -5,6 +5,9 @@
   a = add .
   c = commit
   ca = commit --amend
+  wl = worktree list
+  wa = worktree add
+  wr = worktree remove
 [tag]
   sort = -v:refname
 [diff]
