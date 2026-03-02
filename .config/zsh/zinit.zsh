@@ -31,7 +31,7 @@ zinit ice as"completion" wait lucid
 zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/contrib/completion/_fd
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd z zsh)"
 
 # Show dotfiles in completion
 setopt globdots
