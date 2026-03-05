@@ -2,7 +2,7 @@
   fo = "!f() { \\\n  url=$(git remote get-url origin); \\\n  if [[ $url =~ ^git@github[^:]*:(.+)\\.git$ ]]; then \\\n    path=${BASH_REMATCH[1]}; \\\n    url=\"https://github.com/$path\"; \\\n  # HTTPS GitHub \\\n  elif [[ $url =~ ^https://(www\\.)?github\\.com/.+ ]]; then \\\n    :; \\\n  else \\\n    echo \"Not a GitHub repository\"; exit 1; \\\n  fi; \\\n  open \"$url\"; \\\n}; f"
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(brightyellow)%h%C(reset) - %C(green)(%ar)%C(reset) %s%C(reset) %C(red)- %an%C(reset)%C(yellow)%d%C(reset)'
   s = status
-  a = add .
+  a = "!f() { if [ $# -eq 0 ]; then git add .; else git add \"$@\"; fi; }; f"
   c = commit
   ca = commit --amend
   wl = worktree list
