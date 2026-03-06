@@ -23,8 +23,8 @@ vim.keymap.set("v", "<C-c>", '"+y')
 vim.keymap.set("n", "<C-c>", 'V"+y')
 
 -- Jump by n lines
-vim.keymap.set("n", "<C-]>", "5j", { desc = "Jump down by 5 lines" })
-vim.keymap.set("n", "<C-[>", "5k", { desc = "Jump up by 5 lines" })
+vim.keymap.set("n", "<C-j>", "5j", { desc = "Jump down by 5 lines" })
+vim.keymap.set("n", "<C-k>", "5k", { desc = "Jump up by 5 lines" })
 
 require("ui.styling")
 require("ui.interface")
