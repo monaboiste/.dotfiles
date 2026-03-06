@@ -21,6 +21,8 @@ $line_break\
 $character\
 """
 
+command_timeout = 3600
+
 [character]
 success_symbol = "[❯](89b4fa)"
 error_symbol = "[✕](peach)"
