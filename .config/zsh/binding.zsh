@@ -106,7 +106,6 @@ KEY_ALT_C='^[c'
 KEY_CTRL_A='^A'
 KEY_CTRL_E='^E'
 KEY_CTRL_F='^F'
-KEY_CTRL_L='^L'
 KEY_CTRL_R='^R'
 KEY_CTRL_U='^U'
 KEY_CTRL_Z='^Z'
@@ -169,7 +168,6 @@ bindkey                   $KEY_SHIFT_CTRL_C                 widget::copy-selecti
 bindkey                   $KEY_SHIFT_CTRL_X                 widget::cut-selection
 bindkey                   $KEY_SHIFT_CTRL_V                 widget::paste
 bindkey                   $KEY_SHIFT_CTRL_A                 widget::select-all
-bindkey                   $KEY_CTRL_L                       widget::scroll-and-clear-screen
 bindkey                   $KEY_CTRL_R                       history-incremental-search-backward
 bindkey                   $KEY_ARROW_UP                     history-search-backward                   # Match history search results against the typed prefix
 bindkey                   $KEY_ARROW_DOWN                   history-search-forward                    # Match history search results against the typed prefix
@@ -321,6 +319,7 @@ zle -N edit-command-line
 bindkey $KEY_CTRL_X_FOLLOWED_BY_CTRL_E edit-command-line
 
 # Autosuggests
+zle -N autosuggest-accept
 bindkey $KEY_CTRL_F autosuggest-accept
 
 # Fixes autosuggest completion being overriden by keybindings:
