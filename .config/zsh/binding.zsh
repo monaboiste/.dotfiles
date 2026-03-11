@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-# NOTE: 
+# NOTE:
 #  For a complete list of shell bindings, run: `zle -la`.
 #  List existing keymap namesL `bindkey -l`
 #  List all bindings for given keymap: `bindkey -M <keymap>`
@@ -12,11 +12,6 @@
 # DISABLED: Not necessary when using https://github.com/Aloxaf/fzf-tab
 #
 # bindkey '^[[Z' reverse-menu-complete
-
-
-###############
-# Keybindings #
-###############
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -57,13 +52,6 @@ function widget::select-all() {
   done
 }
 
-# scrolls the screen up, in effect clearing it
-zle -N widget::scroll-and-clear-screen
-function widget::scroll-and-clear-screen() {
-  printf "\n%.0s" {1..$LINES}
-  zle clear-screen
-}
-
 function widget::util-select() {
   ((REGION_ACTIVE)) || zle set-mark-command
   local widget_name=$1
@@ -100,7 +88,7 @@ function widget::util-insertchar() {
 #
 # Explicitly set the signals sent to the shell as variables.
 #   See what signal are sent by running `cat` and pressing keys.
-#   Some of the signals sent might be set in the terminal emulator 
+#   Some of the signals sent might be set in the terminal emulator
 #   application/program configurations/preferences.
 #
 
@@ -117,6 +105,7 @@ KEY_ALT_C='^[c'
 
 KEY_CTRL_A='^A'
 KEY_CTRL_E='^E'
+KEY_CTRL_F='^F'
 KEY_CTRL_L='^L'
 KEY_CTRL_R='^R'
 KEY_CTRL_U='^U'
@@ -158,6 +147,8 @@ KEY_SHIFT_HOME='^[[1;2H'
 KEY_DELETE='^[[3~'
 KEY_BACKSPACE='^?'
 KEY_CTRL_BACKSPACE='^H'
+
+KEY_CTRL_X_FOLLOWED_BY_CTRL_E='^X^E'
 
 
 #                       |  key sequence                   | command
@@ -325,10 +316,12 @@ for keyname        kcap   seq                   mode        widget (
 }
 
 # Open current command in the $EDITOR
-# by pressing Ctrl+X followed by Ctrl+E
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey $KEY_CTRL_X_FOLLOWED_BY_CTRL_E edit-command-line
+
+# Autosuggests
+bindkey $KEY_CTRL_F autosuggest-accept
 
 # Fixes autosuggest completion being overriden by keybindings:
 # to have [zsh] autosuggest [plugin feature] complete visible
