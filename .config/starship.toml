@@ -34,22 +34,13 @@ vimcmd_replace_symbol = '[❮](fg:subtext1)'
 vimcmd_visual_symbol = '[❮](fg:rosewater)'
 
 [git_branch]
-symbol = ""
+symbol = "git:"
 style = "bold fg:mauve"
-format = '[$symbol $branch(:$remote_branch)]($style) '
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [custom.git_worktree]
-description = "Show indicator when inside a git worktree"
-command = """
-if git rev-parse --git-dir >/dev/null 2>&1; then
-  common_dir=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)
-  git_dir=$(git rev-parse --path-format=absolute --git-dir 2>/dev/null)
-  if [ "$common_dir" != "$git_dir" ]; then
-    echo "󰙁"
-  fi
-fi
-"""
-when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+command = "printf '󰙁'"
+when = "git rev-parse --is-inside-work-tree 2>/dev/null && [ -f $(git rev-parse --git-dir)/commondir ]"
 style = "bold fg:mauve"
 format = "([$output ]($style))"
 require_repo = true
