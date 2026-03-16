@@ -54,7 +54,7 @@ style = "bold fg:lavender"
 symbol = ' '
 
 [package]
-disabled = false
+disabled = true
 symbol = "󰏗"
 style = "fg:mauve"
 format = '([$symbol( $version)]($style) )'
