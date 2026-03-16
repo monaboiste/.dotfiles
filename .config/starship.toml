@@ -5,6 +5,7 @@ palette = "catppuccin_mocha"
 format = """
 $directory\
 $git_branch\
+${custom.git_worktree}\
 $git_commit\
 $git_status\
 $git_metrics\
@@ -24,19 +25,38 @@ $character\
 command_timeout = 3600
 
 [character]
-success_symbol = "[❯](89b4fa)"
-error_symbol = "[✕](peach)"
-vimcmd_symbol = "[❮](subtext1)"
+success_symbol = "[❯]()"
+error_symbol = "[✕](fg:peach)"
+vimcmd_symbol = "[❮](fg:subtext1)"
 vimcmd_replace_one_symbol = '[❮](fg:subtext1)'
 vimcmd_replace_symbol = '[❮](fg:subtext1)'
 vimcmd_visual_symbol = '[❮](fg:rosewater)'
 
 [git_branch]
-style = "bold mauve"
+symbol = ""
+style = "bold fg:mauve"
+format = '[$symbol $branch(:$remote_branch)]($style) '
+
+[custom.git_worktree]
+description = "Show indicator when inside a git worktree"
+command = """
+if git rev-parse --git-dir >/dev/null 2>&1; then
+  common_dir=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)
+  git_dir=$(git rev-parse --path-format=absolute --git-dir 2>/dev/null)
+  if [ "$common_dir" != "$git_dir" ]; then
+    echo "󰙁"
+  fi
+fi
+"""
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "bold fg:mauve"
+format = "([$output ]($style))"
+require_repo = true
+ignore_timeout = true
 
 [directory]
 truncation_length = 4
-style = "bold lavender"
+style = "bold fg:lavender"
 
 [fill]
 symbol = ' '
@@ -69,8 +89,8 @@ format = '([$symbol( $profile)]($style) )'
 
 [cmd_duration]
 min_time = 2000
-format = '([󱫑 $duration]($style) )'
 style = 'fg:rosewater'
+format = '([󱫑 $duration]($style) )'
 show_milliseconds = false
 disabled = false
 
