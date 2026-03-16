@@ -15,6 +15,7 @@ $cmd_duration\
 $java\
 $kotlin\
 $python\
+$nodejs\
 $package\
 $docker_context\
 $aws\
@@ -76,6 +77,11 @@ format = '([$symbol( $version)]($style) )'
 symbol = ""
 style = "fg:mauve"
 format = '([$symbol( $version)(\($virtualenv\))]($style) )'
+
+[nodejs]
+symbol = ""
+style = "fg:mauve"
+format = '([$symbol( $version)]($style) )'
 
 [docker_context]
 symbol = ""
