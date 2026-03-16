@@ -3,7 +3,7 @@
 palette = "catppuccin_mocha"
 
 format = """
-$directory\
+${custom.git_worktree_path}$directory\
 $git_branch\
 ${custom.git_worktree}\
 $git_commit\
@@ -38,11 +38,18 @@ symbol = "git:"
 style = "bold fg:mauve"
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
-[custom.git_worktree]
-command = "printf '󰙁'"
-when = "git rev-parse --is-inside-work-tree 2>/dev/null && [ -f $(git rev-parse --git-dir)/commondir ]"
-style = "bold fg:mauve"
-format = "([$output ]($style))"
+[custom.git_worktree_path]
+command = """
+dotgit=$(git rev-parse --git-common-dir)
+repo=$(basename $(dirname "$dotgit"))
+printf "$repo/"
+"""
+when = """
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 &&
+[ "$(git rev-parse --git-dir)" != "$(git rev-parse --git-common-dir)" ]
+"""
+style = "bold fg:lavender"
+format = "[$output]($style)"
 require_repo = true
 ignore_timeout = true
 
