@@ -26,6 +26,10 @@ vim.keymap.set("n", "<C-c>", 'V"+y')
 vim.keymap.set("n", "<C-d>", "5j", { desc = "Jump down by 5 lines" })
 vim.keymap.set("n", "<C-u>", "5k", { desc = "Jump up by 5 lines" })
 
+-- Scroll by n lines
+vim.keymap.set("n", "<C-e>", "10<C-e>", { desc = "Scroll down by 10 lines" })
+vim.keymap.set("n", "<C-y>", "10<C-y>", { desc = "Scroll up by 10 lines" })
+
 require("ui.styling")
 require("ui.interface")
 require("tmux")
