@@ -43,7 +43,9 @@ Host github-<USERNAME>
   IdentitiesOnly yes
   IdentityFile ~/.ssh/id_ed25519_<USERNAME>
 ```
+
 Setup themes:
+
 ```sh
 fast-theme XDG:catppuccin-mocha
 ```
