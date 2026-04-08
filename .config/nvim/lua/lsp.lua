@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "bashls",
+    "lemminx",
   },
 })
 require("mason-tool-installer").setup({
@@ -20,6 +21,7 @@ require("mason-tool-installer").setup({
     "shellcheck",
     "shfmt",
     "sqlfluff",
+    "xmlformatter",
   },
 })
 
@@ -34,6 +36,7 @@ vim.lsp.config("bashls", {
 vim.lsp.enable({
   "lua_ls",
   "bashls",
+  "lemminx",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -136,11 +139,16 @@ conform.setup({
     bash = { "shfmt" },
     zsh = { "shfmt" },
     sql = { "sqlfluff" },
+    xml = { "xmlformatter" },
   },
   formatters = {
     sqlfluff = {
       args = { "format", "--dialect", "oracle", "-" },
       require_cwd = false,
+    },
+    xmlformatter = {
+      command = "xmlformat",
+      args = { "-" },
     },
   },
   format_on_save = {
