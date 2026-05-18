@@ -22,5 +22,6 @@ Rebase all non-pushed commits and uncommitted changes into clean logical feature
 ## Project Customization
 
 Read `references/project.md` in this skill's directory if it exists. It provides project-specific context:
+
 - Base branch name (e.g. `main`, `master`, `stage`, `develop`) for fallback when no upstream is set
 - Any other project-specific patterns
