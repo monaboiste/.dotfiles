@@ -17,9 +17,9 @@
 ^/TODO.*
 ^/COPYING
 
-# Claude
+# Agents - uses custom stow targets (see README)
 
-.claude
+/agents
 
 # JetBrains - ignored due to version-specific paths that break symlink automation
 
