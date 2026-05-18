@@ -1,6 +1,7 @@
 {
   // appearance
   "breadcrumbs.enabled": true,
+  "workbench.colorTheme": "Light Modern",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#22385111",
   },
@@ -19,14 +20,18 @@
   "editor.inlayHints.enabled": "on",
   // lsp
   "editor.codeActionWidget.includeNearbyQuickFixes": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnPaste.enabled": true,
-  "javascript.suggestionActions.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnPaste.enabled": true,
-  "typescript.suggestionActions.enabled": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.updateImportsOnPaste.enabled": true,
+  "js/ts.suggestionActions.enabled": true,
   // formatters
+  "csv.enabled": true,
   "editor.defaultFormatter": "biomejs.biome",
+    "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
@@ -37,12 +42,6 @@
   "editor.codeActionsOnSave": {},
   // features
   "telemetry.feedback.enabled": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
   "diffEditor.ignoreTrimWhitespace": true,
   "explorer.confirmDragAndDrop": false,
   // suggestions
@@ -54,5 +53,5 @@
     "https://json.schemastore.org/": true,
     "https://json-schema.org/": true,
     "https://biomejs.dev": true
-  }
+  },
 }
