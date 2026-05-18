@@ -4,8 +4,8 @@
     "amazon-bedrock": {
       "options": {
         "region": "us-east-1",
-        "profile": "ai"
-      }
+        "profile": "ai",
+      },
     },
     "localllm": {
       "name": "Local LLM",
@@ -13,21 +13,20 @@
       "models": {
         "qwen3.5-35b-a3b-mlx-5": {
           "name": "Qwen3.5 A3B 35B",
-          "context": 10000,
-          "output": 5000
-        }
+        },
       },
       "options": {
-        "baseURL": "http://127.0.0.1:1234/v1"
-      }
-    }
+        "baseURL": "http://127.0.0.1:1234/v1",
+      },
+    },
+  },
+  "mcp": {
+    "mcp-steroid": {
+      "type": "remote",
+      "url": "http://127.0.0.1:6315/mcp",
+    },
   },
   "watcher": {
-    "ignore": [
-      ".git/**",
-      "node_modules/**",
-      "dist/**",
-      "build/**"
-    ]
-  }
+    "ignore": [".git/**", "node_modules/**", "dist/**", "build/**"],
+  },
 }
