@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "pirafrank/what-size"
-rev = "d896656"
-hash = "62251f94eb67648d42cdfcfb8be0fad2"
+rev = "179ebf6"
+hash = "57056b9728006881d580ccabe8154a9c"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
