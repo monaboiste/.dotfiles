@@ -24,6 +24,7 @@
     "mcp-steroid": {
       "type": "remote",
       "url": "http://127.0.0.1:6315/mcp",
+      "enabled": false,
     },
   },
   "watcher": {
