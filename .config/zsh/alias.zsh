@@ -55,6 +55,7 @@ x Navigation:
   - { and }
   - jump to matching pairs of (), [], {}
 x Actions:
+  - replace char under the cursor: r
   - select entire line: V
   - indent selection: =
   - find and replace: v to select, :s/old_text/new_text/g
