@@ -7,7 +7,7 @@ brew "fzf"
 brew "lazygit"
 brew "git"
 brew "jq"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "opencode"
 brew "python"
 brew "rich"
