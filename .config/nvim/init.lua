@@ -15,6 +15,7 @@ vim.o.scrolloff = 16 -- keep cursor away from the screen edge
 vim.opt.undofile = true -- persistent undo history across sessions
 vim.opt.swapfile = false
 vim.opt.wrap = false
+vim.cmd([[ xnoremap <expr> p 'pgv"'.v:register.'y' ]]) -- pasting over a selection no longer clobbers the clipboard
 
 -- Clear last search highlighting
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
