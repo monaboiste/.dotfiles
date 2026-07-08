@@ -11,7 +11,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- QOL
-vim.opt.undofile = true -- persistent undo history
+vim.o.scrolloff = 16 -- keep cursor away from the screen edge
+vim.opt.undofile = true -- persistent undo history across sessions
 vim.opt.swapfile = false
 vim.opt.wrap = false
 
