@@ -1,7 +1,7 @@
 onboarding = false
 
 [theme]
-name = "catppuccin"
+name = "terminal"
 auto_switch = false
 
 [ui]
@@ -13,6 +13,9 @@ delivery = "herdr"
 
 [experimental]
 pane_history = true
+
+[ui.sound]
+enabled = false
 
 [keys]
 prefix = "ctrl+s"
