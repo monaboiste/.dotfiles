@@ -30,6 +30,10 @@ zinit wait lucid for \
 zinit ice as"completion" wait lucid
 zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/contrib/completion/_fd
 
+# Completion for herdr
+zinit ice as"completion" wait lucid
+zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_herdr"
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd z zsh)"
 
