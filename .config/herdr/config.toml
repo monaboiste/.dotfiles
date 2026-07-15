@@ -21,9 +21,9 @@ enabled = false
 prefix = "ctrl+s"
 toggle_sidebar = "prefix+b"
 
-new_workspace = "prefix+shift+w"
-close_workspace = "prefix+shift+d"
-rename_workspace = "prefix+shift+t"
+new_workspace = "prefix+shift+t"
+close_workspace = "prefix+shift+x"
+rename_workspace = "prefix+<"
 
 new_tab = "prefix+t"
 rename_tab = "prefix+,"
