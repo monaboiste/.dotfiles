@@ -37,6 +37,9 @@ zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_herdr"
 # Completion for aws
 zinit snippet OMZP::aws
 
+# Completion for ssh
+zinit snippet OMZP::ssh
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd z zsh)"
 
