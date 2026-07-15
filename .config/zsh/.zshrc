@@ -21,6 +21,7 @@ export PATH
 for f in $XDG_CONFIG_HOME/zsh/devtool/*.zsh(N); do source $f; done
 for f in $XDG_CONFIG_HOME/zsh/function/*.zsh(N); do source $f; done
 [ -f "$XDG_CONFIG_HOME"/zsh/prompt.zsh ] && source "$XDG_CONFIG_HOME"/zsh/prompt.zsh
+[ -f "$XDG_CONFIG_HOME"/zsh/completion.zsh ] && source "$XDG_CONFIG_HOME"/zsh/completion.zsh
 
 # History
 HISTSIZE=5000

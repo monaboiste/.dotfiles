@@ -9,11 +9,6 @@ fi
 
 source "$ZINIT_HOME"/zinit.zsh
 
-#
-# Shell tools completions
-#
-
-# Init completion system and and load plugins in turbo mode
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 ZINIT[COMPINIT_OPTS]="-C"
 
@@ -26,30 +21,5 @@ zinit wait lucid for \
   atload"!_zsh_autosuggest_start" \
   zsh-users/zsh-autosuggestions
 
-# Completion for fd
-zinit ice as"completion" wait lucid
-zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/contrib/completion/_fd
-
-# Completion for herdr
-zinit ice as"completion" wait lucid
-zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_herdr"
-
-# Completion for aws
-zinit snippet OMZP::aws
-
-# Completion for ssh
-zinit snippet OMZP::ssh
-
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd z zsh)"
-
-# Show dotfiles in completion
-setopt globdots
-
-# Completion styling
-zstyle ':completion:*' cache-path "${ZINIT[ZCOMPDUMP_PATH]}"
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Ignore case
-zstyle ':completion:*' menu no                         # Disable default zsh completion menu - we're using fzf
-zstyle ':fzf-tab:*' fzf-flags --color=marker:#bac2de,pointer:#bac2de
-zstyle ':fzf-tab:complete:*' fzf-preview 'ls --color -A $realpath'
-zstyle ':completion::complete:*:paths' wrapper-queries 'fd --type f --hidden'

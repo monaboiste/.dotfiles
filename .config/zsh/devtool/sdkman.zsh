@@ -13,5 +13,3 @@ fi
 
 zinit ice wait lucid
 zinit snippet "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-zinit snippet OMZP::sdk
