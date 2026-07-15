@@ -1,0 +1,34 @@
+onboarding = false
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+agent_panel_sort = "spaces"
+sidebar_collapsed_mode = "hidden"
+
+[keys]
+prefix = "ctrl+s"
+toggle_sidebar = "prefix+b"
+new_tab = "prefix+t"
+close_tab = "prefix+x"
+rename_tab = "prefix+,"
+split_vertical = "prefix+%"
+split_horizontal = "prefix+\""
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+new_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+rename_workspace = "prefix+shift+t"
+# todo search
+
