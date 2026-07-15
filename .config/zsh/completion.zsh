@@ -17,6 +17,12 @@ zinit snippet OMZP::ssh
 # sdk
 zinit snippet OMZP::sdk
 
+# docker
+zinit ice as"completion" wait lucid
+zinit snippet OMZP::docker/completions/_docker
+zinit ice as"completion" wait lucid
+zinit snippet OMZP::docker-compose/_docker-compose
+
 # Show dotfiles in completion
 setopt globdots
 
