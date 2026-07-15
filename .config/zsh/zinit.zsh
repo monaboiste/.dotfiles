@@ -19,12 +19,12 @@ ZINIT[COMPINIT_OPTS]="-C"
 
 zinit wait lucid for \
   atinit"zpcompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-    Aloxaf/fzf-tab \
+  zdharma-continuum/fast-syntax-highlighting \
+  Aloxaf/fzf-tab \
   blockf \
-    zsh-users/zsh-completions \
+  zsh-users/zsh-completions \
   atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+  zsh-users/zsh-autosuggestions
 
 # Completion for fd
 zinit ice as"completion" wait lucid
@@ -33,6 +33,9 @@ zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/con
 # Completion for herdr
 zinit ice as"completion" wait lucid
 zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_herdr"
+
+# Completion for aws
+zinit snippet OMZP::aws
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd z zsh)"
