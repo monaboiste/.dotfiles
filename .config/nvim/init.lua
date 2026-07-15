@@ -17,6 +17,9 @@ vim.opt.swapfile = false
 vim.opt.wrap = false
 vim.cmd([[ xnoremap <expr> p 'pgv"'.v:register.'y' ]]) -- pasting over a selection no longer clobbers the clipboard
 
+--
+-- Keymaps
+
 -- Clear last search highlighting
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
@@ -32,8 +35,13 @@ vim.keymap.set("n", "<C-u>", "5k", { desc = "Jump up by 5 lines" })
 vim.keymap.set("n", "<C-e>", "10<C-e>", { desc = "Scroll down by 10 lines" })
 vim.keymap.set("n", "<C-y>", "10<C-y>", { desc = "Scroll up by 10 lines" })
 
+-- Tabs and panes
+vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
+vim.keymap.set("n", "<leader>w%", ":vsplit<cr>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
+vim.keymap.set("n", "<leader>t", ":tabnew<cr>", { desc = "New Tab" })
+
 require("ui.styling")
 require("ui.interface")
-require("tmux")
 require("lsp")
 require("multicursor")
