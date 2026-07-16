@@ -1,5 +1,6 @@
 brew "awscli"
 brew "curl"
+brew "codex"
 brew "eza"
 brew "fd"
 brew "fnm"
