@@ -30,17 +30,13 @@ vim.keymap.set("n", "<C-c>", 'V"+y')
 
 -- Jump by n lines
 vim.keymap.set("n", "<C-d>", "5j", { desc = "Jump down by 5 lines" })
-vim.keymap.set("n", "<C-u>", "5k", { desc = "Jump up by 5 lines" })
-
--- Scroll by n lines
-vim.keymap.set("n", "<C-e>", "10<C-e>", { desc = "Scroll down by 10 lines" })
-vim.keymap.set("n", "<C-y>", "10<C-y>", { desc = "Scroll up by 10 lines" })
+vim.keymap.set("n", "<C-e>", "5k", { desc = "Jump up by 5 lines" })
 
 -- Tabs and panes
-vim.keymap.set("n", '<leader>w"', ":split<cr>", { desc = "Split horizontally" })
-vim.keymap.set("n", "<leader>w%", ":vsplit<cr>", { desc = "Split vertically" })
-vim.keymap.set("n", "<leader>wq", ":quit<cr>", { desc = "Close" })
-vim.keymap.set("n", "<leader>t", ":tabnew<cr>", { desc = "New Tab" })
+vim.keymap.set("n", '<leader>t"', ":split<cr>", { desc = "Split horizontally" })
+vim.keymap.set("n", "<leader>t%", ":vsplit<cr>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>tq", ":quit<cr>", { desc = "Close" })
+vim.keymap.set("n", "<leader>tt", ":tabnew<cr>", { desc = "New Tab" })
 
 require("ui.styling")
 require("ui.interface")
