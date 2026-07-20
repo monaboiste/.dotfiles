@@ -20,12 +20,17 @@ Symlink Viual Studio Code settings:
 stow --target "$HOME/Library/Application Support/Code/User" vscode
 ```
 
-Symlink agent skills:
+Symlink agent rules and skills:
 
 ```sh
-mkdir -p ~/.claude/skills ~/.config/opencode/skills
-stow --target "$HOME/.claude/skills" --dir "$HOME/.dotfiles/agents" skills
-stow --target "$HOME/.config/opencode/skills" --dir "$HOME/.dotfiles/agents" skills
+mkdir -p ~/.claude/skills
+stow --dir "$HOME/.dotfiles/agents" --target "$HOME" claude
+
+mkdir -p ~/.codex/skills
+stow --dir "$HOME/.dotfiles/agents" --target "$HOME" codex
+
+mkdir -p ~/.config/opencode/skills
+stow --dir "$HOME/.dotfiles/agents" --target "$HOME" opencode
 ```
 
 Include git settings in `~/.config/git/config`:
