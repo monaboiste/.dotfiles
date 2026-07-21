@@ -1,13 +1,11 @@
 ---
 name: commit
-description: Group uncommitted changes into feature commits.
+description: Group uncommitted changes into clean, logical feature commits.
 ---
 
-1. Run `git status` and `git diff` to understand all changes
-2. Group changed files by logical feature
-3. Run `git log -5 --oneline` to understand the convention of the commit
-   messages, prefer lower case
-4. Propose action-oriented commit messages
-5. Print proposed commit messages and ask for user feedback/approval
-6. Stage and commit each group
-7. Repeat until all changes are committed
+1. Run `git status -u` and `git diff` to analyze all changes.
+2. Run `git log -5 --oneline` to adapt to the repo's commit message style.
+3. Group files logically (by feature/fix/docs).
+4. Draft action-oriented commit messages in imperative mood (subject ≤50 chars; wrap body at 72 chars/line).
+5. Show proposed file groups and commit messages to the user for approval.
+6. Stage (`git add`) and commit each approved group.
