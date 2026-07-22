@@ -10,12 +10,19 @@ vim.keymap.set({ "n", "x" }, "<M-S-Down>", function()
   mc.lineAddCursor(1)
 end, { desc = "Add cursor down" })
 
+vim.keymap.set({ "n", "x" }, "<C-S-Up>", function()
+  mc.lineSkipCursor(-1)
+end, { desc = "Skip cursor up" })
+vim.keymap.set({ "n", "x" }, "<C-S-Down>", function()
+  mc.lineSkipCursor(1)
+end, { desc = "Skip cursor down" })
+
 vim.keymap.set({ "n", "x" }, "<C-g>", function()
   mc.matchAddCursor(1)
 end, { desc = "Add cursor by matching word/selection" })
 vim.keymap.set({ "n", "x" }, "<C-M-g>", function()
-  mc.matchSkipCursor(1)
-end, { desc = "Skip cursor by matching word/selection" })
+  mc.matchSkipCursor(-1)
+end, { desc = "Remove cursor by matching word/selection" })
 
 vim.keymap.set("n", "<C-LeftMouse>", mc.handleMouse, { desc = "Add cursors" })
 vim.keymap.set(
