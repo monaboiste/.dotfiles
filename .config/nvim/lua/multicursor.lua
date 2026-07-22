@@ -3,10 +3,10 @@ vim.pack.add({ "https://github.com/jake-stewart/multicursor.nvim" })
 local mc = require("multicursor-nvim")
 mc.setup()
 
-vim.keymap.set("x", "<M-S-Up>", function()
+vim.keymap.set({ "n", "x" }, "<M-S-Up>", function()
   mc.lineAddCursor(-1)
 end, { desc = "Add cursor up" })
-vim.keymap.set("x", "<M-S-Down>", function()
+vim.keymap.set({ "n", "x" }, "<M-S-Down>", function()
   mc.lineAddCursor(1)
 end, { desc = "Add cursor down" })
 
