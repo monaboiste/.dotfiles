@@ -10,6 +10,8 @@
   wr = worktree remove
 [tag]
   sort = -v:refname
+[core]
+  pager = less --mouse
 [diff]
   tool = vimdiff
 [merge]
