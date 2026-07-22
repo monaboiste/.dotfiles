@@ -1,13 +1,36 @@
 [alias]
-  fo = "!f() { \\\n  url=$(git remote get-url origin); \\\n  if [[ $url =~ ^git@github[^:]*:(.+)\\.git$ ]]; then \\\n    path=${BASH_REMATCH[1]}; \\\n    url=\"https://github.com/$path\"; \\\n  # HTTPS GitHub \\\n  elif [[ $url =~ ^https://(www\\.)?github\\.com/.+ ]]; then \\\n    :; \\\n  else \\\n    echo \"Not a GitHub repository\"; exit 1; \\\n  fi; \\\n  open \"$url\"; \\\n}; f"
-  lg = log --graph --abbrev-commit --decorate --format=format:'%C(brightyellow)%h%C(reset) - %C(green)(%ar)%C(reset) %s%C(reset) %C(red)- %an%C(reset)%C(yellow)%d%C(reset)'
   s = status
-  a = "!f() { if [ $# -eq 0 ]; then git add .; else git add \"$@\"; fi; }; f"
   c = commit
   ca = commit --amend
+
   wl = worktree list
   wa = worktree add
   wr = worktree remove
+
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(brightyellow)%h%C(reset) - %C(green)(%ar)%C(reset) %s%C(reset) %C(red)- %an%C(reset)%C(yellow)%d%C(reset)'
+
+  a = "!f() { \
+    if [ $# -eq 0 ]; then \
+      git add .; \
+    else \
+      git add \"$@\"; \
+    fi \
+  }; f"
+
+  fo = "!f() { \
+    url=$(git remote get-url origin); \
+    if [[ $url =~ ^git@github[^:]*:(.+)\\.git$ ]]; then \
+      path=${BASH_REMATCH[1]}; \
+      url=\"https://github.com/$path\"; \
+    elif [[ $url =~ ^https://(www\\.)?github\\.com/.+ ]]; then \
+      :; \
+    else \
+      echo \"Not a GitHub repository\"; \
+      exit 1; \
+    fi; \
+    open \"$url\"; \
+  }; f"
+
   dl = -c diff.external=difft log -p --ext-diff
   ds = -c diff.external=difft show --ext-diff
   dd = -c diff.external=difft diff
