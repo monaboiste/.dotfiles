@@ -40,6 +40,15 @@ vim.keymap.set("n", "<leader>t%", ":vsplit<cr>", { desc = "Split vertically" })
 vim.keymap.set("n", "<leader>tq", ":quit<cr>", { desc = "Close" })
 vim.keymap.set("n", "<leader>tt", ":tabnew<cr>", { desc = "New Tab" })
 
+-- Sort
+vim.keymap.set({ "n", "x" }, "<leader>s", function()
+  if vim.fn.mode():match("[vV\22]") then
+    vim.cmd("'<,'>sort")
+  else
+    vim.cmd("%sort")
+  end
+end, { desc = "Sort selection or file" })
+
 require("ui.styling")
 require("ui.interface")
 require("lsp")
