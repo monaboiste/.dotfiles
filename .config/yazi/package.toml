@@ -5,5 +5,5 @@ hash = "57056b9728006881d580ccabe8154a9c"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "3edeb49"
-hash = "4127d9d6c96862ed96a7a64b3973a5af"
+rev = "4770a34"
+hash = "67f2240fd9c98f21714527a24cd672f8"
