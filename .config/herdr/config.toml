@@ -57,3 +57,10 @@ key = "prefix+tab"
 type = "shell"
 command = "herdr plugin pane open --plugin copy-search --entrypoint extract"
 
+# herdr plugin install speardragon/herdr-yazi
+[[keys.command]]
+key = "prefix+y"
+type = "plugin_action"
+command = "ray.file-explorer.open"
+description = "Open file explorer"
+

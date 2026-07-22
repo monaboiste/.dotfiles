@@ -3,5 +3,5 @@
 #
 
 [mgr]
-ratio    = [2, 4, 3]
+ratio    = [0, 1, 2]
 linemode = "size"
