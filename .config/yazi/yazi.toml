@@ -5,3 +5,6 @@
 [mgr]
 ratio    = [0, 1, 2]
 linemode = "size"
+
+show_hidden = true
+show_symlink = true
