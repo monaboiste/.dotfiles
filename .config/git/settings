@@ -11,6 +11,15 @@
   dl = -c diff.external=difft log -p --ext-diff
   ds = -c diff.external=difft show --ext-diff
   dd = -c diff.external=difft diff
+  ddf = "!f() { \
+    args=\"$*\"; \
+    git diff $args --name-only | \
+    FZF_DIFF_ARGS=\"$args\" \
+    fzf \
+      --preview 'git -c diff.external=\"difft --color always --display inline\" diff $FZF_DIFF_ARGS -- {}' \
+      --preview-window='right,75%,wrap' \
+      --height=100%; \
+  }; f"
 [tag]
   sort = -v:refname
 [core]
