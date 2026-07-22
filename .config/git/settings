@@ -11,7 +11,7 @@
 [tag]
   sort = -v:refname
 [core]
-  pager = less --mouse
+  pager = less -I --mouse
 [diff]
   tool = vimdiff
 [merge]
