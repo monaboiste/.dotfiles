@@ -89,7 +89,7 @@ miniclue.setup({
     { mode = "n", keys = "<leader>c", desc = "+Code (LSP)" },
     { mode = "n", keys = "<leader>f", desc = "+Find" },
     { mode = "n", keys = "<leader>x", desc = "+Diagnostics" },
-    { mode = "n", keys = "<leader>w", desc = "+Windows" },
+    { mode = "n", keys = "<leader>t", desc = "+Tabs" },
     { mode = "n", keys = "<leader>g", desc = "+Goto" },
 
     miniclue.gen_clues.square_brackets(),
