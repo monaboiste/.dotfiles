@@ -8,13 +8,16 @@
   wl = worktree list
   wa = worktree add
   wr = worktree remove
+  dl = -c diff.external=difft log -p --ext-diff
+  ds = -c diff.external=difft show --ext-diff
+  dd = -c diff.external=difft diff
 [tag]
   sort = -v:refname
 [core]
   pager = less -I --mouse
+[pager]
+  difftool = true
 [diff]
-  tool = vimdiff
-[merge]
   tool = vimdiff
 [difftool]
   prompt = false
