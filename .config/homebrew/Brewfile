@@ -1,4 +1,5 @@
 brew "awscli"
+brew "bat"
 brew "codex"
 brew "curl"
 brew "difftastic"
