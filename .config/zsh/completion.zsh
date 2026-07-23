@@ -4,6 +4,10 @@
 zinit ice as"completion" wait lucid
 zinit snippet https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/contrib/completion/_fd
 
+# bat
+zinit ice as"completion" wait lucid
+zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_bat"
+
 # rg
 zinit ice as"completion" wait lucid
 zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_rg"
