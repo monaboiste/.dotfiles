@@ -1,3 +1,9 @@
+---
+name: rebase-commit
+description: Rebase changes into clean logical feature commits.
+disable-model-invocation: true
+---
+
 # Rebase Commit Skill
 
 Rebase all non-pushed commits and uncommitted changes into clean logical feature commits.

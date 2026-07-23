@@ -1,6 +1,7 @@
 ---
 name: commit
 description: Propose and create logical git commits.
+disable-model-invocation: true
 ---
 
 # Commit

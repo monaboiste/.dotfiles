@@ -1,6 +1,7 @@
 ---
 name: interview
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Outputs a spec with user stories.
+disable-model-invocation: true
 ---
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch
