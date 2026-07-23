@@ -4,9 +4,14 @@
 
 [mgr]
 prepend_keymap = [
-  # overrides
-  { on = [ "q" ], run = "escape"                                                               },
+  { on = "~", run = "help", desc = "Open help" },
+
+  { on = "q", run = "escape" },
+
   { on = "s",     run = "search --via=fd --args='-Hd 5'", desc = "Search files by name via fd" },
+  { on = "S",     run = "search --via=rg",                desc = "Search files by content via ripgrep" },
+  { on = "z",     run = "plugin fzf",                     desc = "Jump to a file/directory via fzf" },
+  { on = "Z",     run = "plugin zoxide",                  desc = "Jump to a directory via zoxide" },
 
   { on = [ "g", "." ], run = "cd ~/.dotfiles",   desc = "Go ~/dotfiles"                 },
   { on = [ "i", "s" ], run = "plugin what-size", desc = "Calc size of selection or cwd" },
