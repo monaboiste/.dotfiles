@@ -8,16 +8,17 @@ auto_switch = false
 agent_panel_sort = "spaces"
 sidebar_collapsed_mode = "hidden"
 prompt_new_tab_name = false
+prompt_new_workspace_name = true
 pane_scrollbars = false
 
 [ui.toast]
 delivery = "herdr"
 
-[experimental]
-pane_history = true
-
 [ui.sound]
 enabled = false
+
+[experimental]
+pane_history = true
 
 [keys]
 prefix = "ctrl+s"
