@@ -9,6 +9,3 @@
 *.swp
 .nvimlog
 
-# AI
-AGENTS.md
-
