@@ -23,7 +23,7 @@ stow --target "$HOME/Library/Application Support/Code/User" vscode
 Symlink agent rules and skills:
 
 ```sh
-mkdir -p ~/.pi/agent
+mkdir -p ~/.pi/agent/prompts
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" pi
 
 mkdir -p ~/.claude/skills
