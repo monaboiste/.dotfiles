@@ -26,9 +26,6 @@ Symlink agent rules and skills:
 mkdir -p ~/.claude/skills
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" claude
 
-mkdir -p ~/.codex/skills
-stow --dir "$HOME/.dotfiles/agents" --target "$HOME" codex
-
 mkdir -p ~/.config/opencode/skills
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" opencode
 ```
