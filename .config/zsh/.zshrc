@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 
+# Disable ctrl+d default eof character
+stty eof undef
+
 # Auto-Dedupe PATH
 typeset -U path
 
