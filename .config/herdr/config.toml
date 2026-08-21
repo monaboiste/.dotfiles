@@ -66,3 +66,15 @@ type = "plugin_action"
 command = "ray.file-explorer.open"
 description = "Open file explorer"
 
+# herdr plugin install fullerzz/herdr-plugin-sesh
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "fullerzz.sesh.open-picker"
+description = "open Sesh picker"
+
+[[keys.command]]
+key = "prefix+shift+space"
+type = "plugin_action"
+command = "fullerzz.sesh.last"
+description = "switch to previous Sesh workspace"
