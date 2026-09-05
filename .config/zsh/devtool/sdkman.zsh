@@ -9,7 +9,6 @@ if [[ ! -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]]; then
   curl -s "https://get.sdkman.io" | bash
 
   sed -i '' 's/^sdkman_auto_complete=.*/sdkman_auto_complete=false/' "$SDKMAN_DIR/etc/config"
-  sed -i '' 's/^sdkman_auto_env=.*/sdkman_auto_env=true/' "$SDKMAN_DIR/etc/config"
 fi
 
 zinit ice wait lucid
