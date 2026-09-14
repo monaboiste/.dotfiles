@@ -17,6 +17,7 @@ zinit ice as"completion" wait lucid
 zinit snippet "$XDG_CONFIG_HOME/zsh/completion/_herdr"
 
 # aws
+SHOW_AWS_PROMPT=false
 zinit snippet OMZP::aws
 
 # ssh
