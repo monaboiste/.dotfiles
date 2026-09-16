@@ -6,3 +6,5 @@
 - Never use the em dash ("—"). Use a regular hyphen ("-") instead.
 - Unless explicitly requested, do not add explanatory comments or divider comments (for example, `// --- Helpers ---`)
   when writing code.
+- Unless specified otherwise, save non-trivial planning tasks to `.agents/plans/<YYYY-MM-DD>_<name>/plan.md`, relative
+  to the repository root.
