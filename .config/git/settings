@@ -43,6 +43,72 @@
       --preview-window='right,75%,wrap' \
       --height=100%; \
   }; f"
+
+  sweep = "!f() { \
+    delete=false; \
+    merged_only=false; \
+    for arg in \"$@\"; do \
+      case \"$arg\" in \
+        --delete) delete=true ;; \
+        --merged) merged_only=true ;; \
+        *) \
+          echo \"Usage: git sweep [--merged] [--delete]\" >&2; \
+          return 2; \
+          ;; \
+      esac; \
+    done; \
+    git fetch --prune || return; \
+    targets=\"\"; \
+    for branch in main master development; do \
+      if git show-ref --verify --quiet \"refs/remotes/origin/$branch\"; then \
+        targets=\"$targets origin/$branch\"; \
+      fi; \
+    done; \
+    if [ \"$merged_only\" = true ] && [ -z \"$targets\" ]; then \
+      echo \"No origin/main, origin/master or origin/development found.\" >&2; \
+      return 1; \
+    fi; \
+    cutoff=$(date -v-3m +%s); \
+    git for-each-ref \
+      --format=\"%(refname:short) %(committerdate:unix)\" \
+      refs/heads/ | \
+    while read -r branch timestamp; do \
+      [ \"$timestamp\" -ge \"$cutoff\" ] && continue; \
+      case \"$branch\" in \
+        main|master|development) continue ;; \
+      esac; \
+      merged=false; \
+      for target in $targets; do \
+        if git merge-base --is-ancestor \"$branch\" \"$target\" 2>/dev/null; then \
+          merged=true; \
+          break; \
+        fi; \
+      done; \
+      [ \"$merged_only\" = true ] && [ \"$merged\" = false ] && continue; \
+      if [ \"$delete\" = true ]; then \
+        if [ \"$merged\" = true ]; then \
+          if git branch -d \"$branch\" >/dev/null; then \
+            echo \"Deleted: $branch [merged]\"; \
+          else \
+            echo \"Failed:  $branch [merged]\" >&2; \
+          fi; \
+        else \
+          if git branch -D \"$branch\" >/dev/null; then \
+            echo \"Deleted: $branch [unmerged]\"; \
+          else \
+            echo \"Failed:  $branch [unmerged]\" >&2; \
+          fi; \
+        fi; \
+      else \
+        if [ \"$merged\" = true ]; then \
+          echo \"$branch [merged]\"; \
+        else \
+          echo \"$branch [unmerged]\"; \
+        fi; \
+      fi; \
+    done; \
+  }; f"
+
 [tag]
   sort = -v:refname
 [core]
