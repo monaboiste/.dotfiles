@@ -112,6 +112,7 @@
 [tag]
   sort = -v:refname
 [core]
+  hooksPath = .githooks
   pager = less -I --mouse
 [pager]
   difftool = true
