@@ -8,3 +8,4 @@
   when writing code.
 - Unless specified otherwise, save non-trivial planning tasks to `.agents/plans/<YYYY-MM-DD>_<name>/plan.md`, relative
   to the repository root.
+- Never use `rm` for file or directory deletion. Use `trash` instead so deleted items can be recovered.
