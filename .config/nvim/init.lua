@@ -49,6 +49,16 @@ vim.keymap.set({ "n", "x" }, "<leader>s", function()
   end
 end, { desc = "Sort selection or file" })
 
+-- Create missing directories before file is saved
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    local dir = vim.fn.expand("<afile>:p:h")
+    if vim.fn.isdirectory(dir) == 0 then
+      vim.fn.mkdir(dir, "p")
+    end
+  end,
+})
+
 require("ui.styling")
 require("ui.interface")
 require("lsp")
