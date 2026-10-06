@@ -26,7 +26,7 @@ Symlink agent rules and skills:
 mkdir -p ~/.pi/agent/prompts
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" pi
 
-mkdir -p ~/.claude/skills ~/.claude/output-styles
+mkdir -p ~/.claude/skills ~/.claude/output-styles ~/.claude/rules
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" claude
 
 mkdir -p ~/.config/opencode/skills
