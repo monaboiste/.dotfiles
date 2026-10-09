@@ -16,3 +16,8 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export MAVEN_OPTS=-Dmaven.repo.local="$XDG_DATA_HOME"/maven/repository
 export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+
+if [ -s "$HOME/.claude/litellm-key" ]; then
+  export ANTHROPIC_CUSTOM_HEADERS="x-litellm-api-key: Bearer $(cat "$HOME/.claude/litellm-key")"
+  export LITELLM_API_KEY="$(cat "$HOME/.claude/litellm-key")"
+fi
