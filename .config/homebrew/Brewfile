@@ -1,5 +1,6 @@
-trew "awscli"
+brew "awscli"
 brew "bat"
+brew "can1357/tap/omp"
 brew "curl"
 brew "difftastic"
 brew "eza"
