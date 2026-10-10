@@ -13,6 +13,7 @@ keybind = shift+up=scroll_page_lines:-15
 keybind = shift+down=scroll_page_lines:15
 
 keybind = ctrl+d=unbind
+keybind = performable:super+k=clear_screen
 
 # Open links: cmd+shift
 link-previews = true

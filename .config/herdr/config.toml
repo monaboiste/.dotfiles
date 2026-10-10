@@ -23,6 +23,7 @@ pane_history = true
 [keys]
 prefix = "ctrl+s"
 toggle_sidebar = "prefix+b"
+clear_pane = "cmd+k"
 
 new_workspace = "prefix+shift+t"
 close_workspace = "prefix+shift+x"
