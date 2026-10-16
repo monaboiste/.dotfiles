@@ -28,82 +28,14 @@ pick.setup({
   },
 })
 
-vim.keymap.set("n", "<leader><leader>", function()
-  -- Override picking command with ripgrep and include hidden files
-  pick.builtin.cli({
-    command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-  })
-end, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fb", function()
-  pick.builtin.buffers()
-end, { desc = "Find Buffers" })
-vim.keymap.set("n", "<leader>fv", function()
-  require("mini.extra").pickers.visit_paths({ cwd = "" })
-end, { desc = "Find Visited Files Everywhere" })
-vim.keymap.set("n", "<leader>fg", function()
-  pick.builtin.grep_live()
-end, { desc = "Live Grep" })
-vim.keymap.set(
-  "n",
-  "<leader>fc",
-  "<cmd> lua MiniExtra.pickers.history({ scope = ':'})<cr>",
-  { desc = "Find Command" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>fr",
-  "<cmd> lua MiniExtra.pickers.registers()<cr>",
-  { desc = "Registers" }
-)
-
 require("mini.extra").setup()
 require("mini.visits").setup()
-
-vim.keymap.set(
-  "n",
-  "<leader>xx",
-  "<cmd>lua MiniExtra.pickers.diagnostic()<cr>",
-  { desc = "Diagnostics" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>xX",
-  "<cmd>lua MiniExtra.pickers.diagnostic({ scope = 'current' })<cr>",
-  { desc = "Buffer Diagnostics" }
-)
 
 -- "What to press next" overlay
 local miniclue = require("mini.clue")
 miniclue.setup({
-  triggers = {
-    { mode = { "n", "x" }, keys = "<leader>" },
-    { mode = "n", keys = "[" },
-    { mode = "n", keys = "]" },
-    { mode = "n", keys = "g" },
-    { mode = "n", keys = "z" },
-    { mode = "n", keys = "'" },
-    { mode = "n", keys = "`" },
-    { mode = { "n", "x" }, keys = '"' },
-    { mode = "i", keys = "<C-x>" },
-    { mode = "n", keys = "<C-w>" },
-  },
-
-  clues = {
-    { mode = "n", keys = "<leader>c", desc = "+Code (LSP)" },
-    { mode = "n", keys = "<leader>f", desc = "+Find" },
-    { mode = "n", keys = "<leader>x", desc = "+Diagnostics" },
-    { mode = "n", keys = "<leader>t", desc = "+Tabs" },
-    { mode = "n", keys = "<leader>g", desc = "+Goto" },
-
-    miniclue.gen_clues.square_brackets(),
-    miniclue.gen_clues.builtin_completion(),
-    miniclue.gen_clues.g(),
-    miniclue.gen_clues.marks(),
-    miniclue.gen_clues.registers({ show_contents = true }),
-    miniclue.gen_clues.windows(),
-    miniclue.gen_clues.z(),
-  },
+  triggers = require("keybind").clue_triggers,
+  clues = require("keybind").clues(miniclue),
 
   window = {
     config = {
