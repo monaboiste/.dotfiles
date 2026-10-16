@@ -13,8 +13,17 @@ typeset -U path
 
 path=(
   "/opt/homebrew/bin"
+  "$HOME/.claude/bin"
   $path
 )
+
+# >>> litellm-claude-code >>>
+if [ -s "$HOME/.claude/litellm-key" ]; then
+  export ANTHROPIC_CUSTOM_HEADERS="x-litellm-api-key: Bearer $(cat "$HOME/.claude/litellm-key")"
+  export LITELLM_API_KEY="$(cat "$HOME/.claude/litellm-key")"
+fi
+# <<< litellm-claude-code <<<
+
 
 export PATH
 
@@ -42,3 +51,4 @@ setopt hist_find_no_dups
 
 # Enable zmv
 autoload -U zmv
+
