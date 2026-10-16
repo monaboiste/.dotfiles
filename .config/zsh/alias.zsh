@@ -21,14 +21,6 @@ alias lta1='eza -agT --icons auto --level=1'
 alias lta2='eza -agT --icons auto --level=2'
 alias lta3='eza -agT --icons auto --level=3'
 
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd <"$tmp"
-  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-  rm -f -- "$tmp"
-}
-
 # Helpers
 zinit::update() {
   echo "🔄 Updating Zinit and plugins..."
@@ -69,37 +61,6 @@ x Registers:
   - Show registers: "
   - Copy to register: +yy
   - Paste from register "(1-7)p
-EOF
-}
-
-help::yazi_tips() {
-  cat <<'EOF'
-x Search:
-  - Search in current directory: /
-  - Fuzzy find: Z
-  - Filter files: f
-  - Search for files: s
-  - Search content: S
-x Navigation:
-  - Base navigating: g (e.g. gh or gc)
-  - New Tab: t
-  - Move between tabs: [ or ] or <N>
-  - Close tab: <ctrl>+c
-x Display:
-  - Sort files: ,
-  - Show directory size: ,s
-  - Show meta: <tab>
-  - Show hidden: .
-  - Show tasks: w
-x Actions:
-  - Yank file: y
-  - Cut file: x
-  - Rename file: r
-  - Copy filename/path/directory: c
-  - Multiselect (Bulk edit): <space>
-  - Reveal/Open: O
-  - Run command: ;, : (block)
-  - Select (tmux): enter copy mode - <prefix>+[
 EOF
 }
 
