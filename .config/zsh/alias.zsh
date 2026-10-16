@@ -32,8 +32,8 @@ function y() {
 # Helpers
 zinit::update() {
   echo "🔄 Updating Zinit and plugins..."
-  zinit self-update && zinit update --all
-  echo "✅ All Zinit plugins updated!"
+  zinit self-update && zinit update --all && zinit cclear &&
+    echo "✅ All Zinit plugins updated!"
 }
 
 help::vim_tips() {
