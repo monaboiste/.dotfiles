@@ -10,6 +10,7 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.pick",
   "https://github.com/nvim-mini/mini.clue",
   "https://github.com/nvim-mini/mini.extra",
+  "https://github.com/nvim-mini/mini.visits",
 })
 
 -- Icons
@@ -36,6 +37,9 @@ end, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fb", function()
   pick.builtin.buffers()
 end, { desc = "Find Buffers" })
+vim.keymap.set("n", "<leader>fv", function()
+  require("mini.extra").pickers.visit_paths({ cwd = "" })
+end, { desc = "Find Visited Files Everywhere" })
 vim.keymap.set("n", "<leader>fg", function()
   pick.builtin.grep_live()
 end, { desc = "Live Grep" })
@@ -53,8 +57,8 @@ vim.keymap.set(
   { desc = "Registers" }
 )
 
--- Trouble
 require("mini.extra").setup()
+require("mini.visits").setup()
 
 vim.keymap.set(
   "n",
