@@ -9,3 +9,5 @@
 *.swp
 .nvimlog
 
+# Agents
+.agents/plans/
