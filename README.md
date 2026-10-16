@@ -26,11 +26,11 @@ Symlink agent rules and skills:
 mkdir -p ~/.pi/agent/prompts
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" pi
 
+mkdir -p ~/.omp/agent
+stow --dir "$HOME/.dotfiles/agents" --target "$HOME" omp
+
 mkdir -p ~/.claude/skills ~/.claude/output-styles ~/.claude/rules
 stow --dir "$HOME/.dotfiles/agents" --target "$HOME" claude
-
-mkdir -p ~/.config/opencode/skills
-stow --dir "$HOME/.dotfiles/agents" --target "$HOME" opencode
 ```
 
 Include git settings in `~/.config/git/config`:
