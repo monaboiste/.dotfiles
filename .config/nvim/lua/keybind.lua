@@ -26,6 +26,7 @@ function M.clues(miniclue)
     { mode = "n", keys = "<leader>x", desc = "+Diagnostics" },
     { mode = "n", keys = "<leader>t", desc = "+Tabs" },
     { mode = "n", keys = "<leader>g", desc = "+Goto" },
+    { mode = "n", keys = "<leader>h", desc = "+Git hunks" },
 
     miniclue.gen_clues.square_brackets(),
     miniclue.gen_clues.builtin_completion(),
@@ -72,6 +73,17 @@ function M.setup()
   )
   vim.keymap.set("n", "<leader>tq", ":quit<cr>", { desc = "Close" })
   vim.keymap.set("n", "<leader>tt", ":tabnew<cr>", { desc = "New Tab" })
+
+  vim.keymap.set("n", "<leader>hb", function()
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.bo[buf].filetype == "gitsigns-blame" then
+        vim.api.nvim_win_close(win, true)
+        return
+      end
+    end
+    require("gitsigns").blame()
+  end, { desc = "Toggle Git blame" })
 
   vim.keymap.set({ "n", "x" }, "<leader>s", function()
     if vim.fn.mode():match("[vV\22]") then
