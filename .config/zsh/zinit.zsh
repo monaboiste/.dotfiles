@@ -8,7 +8,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 source "$ZINIT_HOME"/zinit.zsh
-unalias zi
 
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 ZINIT[COMPINIT_OPTS]="-C"
