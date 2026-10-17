@@ -13,6 +13,7 @@ typeset -U path
 
 path=(
   "/opt/homebrew/bin"
+  "$HOME/.local/bin"
   "$HOME/.claude/bin"
   $path
 )
