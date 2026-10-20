@@ -18,6 +18,7 @@ $nodejs\
 $package\
 $docker_context\
 $aws\
+$time\
 $line_break\
 $character\
 """
@@ -95,6 +96,13 @@ min_time = 2000
 style = 'fg:rosewater'
 format = '([󱫑 $duration]($style) )'
 show_milliseconds = false
+disabled = false
+
+[time]
+format = '[$time]($style)'
+time_format = '%T'
+utc_time_offset = '0'
+style = 'fg:overlay0'
 disabled = false
 
 # https://github.com/catppuccin/starship/blob/main/starship.toml
