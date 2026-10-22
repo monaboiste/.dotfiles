@@ -12,6 +12,10 @@ source "$ZINIT_HOME"/zinit.zsh
 ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 ZINIT[COMPINIT_OPTS]="-C"
 
+if [ ! -d "${ZINIT[ZCOMPDUMP_PATH]:h}" ]; then
+  mkdir -p "${ZINIT[ZCOMPDUMP_PATH]:h}"
+fi
+
 zinit wait lucid for \
   atinit"zpcompinit; zicdreplay" \
   zdharma-continuum/fast-syntax-highlighting \
