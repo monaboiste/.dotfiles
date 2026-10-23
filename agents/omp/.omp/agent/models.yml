@@ -1,0 +1,4 @@
+providers:
+  litellm:
+    api: openai-completions
+    apiKey: LITELLM_API_KEY

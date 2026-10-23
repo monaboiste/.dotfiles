@@ -19,9 +19,10 @@ path=(
 )
 
 # >>> litellm-claude-code >>>
-if [ -s "$HOME/.claude/litellm-key" ]; then
-  export ANTHROPIC_CUSTOM_HEADERS="x-litellm-api-key: Bearer $(cat "$HOME/.claude/litellm-key")"
-  export LITELLM_API_KEY="$(cat "$HOME/.claude/litellm-key")"
+if [[ -s "$HOME/.claude/litellm-key" && -s "$HOME/.claude/litellm-url" ]]; then
+  export LITELLM_API_KEY="$(<"$HOME/.claude/litellm-key")"
+  export LITELLM_BASE_URL="$(<"$HOME/.claude/litellm-url")"
+  export ANTHROPIC_CUSTOM_HEADERS="x-litellm-api-key: Bearer $LITELLM_API_KEY"
 fi
 # <<< litellm-claude-code <<<
 

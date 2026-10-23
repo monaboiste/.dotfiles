@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "agent-ste": {
+      "version": "0.5.2",
+      "enabledFeatures": null,
+      "enabled": true
+    }
+  },
+  "settings": {}
+}

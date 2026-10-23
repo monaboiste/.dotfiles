@@ -1,0 +1,7 @@
+{
+  "name": "omp-plugins",
+  "private": true,
+  "dependencies": {
+    "agent-ste": "npm:agent-ste@^0.5.2"
+  }
+}
