@@ -1,46 +1,79 @@
 # Dotfiles
 
-My dotfiles configurations managed by stow.
+nix-darwin manages macOS settings and Homebrew packages.
+Home Manager manages the configuration links through nix-darwin.
 
-Install bundle:
+## Install
 
-```sh
-brew bundle install --file ./.config/homebrew/Brewfile
-```
+Install Nix with the [macOS instructions in the Nix manual][nix-install].
 
-Symlink to parent directory:
+Keep the repository at `~/.dotfiles`. The `macos` configuration targets Apple Silicon macOS.
 
-```sh
-stow .
-```
+For another account, change `user` in `flake.nix`.
+For an Intel Mac, change `nixpkgs.hostPlatform` in `configuration.nix` to `x86_64-darwin`.
 
-Symlink Viual Studio Code settings:
+If `darwin-rebuild` is not available, build the initial configuration with:
 
 ```sh
-stow --target "$HOME/Library/Application Support/Code/User" vscode
+sudo nix --extra-experimental-features 'nix-command flakes' \
+  run github:nix-darwin/nix-darwin/nix-darwin-26.05 -- switch --flake "$HOME/.dotfiles#macos"
 ```
 
-Symlink agent rules and skills:
+Start a new login shell after activation.
+
+## Build and apply
+
+Build the configuration without activation:
 
 ```sh
-mkdir -p ~/.pi/agent/prompts
-stow --dir "$HOME/.dotfiles/agents" --target "$HOME" pi
-
-mkdir -p ~/.omp/agent
-stow --dir "$HOME/.dotfiles/agents" --target "$HOME" omp
-
-mkdir -p ~/.claude/skills ~/.claude/output-styles ~/.claude/rules
-stow --dir "$HOME/.dotfiles/agents" --target "$HOME" claude
+bash "$HOME/.dotfiles/rebuild.sh"
 ```
 
-Include git settings in `~/.config/git/config`:
+Apply the configuration explicitly:
+
+```sh
+bash "$HOME/.dotfiles/rebuild.sh" --apply
+```
+
+Requires `sudo`.
+
+The first activation migrates an existing Homebrew installation to nix-homebrew. It keeps installed packages.
+
+## JetBrains
+
+Replace `IntelliJIdea2026.2` with your product and version.
+Move existing target files before you create the links.
+
+```sh
+target="$HOME/Library/Application Support/JetBrains/IntelliJIdea2026.2"
+mkdir -p "$target/keymaps" "$target/options/mac"
+ln -s "$HOME/.dotfiles/jetbrains/keymaps/macos-copy.xml" "$target/keymaps/macos-copy.xml"
+ln -s "$HOME/.dotfiles/jetbrains/options/mac/keymap.xml" "$target/options/mac/keymap.xml"
+```
+
+## Update Nix inputs
+
+Update the pinned Nixpkgs, nix-darwin, nix-homebrew, and Home Manager inputs, then build:
+
+```sh
+nix flake update --flake "$HOME/.dotfiles"
+bash "$HOME/.dotfiles/rebuild.sh"
+```
+
+Apply the updated configuration with `--apply` after you check the build result.
+
+Keep `home.stateVersion` and `system.stateVersion` unchanged unless the relevant release notes tell you to change them.
+
+## Git and SSH
+
+Include Git settings in `~/.config/git/config`:
 
 ```ini
 [include]
   path = settings
 ```
 
-Sample `.ssh/config`:
+Example `~/.ssh/config`:
 
 ```ini
 Include config.d/*.conf
@@ -57,8 +90,16 @@ Host github-<USERNAME>
   IdentityFile ~/.ssh/id_ed25519_<USERNAME>
 ```
 
-Setup themes:
+## Shell theme
+
+Apply the theme:
 
 ```sh
 fast-theme XDG:catppuccin-mocha
 ```
+
+___
+
+## Links
+
+[nix-install]: https://nix.dev/manual/nix/stable/installation/installing-binary.html
