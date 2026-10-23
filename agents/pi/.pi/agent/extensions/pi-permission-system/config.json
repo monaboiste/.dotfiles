@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+  "yoloMode": true,
+  "permission": {
+    "*": "allow",
+    "path": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "~/.gradle/gradle.properties": "deny"
+    },
+    "bash": {
+      "*": "allow",
+
+      "rm -rf *": "deny",
+      "sudo *": "ask",
+
+      "trash ~/Dev": "deny",
+      "trash ~/Dev/*": "deny"
+    },
+    "external_directory": {
+      "*": "ask",
+      "/tmp/*": "allow",
+      "/opt/homebrew/bin/*": "allow",
+      "/opt/homebrew/Cellar/*": "allow",
+      "~/.local/bin/sdkman/candidates/*": "allow"
+    },
+    "external_directory_read": {
+      "~/.m2/*": "allow",
+      "~/.gradle/caches/*": "allow",
+      "~/Dev/*": "allow"
+    }
+  }
+}
