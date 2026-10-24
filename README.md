@@ -25,13 +25,13 @@ Start a new login shell after activation.
 Build the configuration without activation:
 
 ```sh
-bash "$HOME/.dotfiles/rebuild.sh"
+"$HOME/.dotfiles/rebuild.sh"
 ```
 
 Apply the configuration explicitly:
 
 ```sh
-bash "$HOME/.dotfiles/rebuild.sh" --apply
+"$HOME/.dotfiles/rebuild.sh" --apply
 ```
 
 Apply requires `sudo`.
@@ -52,11 +52,9 @@ ln -s "$HOME/.dotfiles/jetbrains/options/mac/keymap.xml" "$target/options/mac/ke
 
 ## Update Nix inputs
 
-Update the pinned Nixpkgs, nix-darwin, nix-homebrew, and Home Manager inputs, then build:
-
 ```sh
 nix flake update --flake "$HOME/.dotfiles"
-bash "$HOME/.dotfiles/rebuild.sh"
+"$HOME/.dotfiles/rebuild.sh"
 ```
 
 Apply the updated configuration with `--apply` after you check the build result.
