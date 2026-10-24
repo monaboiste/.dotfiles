@@ -1,8 +1,15 @@
 { vars, ... }:
 
 {
-  # Determinate already manages the Nix daemon, so nix-darwin shouldn't.
-  nix.enable = false;
+  nix.gc = {
+    automatic = true;
+    interval = {
+      Weekday = 6;
+      Hour = 3;
+      Minute = 15;
+    };
+    options = "--delete-older-than 30d";
+  };
 
   nixpkgs.hostPlatform = vars.hostPlatform;
 
