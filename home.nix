@@ -2,29 +2,6 @@
 
 let
   inherit (vars) dotfiles;
-  ignored = name:
-    name == ".DS_Store"
-    || name == ".nvimlog"
-    || lib.hasSuffix ".swp" name
-    || lib.hasSuffix ".zsh_sessions" name;
-
-  filesUnder = source: target:
-    let
-      entries = builtins.readDir (./. + "/${source}");
-    in
-    lib.concatMapAttrs (name: type:
-      let
-        sourcePath = "${source}/${name}";
-        targetPath = "${target}/${name}";
-        isDirectory = type == "directory"
-          || (type == "symlink" && builtins.pathExists "${./.}/${sourcePath}/.");
-      in
-      if ignored name then { }
-      else if isDirectory then filesUnder sourcePath targetPath
-      else {
-        ${targetPath}.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${sourcePath}";
-      }
-    ) entries;
 in
 {
   home = {
@@ -34,12 +11,37 @@ in
 
     file = {
       ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zprofile";
-    }
-    // filesUnder ".config" ".config"
-    // filesUnder "vscode" "Library/Application Support/Code/User"
-    // filesUnder "agents/pi/.pi" ".pi"
-    // filesUnder "agents/omp/.omp" ".omp"
-    // filesUnder "agents/claude/.claude" ".claude";
+
+      ".config" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config";
+        recursive = true;
+        ignorelinks = true;
+      };
+
+      "Library/Application Support/Code/User" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/vscode";
+        recursive = true;
+        ignorelinks = true;
+      };
+
+      ".pi" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/agents/pi/.pi";
+        recursive = true;
+        ignorelinks = true;
+      };
+
+      ".omp" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/agents/omp/.omp";
+        recursive = true;
+        ignorelinks = true;
+      };
+
+      ".claude" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/agents/claude/.claude";
+        recursive = true;
+        ignorelinks = true;
+      };
+    };
   };
 
   programs.home-manager.enable = true;
