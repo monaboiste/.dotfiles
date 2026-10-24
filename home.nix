@@ -1,7 +1,7 @@
-{ config, lib, user, ... }:
+{ config, lib, vars, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/.dotfiles";
+  inherit (vars) dotfiles;
   ignored = name:
     name == ".DS_Store"
     || name == ".nvimlog"
@@ -26,8 +26,8 @@ let
 in
 {
   home = {
-    username = user;
-    homeDirectory = "/Users/${user}";
+    username = vars.user;
+    inherit (vars) homeDirectory;
     stateVersion = "26.05";
 
     file = {

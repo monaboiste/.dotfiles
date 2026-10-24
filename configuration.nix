@@ -1,17 +1,17 @@
-{ user, ... }:
+{ vars, ... }:
 
 {
   # Determinate already manages the Nix daemon, so nix-darwin shouldn't.
   nix.enable = false;
 
-  nixpkgs.hostPlatform = "aarch64-darwin"; # use x86_64-darwin for Intel CPU
+  nixpkgs.hostPlatform = vars.hostPlatform;
 
-  users.users.${user} = {
-    home = "/Users/${user}";
+  users.users.${vars.user} = {
+    home = vars.homeDirectory;
   };
 
   system = {
-    primaryUser = user;
+    primaryUser = vars.user;
     stateVersion = 6;
     defaults = {
       NSGlobalDomain = {
@@ -31,7 +31,7 @@
   nix-homebrew = {
     enable = true;
     autoMigrate = true;
-    inherit user;
+    inherit (vars) user;
   };
   homebrew = {
     enable = true;

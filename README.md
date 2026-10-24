@@ -9,8 +9,7 @@ Install Nix with the [macOS instructions in the Nix manual][nix-install].
 
 Keep the repository at `~/.dotfiles`. The `macos` configuration targets Apple Silicon macOS.
 
-For another account, change `user` in `flake.nix`.
-For an Intel Mac, change `nixpkgs.hostPlatform` in `configuration.nix` to `x86_64-darwin`.
+For another account, change `vars.user` in `flake.nix`.
 
 If `darwin-rebuild` is not available, build the initial configuration with:
 
@@ -35,7 +34,7 @@ Apply the configuration explicitly:
 bash "$HOME/.dotfiles/rebuild.sh" --apply
 ```
 
-Requires `sudo`.
+Apply requires `sudo`.
 
 The first activation migrates an existing Homebrew installation to nix-homebrew. It keeps installed packages.
 
