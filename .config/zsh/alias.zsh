@@ -28,7 +28,7 @@ zinit::update() {
     echo "✅ All Zinit plugins updated!"
 }
 
-help::vim_tips() {
+help::vim() {
   cat <<'EOF'
 x Multiline edit:
   - ctrl+v (visual mode)
