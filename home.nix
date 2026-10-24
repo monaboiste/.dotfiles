@@ -1,4 +1,4 @@
-{ config, lib, vars, ... }:
+{ config, lib, pkgs, vars, ... }:
 
 let
   inherit (vars) dotfiles;
@@ -43,4 +43,17 @@ in
   };
 
   programs.home-manager.enable = true;
+
+  launchd.agents.wallpaper = {
+    enable = true;
+
+    config = {
+      ProgramArguments = [
+        (lib.getExe pkgs.desktoppr)
+          "${dotfiles}/assets/wallpapers/dNjVBEB.png"
+      ];
+
+      RunAtLoad = true;
+    };
+  };
 }
