@@ -11,3 +11,6 @@
 
 # Agents
 .agents/plans/
+
+# Output
+/result
