@@ -104,5 +104,7 @@ x AWS S3
   - list and filter: aws s3api list-objects-v2 --bucket bucketname --prefix "dir1/dir2" --query --query "Contents[?LastModified >=$(2023-09-19)]"
 x List running cron jobs
   pstree -apl $(pidof cron)
+x Show details of login items and background tasks:
+  sudo sfltool dumpbtm | less
 EOF
 }
