@@ -64,6 +64,25 @@ x Registers:
 EOF
 }
 
+help::nix() {
+  cat <<'EOF'
+x List saved system configurations:
+  darwin-rebuild --list-generations
+x Rollback configuration:
+  sudo darwin-rebuild --rollback
+x Rollback to the specific configuration:
+  sudo darwin-rebuild --switch-generation 12
+x Show store size:
+  du -sh /nix/store
+x Show which objects are garbage collectable:
+  nix-store --gc --print-dead | wc -l
+x Run garbage collector:
+  sudo nix-collect-garbage [--delete-older-than 30d]
+x Update dependencies:
+  nix flake update && git diff -- flake.lock
+EOF
+}
+
 help::keychain() {
   cat <<'EOF'
 x Add secret: security add-generic-password -a $USER -s "MY_SECRET" -w "supersecret"
