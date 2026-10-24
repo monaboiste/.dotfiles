@@ -44,22 +44,6 @@ swap_pane_up = "prefix+shift+k"
 swap_pane_right = "prefix+shift+l"
 close_pane = "prefix+x"
 
-# herdr plugin install qq88976321/herdr-copy-search
-[[keys.command]]
-key = "prefix+["
-type = "shell"
-command = "herdr plugin pane open --plugin copy-search --entrypoint copy"
-
-[[keys.command]]
-key = "prefix+/"
-type = "shell"
-command = "herdr plugin pane open --plugin copy-search --entrypoint search"
-
-[[keys.command]]
-key = "prefix+tab"
-type = "shell"
-command = "herdr plugin pane open --plugin copy-search --entrypoint extract"
-
 # herdr plugin install fullerzz/herdr-plugin-sesh
 [[keys.command]]
 key = "prefix+space"
