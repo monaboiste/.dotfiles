@@ -1,14 +1,20 @@
 { vars, ... }:
 
 {
-  nix.gc = {
-    automatic = true;
-    interval = {
-      Weekday = 6;
-      Hour = 3;
-      Minute = 15;
+  nix = {
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 6;
+        Hour = 3;
+        Minute = 15;
+      };
+      options = "--delete-older-than 30d";
     };
-    options = "--delete-older-than 30d";
   };
 
   nixpkgs.hostPlatform = vars.hostPlatform;
