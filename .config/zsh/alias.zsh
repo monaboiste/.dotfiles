@@ -80,6 +80,11 @@ x Run garbage collector:
   sudo nix-collect-garbage [--delete-older-than 30d]
 x Update dependencies:
   nix flake update && git diff -- flake.lock
+x Preview symlinks
+  nix build \
+    ".#darwinConfigurations.macos.config.home-manager.users.${USER}.home.activationPackage" \
+    --out-link result-hm;
+    fd -u -t l . result-hm/home-files -X eza -l
 EOF
 }
 
