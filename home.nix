@@ -16,9 +16,11 @@ let
       let
         sourcePath = "${source}/${name}";
         targetPath = "${target}/${name}";
+        isDirectory = type == "directory"
+          || (type == "symlink" && builtins.pathExists "${./.}/${sourcePath}/.");
       in
       if ignored name then { }
-      else if type == "directory" then filesUnder sourcePath targetPath
+      else if isDirectory then filesUnder sourcePath targetPath
       else {
         ${targetPath}.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${sourcePath}";
       }
@@ -32,15 +34,12 @@ in
 
     file = {
       ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.zprofile";
-      ".claude/CLAUDE.md".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/agents/shared/AGENTS.md";
     }
     // filesUnder ".config" ".config"
     // filesUnder "vscode" "Library/Application Support/Code/User"
     // filesUnder "agents/pi/.pi" ".pi"
     // filesUnder "agents/omp/.omp" ".omp"
-    // filesUnder "agents/claude/.claude/rules" ".claude/rules"
-    // filesUnder "agents/claude/.claude/output-styles" ".claude/output-styles"
-    // filesUnder "agents/shared/skills" ".claude/skills";
+    // filesUnder "agents/claude/.claude" ".claude";
   };
 
   programs.home-manager.enable = true;
