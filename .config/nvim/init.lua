@@ -31,6 +31,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("keybindings").setup()
 require("ui.styling")
 require("ui.interface")
-require("git")
 require("lsp")
-require("multicursor")
+
+vim.schedule(function()
+  require("git")
+end)
+
+vim.schedule(function()
+  require("multicursor")
+end)
