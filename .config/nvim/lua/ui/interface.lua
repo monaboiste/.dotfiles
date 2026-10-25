@@ -3,6 +3,7 @@ require("vim._core.ui2").enable()
 vim.opt.winborder = "rounded"
 
 vim.pack.add({
+  "https://github.com/rcarriga/nvim-notify",
   "https://github.com/nvim-mini/mini.icons",
   "https://github.com/nvim-mini/mini.pick",
   "https://github.com/nvim-mini/mini.clue",
@@ -13,6 +14,16 @@ vim.pack.add({
   "https://github.com/tris203/precognition.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
 })
+
+-- Notifications
+local notify = require("notify")
+notify.setup({
+  timeout = 6000,
+  background_colour = "#000000",
+  render = "compact",
+  stages = "fade_in_slide_out",
+})
+vim.notify = notify
 
 -- Icons
 require("mini.icons").setup()
