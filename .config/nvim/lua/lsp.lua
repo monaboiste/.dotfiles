@@ -58,7 +58,7 @@ vim.cmd([[ set completeopt+=menuone,noselect,popup ]])
 local blink = require("blink.cmp")
 blink.build():pwait(10000)
 blink.setup({
-  keymap = require("keybind").blink,
+  keymap = require("keybindings").blink,
 
   appearance = {
     nerd_font_variant = "mono",

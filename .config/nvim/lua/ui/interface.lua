@@ -34,8 +34,8 @@ require("mini.visits").setup()
 -- "What to press next" overlay
 local miniclue = require("mini.clue")
 miniclue.setup({
-  triggers = require("keybind").clue_triggers,
-  clues = require("keybind").clues(miniclue),
+  triggers = require("keybindings").clue_triggers,
+  clues = require("keybindings").clues(miniclue),
 
   window = {
     config = {
