@@ -77,10 +77,30 @@ require("hardtime").setup({
   restriction_mode = "hint",
   timeout = 10000,
   disable_mouse = false,
+  restricted_keys = {
+    ["<Up>"] = { "n", "x", "i" },
+    ["<Down>"] = { "n", "x", "i" },
+    ["<Left>"] = { "n", "x", "i" },
+    ["<Right>"] = { "n", "x", "i" },
+  },
   disabled_keys = {
     ["<Up>"] = false,
     ["<Down>"] = false,
     ["<Left>"] = false,
     ["<Right>"] = false,
+  },
+  hints = {
+    ["<Up>"] = {
+      message = function()
+        return "Try k, 5k or Ctrl-U instead of Up"
+      end,
+      length = 4,
+    },
+    ["<Down>"] = {
+      message = function()
+        return "Try j, 5j or Ctrl-D instead of Down"
+      end,
+      length = 6,
+    },
   },
 })
