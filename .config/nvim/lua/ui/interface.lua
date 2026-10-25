@@ -9,6 +9,9 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.extra",
   "https://github.com/nvim-mini/mini.visits",
   "https://github.com/nvim-tree/nvim-tree.lua",
+  "https://github.com/m4xshen/hardtime.nvim",
+  "https://github.com/tris203/precognition.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
 })
 
 -- Icons
@@ -49,5 +52,24 @@ require("nvim-tree").setup({
   view = {
     width = 25,
     side = "left",
+  },
+})
+
+-- nvim suggestions
+require("precognition").setup({
+  targetedMotionHints = {
+    enabled = false,
+  },
+})
+
+require("hardtime").setup({
+  restriction_mode = "hint",
+  timeout = 10000,
+  disable_mouse = false,
+  disabled_keys = {
+    ["<Up>"] = false,
+    ["<Down>"] = false,
+    ["<Left>"] = false,
+    ["<Right>"] = false,
   },
 })
