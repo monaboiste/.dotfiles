@@ -93,6 +93,10 @@ function M.setup()
     end
   end, { desc = "Sort selection or file" })
 
+  vim.keymap.set("n", "<leader>e", function()
+    require("nvim-tree.api").tree.toggle()
+  end, { desc = "Toggle file explorer" })
+
   vim.keymap.set("n", "<leader><leader>", function()
     require("mini.pick").builtin.cli({
       command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
@@ -104,15 +108,19 @@ function M.setup()
   vim.keymap.set("n", "<leader>fv", function()
     require("mini.extra").pickers.visit_paths({ cwd = "" })
   end, { desc = "Find Visited Files Everywhere" })
+
   vim.keymap.set("n", "<leader>fg", function()
     require("mini.pick").builtin.grep_live()
   end, { desc = "Live Grep" })
+
   vim.keymap.set("n", "<leader>fc", function()
     require("mini.extra").pickers.history({ scope = ":" })
   end, { desc = "Find Command" })
+
   vim.keymap.set("n", "<leader>fr", function()
     require("mini.extra").pickers.registers()
   end, { desc = "Registers" })
+
   vim.keymap.set("n", "<leader>xx", function()
     require("mini.extra").pickers.diagnostic()
   end, { desc = "Diagnostics" })

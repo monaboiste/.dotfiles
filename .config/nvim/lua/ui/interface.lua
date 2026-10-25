@@ -11,6 +11,7 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.clue",
   "https://github.com/nvim-mini/mini.extra",
   "https://github.com/nvim-mini/mini.visits",
+  "https://github.com/nvim-tree/nvim-tree.lua",
 })
 
 -- Icons
@@ -43,5 +44,13 @@ miniclue.setup({
       width = math.floor(0.3 * vim.o.columns),
     },
     delay = 0,
+  },
+})
+
+-- File explorer
+require("nvim-tree").setup({
+  view = {
+    width = 25,
+    side = "left",
   },
 })
