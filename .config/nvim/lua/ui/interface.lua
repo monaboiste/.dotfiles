@@ -1,7 +1,4 @@
---[[
--- Notes: some of the dependencies are tightly
--- coupled to lsp.lua.
-]]
+require("vim._core.ui2").enable()
 
 vim.opt.winborder = "rounded"
 
