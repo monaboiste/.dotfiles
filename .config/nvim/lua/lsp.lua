@@ -3,6 +3,7 @@ vim.pack.add({
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+  "https://github.com/Saghen/blink.lib",
   "https://github.com/Saghen/blink.cmp",
   "https://github.com/stevearc/conform.nvim",
 })
@@ -50,7 +51,9 @@ vim.diagnostic.config({
 vim.cmd([[ set completeopt+=menuone,noselect,popup ]])
 
 -- Completions
-require("blink.cmp").setup({
+local blink = require("blink.cmp")
+blink.build():pwait(10000)
+blink.setup({
   keymap = require("keybind").blink,
 
   appearance = {
