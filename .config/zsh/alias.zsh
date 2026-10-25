@@ -64,6 +64,9 @@ x Registers:
 x Plugins:
   - Remove: :lua vim.pack.del({ "pluginname" })
   - Update all: :lua vim.pack.update()
+x nvim tree:
+  - Show only changed/untracked files: C
+  - Jump to next/previous git change: ]c, [c
 EOF
 }
 
