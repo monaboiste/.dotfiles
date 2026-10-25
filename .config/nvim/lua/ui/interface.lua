@@ -75,7 +75,7 @@ require("precognition").setup({
 
 require("hardtime").setup({
   restriction_mode = "hint",
-  timeout = 10000,
+  timeout = 5000,
   disable_mouse = false,
   restricted_keys = {
     ["<Up>"] = { "n", "x", "i" },
