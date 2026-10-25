@@ -36,6 +36,10 @@ vim.lsp.config("bashls", {
     },
   },
 })
+vim.lsp.config("lemminx", {
+  filetypes = { "xml", "xsd", "xslt", "svg" },
+})
+
 vim.lsp.enable({
   "lua_ls",
   "bashls",
