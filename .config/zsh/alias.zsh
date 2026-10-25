@@ -61,6 +61,9 @@ x Registers:
   - Show registers: "
   - Copy to register: +yy
   - Paste from register "(1-7)p
+x Plugins:
+  - Remove: :lua vim.pack.del({ "pluginname" })
+  - Update all: :lua vim.pack.update()
 EOF
 }
 
