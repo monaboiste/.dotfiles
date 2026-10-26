@@ -1,8 +1,8 @@
 modelRoles:
-  default: litellm/fireworks/glm-5p3:high
+  default: litellm/glm-5p3:high
   slow: litellm/bedrock/openai.gpt-6.1-sol:high
   smol: litellm/claude-haiku-5-5:high
-  task: litellm/fireworks/glm-5p3-flash
+  task: litellm/glm-5p3-flash
 symbolPreset: nerd
 composer:
   shape: band
@@ -19,16 +19,11 @@ terminal:
   showProgress: false
 disabledProviders:
   - amazon-bedrock
-  - bedrock-mantle
   - apple
   - local
-# disabledModels:
-#  - "litellm/claude-haiku-*"
-#  - "litellm/claude-sonnet-*"
-#  - "litellm/claude-opus-*"
 display:
   hideToolActivity: false
-  subagentLivePreview: true
+  subagentLivePreviw: true
   pinnedAgents: full
   shimmer: disabled
 tui:
