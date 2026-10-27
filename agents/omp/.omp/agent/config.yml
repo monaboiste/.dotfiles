@@ -18,9 +18,10 @@ statusLine:
 terminal:
   showProgress: false
 disabledProviders:
-  - amazon-bedrock
-  - apple
-  - local
+  - "amazon-bedrock"
+  - "bedrock-mantle"
+  - "apple"
+  - "local"
 display:
   hideToolActivity: false
   subagentLivePreviw: true
