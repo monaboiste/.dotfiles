@@ -81,6 +81,7 @@ conform.setup({
   },
   formatters_by_ft = {
     lua = { "stylua" },
+    nix = { "nixfmt" },
     sh = { "shfmt" },
     bash = { "shfmt" },
     zsh = { "shfmt" },

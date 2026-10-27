@@ -1,32 +1,39 @@
-{ config, lib, pkgs, vars, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  vars,
+  ...
+}:
 
 let
   inherit (vars) dotfiles;
 
   symlink = config.lib.file.mkOutOfStoreSymlink;
 
-  ignored = name:
-    name == ".DS_Store"
-    || name == ".nvimlog"
-    || lib.hasSuffix ".swp" name;
+  ignored = name: name == ".DS_Store" || name == ".nvimlog" || lib.hasSuffix ".swp" name;
 
-  recursiveSymlink = source: target:
+  recursiveSymlink =
+    source: target:
     let
       entries = builtins.readDir (./. + "/${source}");
     in
-    lib.concatMapAttrs (name: type:
+    lib.concatMapAttrs (
+      name: type:
       let
         sourcePath = "${source}/${name}";
         targetPath = "${target}/${name}";
       in
-      if ignored name then { }
+      if ignored name then
+        { }
       else if type == "directory" then
         recursiveSymlink sourcePath targetPath
-      else if type == "regular" || type == "symlink" then {
-        "${targetPath}".source =
-          symlink "${dotfiles}/${sourcePath}";
-      }
-      else { }
+      else if type == "regular" || type == "symlink" then
+        {
+          "${targetPath}".source = symlink "${dotfiles}/${sourcePath}";
+        }
+      else
+        { }
     ) entries;
 in
 {

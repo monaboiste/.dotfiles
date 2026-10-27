@@ -16,7 +16,14 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nix-homebrew, home-manager, nixpkgs }:
+  outputs =
+    inputs@{
+      self,
+      nix-darwin,
+      nix-homebrew,
+      home-manager,
+      nixpkgs,
+    }:
     let
       vars = rec {
         user = "mszumna";

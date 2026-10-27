@@ -65,6 +65,7 @@
       "herdr"
       "jq"
       "neovim"
+      "nixfmt"
       "pi-coding-agent"
       "python"
       "rich"
