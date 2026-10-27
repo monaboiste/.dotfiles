@@ -3,7 +3,6 @@
 
 # Shell
 *.zsh.swp
-*.zsh_sessions/
 
 # Vim
 *.swp
