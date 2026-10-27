@@ -68,6 +68,7 @@ require("nvim-tree").setup({
 
 -- nvim suggestions
 require("precognition").setup({
+  highlightColor = { link = "Comment" },
   targetedMotionHints = {
     enabled = false,
   },
