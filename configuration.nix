@@ -15,6 +15,7 @@
       };
       options = "--delete-older-than 30d";
     };
+    optimise.automatic = true;
   };
 
   nixpkgs.hostPlatform = vars.hostPlatform;
@@ -29,15 +30,15 @@
     defaults = {
       NSGlobalDomain = {
         AppleInterfaceStyleSwitchesAutomatically = true;
-        KeyRepeat = 2;          # fast key repeat
-        InitialKeyRepeat = 15;  # short delay before repeat
+        KeyRepeat = 2; # fast key repeat
+        InitialKeyRepeat = 15; # short delay before repeat
         _HIHideMenuBar = false; # auto-hide the menu bar
         AppleShowAllExtensions = true;
       };
       dock.autohide = true;
-      finder.FXPreferredViewStyle = "Nlsv";  # list view by default
-      finder.CreateDesktop = false;          # clean desktop
-      trackpad.Clicking = true;              # tap to click
+      finder.FXPreferredViewStyle = "Nlsv"; # list view by default
+      finder.CreateDesktop = false; # clean desktop
+      trackpad.Clicking = true; # tap to click
     };
   };
 
