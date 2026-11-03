@@ -46,6 +46,8 @@ x Fold:
 x Navigation:
   - { and }
   - jump to matching pairs of (), [], {}
+  - find next <character> and jump: f<character>,
+    eg. in csv file: 056f,l (from position 0, find 56th comma)
 x Actions:
   - replace char under the cursor: r
   - select entire line: V
