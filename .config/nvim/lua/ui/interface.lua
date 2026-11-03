@@ -77,6 +77,7 @@ require("precognition").setup({
 require("hardtime").setup({
   restriction_mode = "hint",
   timeout = 5000,
+  max_count = 2,
   disable_mouse = false,
   restricted_keys = {
     ["<Up>"] = { "n", "x", "i" },
@@ -90,18 +91,20 @@ require("hardtime").setup({
     ["<Left>"] = false,
     ["<Right>"] = false,
   },
-  hints = {
-    ["<Up>"] = {
-      message = function()
-        return "Try k, 5k or Ctrl-U instead of Up"
-      end,
-      length = 4,
-    },
-    ["<Down>"] = {
-      message = function()
-        return "Try j, 5j or Ctrl-D instead of Down"
-      end,
-      length = 6,
-    },
-  },
+  callback = function(message)
+    local suggestions = {
+      ["<Up>"] = "Try k, 5k or Ctrl-U instead of Up",
+      ["<Down>"] = "Try j, 5j or Ctrl-D instead of Down",
+      ["<Left>"] = "Try h, 5h or b instead of Left",
+      ["<Right>"] = "Try l, 5l or w instead of Right",
+    }
+
+    local key = message:match("^You pressed the (.-) key too soon!")
+
+    vim.notify(
+      suggestions[key] or message,
+      vim.log.levels.WARN,
+      { title = "Hardtime", timeout = 5000 }
+    )
+  end,
 })
