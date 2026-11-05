@@ -57,3 +57,11 @@ key = "prefix+shift+space"
 type = "plugin_action"
 command = "fullerzz.sesh.last"
 description = "switch to previous Sesh workspace"
+
+# herdr plugin install osamahbeig/herdr-pane-mover
+[[keys.command]]
+key = "prefix+m"
+type = "plugin_action"
+command = "osamahbeig.pane-mover.open"
+description = "move this pane"
+
