@@ -9,7 +9,7 @@ composer:
 theme:
   dark: dark-catppuccin
   light: light
-setupVersion: 2
+setupVersion: 3
 statusLine:
   preset: default
   sessionAccent: true
@@ -18,10 +18,10 @@ statusLine:
 terminal:
   showProgress: false
 disabledProviders:
-  - "amazon-bedrock"
-  - "bedrock-mantle"
-  - "apple"
-  - "local"
+  - amazon-bedrock
+  - bedrock-mantle
+  - apple
+  - local
 display:
   hideToolActivity: false
   subagentLivePreviw: true
@@ -32,3 +32,5 @@ tui:
 colorBlindMode: false
 dev:
   autoqaConsent: denied
+update:
+  auto: false
