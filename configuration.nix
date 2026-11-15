@@ -79,7 +79,6 @@
       "superfile"
       "tfenv"
       "tldr"
-      "tmux"
       "uv"
       "zoxide"
     ];
