@@ -46,7 +46,6 @@ in
       ".zprofile".source = symlink "${dotfiles}/.zprofile";
     }
     // (recursiveSymlink "vscode" "Library/Application Support/Code/User")
-    // (recursiveSymlink "obsidian" "Documents/Obsidian Vault/.obsidian")
     // (recursiveSymlink "agents/pi/.pi" ".pi")
     // (recursiveSymlink "agents/omp/.omp" ".omp")
     // (recursiveSymlink "agents/claude/.claude" ".claude");
@@ -78,4 +77,117 @@ in
       RunAtLoad = true;
     };
   };
+
+  programs.obsidian = {
+    enable = true;
+    package = null;
+
+    vaults.notes = {
+      target = "Documents/Obsidian Vault";
+
+      settings = {
+        app = {
+          alwaysUpdateLinks = true;
+          spellcheck = true;
+          showLineNumber = true;
+          readableLineLength = false;
+          autoPairBrackets = true;
+          autoPairMarkdown = true;
+        };
+
+        appearance = {
+          theme = "obsidian"; # Dark mode
+          baseFontSize = 16;
+        };
+
+        corePlugins = [
+          "backlink"
+          "bookmarks"
+          "canvas"
+          "command-palette"
+          "file-explorer"
+          "file-recovery"
+          "global-search"
+          "graph"
+          "outline"
+          "page-preview"
+          "properties"
+          "switcher"
+          "templates"
+          "word-count"
+          "workspaces"
+        ];
+
+        communityPlugins = with pkgs.obsidianPlugins; [
+          obsidian-editor-shortcuts
+          obsidian-excalidraw-plugin
+          obsidian-git
+        ];
+
+        hotkeys = {
+          "app:toggle-left-sidebar" = [
+            {
+              modifiers = [
+                "Mod"
+                "Shift"
+              ];
+              key = "B";
+            }
+          ];
+
+          "line-editing-commands:select-next" = [
+            {
+              modifiers = [ "Mod" ];
+              key = "G";
+            }
+          ];
+
+          "line-editing-commands:select-all-occurrences" = [
+            {
+              modifiers = [
+                "Mod"
+                "Shift"
+              ];
+              key = "G";
+            }
+          ];
+
+          "line-editing-commands:go-to-line" = [
+            {
+              modifiers = [ "Mod" ];
+              key = "L";
+            }
+          ];
+
+          "editor:add-cursor-above" = [
+            {
+              modifiers = [
+                "Alt"
+                "Shift"
+              ];
+              key = "ArrowUp";
+            }
+          ];
+
+          "editor:add-cursor-below" = [
+            {
+              modifiers = [
+                "Alt"
+                "Shift"
+              ];
+              key = "ArrowDown";
+            }
+          ];
+        };
+
+        themes = with pkgs.obsidianThemes; [
+          minimal
+        ];
+
+        cssSnippets = null;
+        extraFiles = null;
+      };
+    };
+  };
+
 }

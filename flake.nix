@@ -14,15 +14,21 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    obsidian-extensions = {
+      url = "github:karaolidis/nix-obsidian-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs@{
       self,
+      nixpkgs,
       nix-darwin,
       nix-homebrew,
       home-manager,
-      nixpkgs,
+      obsidian-extensions,
     }:
     let
       vars = rec {
@@ -37,6 +43,11 @@
         specialArgs = { inherit vars; };
         modules = [
           ./configuration.nix
+          {
+            nixpkgs.overlays = [
+              inputs.obsidian-extensions.overlays.default
+            ];
+          }
           nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
           {
