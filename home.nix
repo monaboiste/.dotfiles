@@ -96,7 +96,7 @@ in
         };
 
         appearance = {
-          theme = "obsidian"; # Dark mode
+          theme = "system";
           baseFontSize = 16;
         };
 
