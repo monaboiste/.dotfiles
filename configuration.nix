@@ -95,6 +95,7 @@
       "intellij-idea"
       "postman"
       "spotify"
+      "obsidian"
       "visual-studio-code"
     ];
   };
