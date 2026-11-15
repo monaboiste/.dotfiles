@@ -121,7 +121,10 @@ in
         communityPlugins = with pkgs.obsidianPlugins; [
           obsidian-editor-shortcuts
           obsidian-excalidraw-plugin
-          obsidian-git
+          {
+            pkg = obsidian-git;
+            settings = builtins.fromJSON (builtins.readFile ./obsidian/plugins/obsidian-git/data.json);
+          }
         ];
 
         hotkeys = {
