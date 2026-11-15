@@ -127,61 +127,7 @@ in
           }
         ];
 
-        hotkeys = {
-          "app:toggle-left-sidebar" = [
-            {
-              modifiers = [
-                "Mod"
-                "Shift"
-              ];
-              key = "B";
-            }
-          ];
-
-          "line-editing-commands:select-next" = [
-            {
-              modifiers = [ "Mod" ];
-              key = "G";
-            }
-          ];
-
-          "line-editing-commands:select-all-occurrences" = [
-            {
-              modifiers = [
-                "Mod"
-                "Shift"
-              ];
-              key = "G";
-            }
-          ];
-
-          "line-editing-commands:go-to-line" = [
-            {
-              modifiers = [ "Mod" ];
-              key = "L";
-            }
-          ];
-
-          "editor:add-cursor-above" = [
-            {
-              modifiers = [
-                "Alt"
-                "Shift"
-              ];
-              key = "ArrowUp";
-            }
-          ];
-
-          "editor:add-cursor-below" = [
-            {
-              modifiers = [
-                "Alt"
-                "Shift"
-              ];
-              key = "ArrowDown";
-            }
-          ];
-        };
+        hotkeys = builtins.fromJSON (builtins.readFile ./obsidian/hotkeys.json);
 
         themes = with pkgs.obsidianThemes; [
           minimal

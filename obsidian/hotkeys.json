@@ -1,0 +1,38 @@
+{
+  "app:toggle-left-sidebar": [
+    {
+      "key": "B",
+      "modifiers": ["Mod", "Shift"]
+    }
+  ],
+  "editor:add-cursor-above": [
+    {
+      "key": "ArrowUp",
+      "modifiers": ["Alt", "Shift"]
+    }
+  ],
+  "editor:add-cursor-below": [
+    {
+      "key": "ArrowDown",
+      "modifiers": ["Alt", "Shift"]
+    }
+  ],
+  "line-editing-commands:go-to-line": [
+    {
+      "key": "L",
+      "modifiers": ["Mod"]
+    }
+  ],
+  "line-editing-commands:select-all-occurrences": [
+    {
+      "key": "G",
+      "modifiers": ["Mod", "Shift"]
+    }
+  ],
+  "line-editing-commands:select-next": [
+    {
+      "key": "G",
+      "modifiers": ["Mod"]
+    }
+  ]
+}
