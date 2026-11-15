@@ -46,6 +46,7 @@ in
       ".zprofile".source = symlink "${dotfiles}/.zprofile";
     }
     // (recursiveSymlink "vscode" "Library/Application Support/Code/User")
+    // (recursiveSymlink "obsidian" "Documents/Obsidian Vault/.obsidian")
     // (recursiveSymlink "agents/pi/.pi" ".pi")
     // (recursiveSymlink "agents/omp/.omp" ".omp")
     // (recursiveSymlink "agents/claude/.claude" ".claude");
