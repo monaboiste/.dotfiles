@@ -1,5 +1,17 @@
 local M = {}
 
+local function yank_relative_path_with_line()
+  local path = vim.fn.expand("%:.") .. "#L" .. vim.fn.line(".")
+  vim.fn.setreg("+", path)
+  vim.notify("Yanked: " .. path, vim.log.levels.INFO)
+end
+
+local function yank_absolute_path_with_line()
+  local path = vim.fn.expand("%:p") .. "#L" .. vim.fn.line(".")
+  vim.fn.setreg("+", path)
+  vim.notify("Yanked: " .. path, vim.log.levels.INFO)
+end
+
 M.blink = {
   preset = "default",
   ["<tab>"] = { "accept", "fallback" },
@@ -128,18 +140,10 @@ function M.setup()
   end, { desc = "Registers" })
 
   -- +Yank
-  vim.keymap.set("n", "<leader>yf", function()
-    local path = vim.fn.expand("%:.") .. "#L" .. vim.fn.line(".")
-    vim.fn.setreg("+", path)
-    vim.notify("Yanked: " .. path, vim.log.levels.INFO)
-  end, {
+  vim.keymap.set("n", "<leader>yf", yank_relative_path_with_line, {
     desc = "Yank relative path with line number",
   })
-  vim.keymap.set("n", "<leader>yp", function()
-    local path = vim.fn.expand("%:p") .. "#L" .. vim.fn.line(".")
-    vim.fn.setreg("+", path)
-    vim.notify("Yanked: " .. path, vim.log.levels.INFO)
-  end, {
+  vim.keymap.set("n", "<leader>yp", yank_absolute_path_with_line, {
     desc = "Yank absolute path with line number",
   })
 
