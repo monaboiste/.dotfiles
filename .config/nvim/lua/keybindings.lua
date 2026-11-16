@@ -1,13 +1,22 @@
 local M = {}
 
+local function line_reference()
+  local line = vim.fn.line(".")
+  if vim.fn.mode():match("[vV\22]") then
+    local anchor = vim.fn.line("v")
+    return "#L" .. math.min(line, anchor) .. "-" .. math.max(line, anchor)
+  end
+  return "#L" .. line
+end
+
 local function yank_relative_path_with_line()
-  local path = vim.fn.expand("%:.") .. "#L" .. vim.fn.line(".")
+  local path = vim.fn.expand("%:.") .. line_reference()
   vim.fn.setreg("+", path)
   vim.notify("Yanked: " .. path, vim.log.levels.INFO)
 end
 
 local function yank_absolute_path_with_line()
-  local path = vim.fn.expand("%:p") .. "#L" .. vim.fn.line(".")
+  local path = vim.fn.expand("%:p") .. line_reference()
   vim.fn.setreg("+", path)
   vim.notify("Yanked: " .. path, vim.log.levels.INFO)
 end
@@ -39,7 +48,7 @@ function M.clues(miniclue)
     { mode = "n", keys = "<leader>t", desc = "+Tabs" },
     { mode = "n", keys = "<leader>g", desc = "+Goto" },
     { mode = "n", keys = "<leader>h", desc = "+Git hunks" },
-    { mode = "n", keys = "<leader>y", desc = "+Yank" },
+    { mode = { "n", "x" }, keys = "<leader>y", desc = "+Yank" },
 
     miniclue.gen_clues.square_brackets(),
     miniclue.gen_clues.builtin_completion(),
@@ -140,10 +149,10 @@ function M.setup()
   end, { desc = "Registers" })
 
   -- +Yank
-  vim.keymap.set("n", "<leader>yf", yank_relative_path_with_line, {
+  vim.keymap.set({ "n", "x" }, "<leader>yf", yank_relative_path_with_line, {
     desc = "Yank relative path with line number",
   })
-  vim.keymap.set("n", "<leader>yp", yank_absolute_path_with_line, {
+  vim.keymap.set({ "n", "x" }, "<leader>yp", yank_absolute_path_with_line, {
     desc = "Yank absolute path with line number",
   })
 
