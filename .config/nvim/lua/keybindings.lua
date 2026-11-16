@@ -27,6 +27,7 @@ function M.clues(miniclue)
     { mode = "n", keys = "<leader>t", desc = "+Tabs" },
     { mode = "n", keys = "<leader>g", desc = "+Goto" },
     { mode = "n", keys = "<leader>h", desc = "+Git hunks" },
+    { mode = "n", keys = "<leader>y", desc = "+Yank" },
 
     miniclue.gen_clues.square_brackets(),
     miniclue.gen_clues.builtin_completion(),
@@ -120,6 +121,22 @@ function M.setup()
   vim.keymap.set("n", "<leader>fr", function()
     require("mini.extra").pickers.registers()
   end, { desc = "Registers" })
+
+  -- +Yank
+  vim.keymap.set("n", "<leader>yf", function()
+    local path = vim.fn.expand("%:.") .. "#L" .. vim.fn.line(".")
+    vim.fn.setreg("+", path)
+    vim.notify("Yanked: " .. path, vim.log.levels.INFO)
+  end, {
+    desc = "Yank relative path with line number",
+  })
+  vim.keymap.set("n", "<leader>yp", function()
+    local path = vim.fn.expand("%:p") .. "#L" .. vim.fn.line(".")
+    vim.fn.setreg("+", path)
+    vim.notify("Yanked: " .. path, vim.log.levels.INFO)
+  end, {
+    desc = "Yank absolute path with line number",
+  })
 
   vim.keymap.set("n", "<leader>xx", function()
     require("mini.extra").pickers.diagnostic()
