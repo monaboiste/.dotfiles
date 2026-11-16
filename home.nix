@@ -99,6 +99,7 @@ in
           theme = "system";
           accentColor = "#f38ba8";
           baseFontSize = 16;
+          showRibbon = false;
         };
 
         corePlugins = [
