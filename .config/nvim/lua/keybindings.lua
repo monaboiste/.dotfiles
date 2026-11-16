@@ -60,6 +60,7 @@ function M.setup()
   vim.keymap.set("n", "<C-d>", "5j", { desc = "Jump down by 5 lines" })
   vim.keymap.set("n", "<C-e>", "5k", { desc = "Jump up by 5 lines" })
 
+  -- +Tabs
   vim.keymap.set(
     "n",
     '<leader>t"',
@@ -75,6 +76,7 @@ function M.setup()
   vim.keymap.set("n", "<leader>tq", ":quit<cr>", { desc = "Close" })
   vim.keymap.set("n", "<leader>tt", ":tabnew<cr>", { desc = "New Tab" })
 
+  -- +Git hunks
   vim.keymap.set("n", "<leader>hb", function()
     for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
       local buf = vim.api.nvim_win_get_buf(win)
@@ -86,6 +88,7 @@ function M.setup()
     require("gitsigns").blame()
   end, { desc = "Toggle Git blame" })
 
+  -- Sort
   vim.keymap.set({ "n", "x" }, "<leader>s", function()
     if vim.fn.mode():match("[vV\22]") then
       vim.cmd("'<,'>sort")
@@ -94,10 +97,12 @@ function M.setup()
     end
   end, { desc = "Sort selection or file" })
 
+  -- File exploere
   vim.keymap.set("n", "<leader>e", function()
     require("nvim-tree.api").tree.toggle()
   end, { desc = "Toggle file explorer" })
 
+  -- Picker
   vim.keymap.set("n", "<leader><leader>", function()
     require("mini.pick").builtin.cli({
       command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
@@ -138,6 +143,7 @@ function M.setup()
     desc = "Yank absolute path with line number",
   })
 
+  -- +Diagnostics
   vim.keymap.set("n", "<leader>xx", function()
     require("mini.extra").pickers.diagnostic()
   end, { desc = "Diagnostics" })
@@ -145,6 +151,7 @@ function M.setup()
     require("mini.extra").pickers.diagnostic({ scope = "current" })
   end, { desc = "Buffer Diagnostics" })
 
+  -- +Code (LSP) and +Goto actions
   vim.keymap.set({ "n", "v" }, "<leader>cf", function()
     require("conform").format({
       lsp_fallback = true,
