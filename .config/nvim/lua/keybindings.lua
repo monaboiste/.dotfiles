@@ -21,6 +21,37 @@ local function yank_absolute_path_with_line()
   vim.notify("Yanked: " .. path, vim.log.levels.INFO)
 end
 
+local function yank_as_codeblock()
+  local cursor = vim.fn.line(".")
+  local anchor = vim.fn.line("v")
+  local start_line = math.min(cursor, anchor)
+  local end_line = math.max(cursor, anchor)
+  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+
+  local path = vim.fn.expand("%:.")
+  local lang = vim.bo.filetype
+  if lang == "" then
+    lang = vim.filetype.match({ filename = vim.fn.expand("%:p") })
+      or vim.fn.expand("%:e")
+  end
+  local fence_length = 3
+  for _, line in ipairs(lines) do
+    for ticks in line:gmatch("`+") do
+      fence_length = math.max(fence_length, #ticks + 1)
+    end
+  end
+  local fence = string.rep("`", fence_length)
+  local result = { fence .. lang .. " filename=" .. vim.fn.json_encode(path) }
+  for _, line in ipairs(lines) do
+    table.insert(result, line)
+  end
+  table.insert(result, fence)
+
+  local text = table.concat(result, "\n")
+  vim.fn.setreg("+", text)
+  vim.notify("Copied " .. #lines .. " lines as codeblock", vim.log.levels.INFO)
+end
+
 M.blink = {
   preset = "default",
   ["<tab>"] = { "accept", "fallback" },
@@ -155,6 +186,12 @@ function M.setup()
   vim.keymap.set({ "n", "x" }, "<leader>yp", yank_absolute_path_with_line, {
     desc = "Yank absolute path with line number",
   })
+  vim.keymap.set(
+    "x",
+    "<leader>yc",
+    yank_as_codeblock,
+    { desc = "Yank as codeblock" }
+  )
 
   -- +Diagnostics
   vim.keymap.set("n", "<leader>xx", function()
