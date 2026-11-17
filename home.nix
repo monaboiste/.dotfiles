@@ -63,8 +63,6 @@ in
   // (recursiveSymlink ".config/nvim" "nvim")
   // (recursiveSymlink ".config/zsh" "zsh");
 
-  programs.home-manager.enable = true;
-
   launchd.agents.wallpaper = {
     enable = true;
 
@@ -78,65 +76,69 @@ in
     };
   };
 
-  programs.obsidian = {
-    enable = true;
-    package = null;
+  programs = {
+    home-manager.enable = true;
 
-    vaults.notes = {
-      target = "Documents/Obsidian Vault";
+    obsidian = {
+      enable = true;
+      package = null;
 
-      settings = {
-        app = {
-          alwaysUpdateLinks = true;
-          spellcheck = true;
-          showLineNumber = true;
-          readableLineLength = false;
-          autoPairBrackets = true;
-          autoPairMarkdown = true;
+      vaults.notes = {
+        target = "Documents/Obsidian Vault";
+
+        settings = {
+          app = {
+            alwaysUpdateLinks = true;
+            spellcheck = true;
+            showLineNumber = true;
+            readableLineLength = false;
+            autoPairBrackets = true;
+            autoPairMarkdown = true;
+          };
+
+          appearance = {
+            theme = "system";
+            accentColor = "#f38ba8";
+            baseFontSize = 16;
+            showRibbon = false;
+          };
+
+          corePlugins = [
+            "backlink"
+            "bookmarks"
+            "canvas"
+            "command-palette"
+            "file-explorer"
+            "file-recovery"
+            "global-search"
+            "graph"
+            "outline"
+            "page-preview"
+            "properties"
+            "switcher"
+            "templates"
+            "word-count"
+            "workspaces"
+          ];
+
+          communityPlugins = with pkgs.obsidianPlugins; [
+            obsidian-editor-shortcuts
+            obsidian-excalidraw-plugin
+            {
+              pkg = obsidian-git;
+              settings = builtins.fromJSON (builtins.readFile ./obsidian/plugins/obsidian-git/data.json);
+            }
+          ];
+
+          hotkeys = builtins.fromJSON (builtins.readFile ./obsidian/hotkeys.json);
+
+          themes = with pkgs.obsidianThemes; [
+            minimal
+          ];
+
+          cssSnippets = null;
+          extraFiles = null;
         };
-
-        appearance = {
-          theme = "system";
-          accentColor = "#f38ba8";
-          baseFontSize = 16;
-          showRibbon = false;
-        };
-
-        corePlugins = [
-          "backlink"
-          "bookmarks"
-          "canvas"
-          "command-palette"
-          "file-explorer"
-          "file-recovery"
-          "global-search"
-          "graph"
-          "outline"
-          "page-preview"
-          "properties"
-          "switcher"
-          "templates"
-          "word-count"
-          "workspaces"
-        ];
-
-        communityPlugins = with pkgs.obsidianPlugins; [
-          obsidian-editor-shortcuts
-          obsidian-excalidraw-plugin
-          {
-            pkg = obsidian-git;
-            settings = builtins.fromJSON (builtins.readFile ./obsidian/plugins/obsidian-git/data.json);
-          }
-        ];
-
-        hotkeys = builtins.fromJSON (builtins.readFile ./obsidian/hotkeys.json);
-
-        themes = with pkgs.obsidianThemes; [
-          minimal
-        ];
-
-        cssSnippets = null;
-        extraFiles = null;
       };
     };
   };
