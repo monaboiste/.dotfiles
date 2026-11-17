@@ -33,6 +33,7 @@
         KeyRepeat = 2; # fast key repeat
         InitialKeyRepeat = 15; # short delay before repeat
         _HIHideMenuBar = false; # auto-hide the menu bar
+        NSAutomaticQuoteSubstitutionEnabled = false; # disable smart quotes
         AppleShowAllExtensions = true;
       };
       dock.autohide = true;
