@@ -22,7 +22,7 @@ enabled = false
 pane_history = true
 
 [keys]
-prefix = "ctrl+s"
+prefix = "ctrl+space"
 toggle_sidebar = "prefix+b"
 clear_pane = "cmd+k"
 
