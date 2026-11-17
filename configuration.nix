@@ -39,7 +39,25 @@
       finder.FXPreferredViewStyle = "Nlsv"; # list view by default
       finder.CreateDesktop = false; # clean desktop
       trackpad.Clicking = true; # tap to click
+      CustomUserPreferences = {
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            # select the previous input source (ctrl+space)
+            "60" = {
+              enabled = false;
+            };
+            # select next source in input menu (ctrl+alt+space)
+            "61" = {
+              enabled = false;
+            };
+          };
+        };
+      };
     };
+    activationScripts.postActivation.text = ''
+      # apply without logout/login cycle
+      sudo -u ${vars.user} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
   };
 
   nix-homebrew = {
