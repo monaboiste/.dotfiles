@@ -1,0 +1,1 @@
+../../../../shared/skills/rebase-commit/SKILL.md
