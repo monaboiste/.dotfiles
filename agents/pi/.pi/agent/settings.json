@@ -10,7 +10,8 @@
     {
       "source": "npm:agent-ste",
       "extensions": []
-    }
+    },
+    "npm:pi-cuttle"
   ],
   "lastChangelogVersion": "1.5.2",
   "theme": "dark",
@@ -18,12 +19,17 @@
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
   "enabledModels": [
-    "smart/auto",
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-6-astra",
     "openai-codex/gpt-6-luna",
-    "openai-codex/gpt-6.1-sol",
-    "radius/recursive/flint"
+    "radius/recursive/flint",
+    "openai-codex/gpt-6.2-astra",
+    "openai-codex/gpt-6.2-sol",
+    "openai-codex/gpt-6.1-terra",
+    "cuttle/auto",
+    "cuttle/local",
+    "cuttle/cloud",
+    "cuttle/fast-local",
+    "cuttle/big-local",
+    "cuttle/orchestrator"
   ],
   "hideThinkingBlock": false,
   "compaction": {
@@ -41,11 +47,16 @@
       }
     }
   },
-  "defaultTools": ["+codemode"],
-  "extensions": ["-builtin:mcp"],
+  "defaultTools": [
+    "+codemode"
+  ],
+  "extensions": [
+    "-builtin:mcp"
+  ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
-    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.1.0",
-    "{\"source\":\"npm:pi-herdr-agents\",\"scope\":\"user\"}": "3.7.2"
+    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.2.0",
+    "{\"source\":\"npm:pi-herdr-agents\",\"scope\":\"user\"}": "3.7.2",
+    "{\"source\":\"npm:pi-cuttle\",\"scope\":\"user\"}": "0.6.0"
   }
 }
