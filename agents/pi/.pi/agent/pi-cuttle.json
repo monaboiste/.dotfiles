@@ -19,7 +19,6 @@
   "catalog": {
     "local": ["llama.cpp/ggml-org/Qwen3.8-27B-GGUF:Q8_0"],
     "cloud": [
-      "recursive/flint",
       "openai-codex/gpt-6-luna",
       "openai-codex/gpt-6.2-sol",
       "openai-codex/gpt-6.1-terra",
