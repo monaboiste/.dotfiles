@@ -7,7 +7,10 @@
     "npm:pi-zentui",
     "npm:@gotgenes/pi-permission-system",
     "npm:pi-herdr-agents",
-    "npm:agent-ste"
+    {
+      "source": "npm:agent-ste",
+      "extensions": []
+    }
   ],
   "lastChangelogVersion": "1.5.2",
   "theme": "dark",
@@ -38,9 +41,7 @@
       }
     }
   },
-  "extensions": [
-    "-builtin:mcp"
-  ],
+  "extensions": ["-builtin:mcp"],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
     "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.1.0",
