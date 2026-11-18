@@ -58,6 +58,7 @@ in
     "herdr/config.toml".source = symlink "${dotfiles}/.config/herdr/config.toml";
     "rumdl/rumdl.toml".source = symlink "${dotfiles}/.config/rumdl/rumdl.toml";
     "starship.toml".source = symlink "${dotfiles}/.config/starship.toml";
+    "llama/models.ini".source = symlink "${dotfiles}/.config/llama/models.ini";
   }
   // (recursiveSymlink ".config/superfile" "superfile")
   // (recursiveSymlink ".config/nvim" "nvim")
