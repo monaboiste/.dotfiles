@@ -25,6 +25,11 @@ require("catppuccin").setup({
       crust = bg_color_override,
     },
   },
+  custom_highlights = function(colors)
+    return {
+      MiniIndentscopeSymbol = { fg = colors.teal },
+    }
+  end,
   integrations = { lualine = { enabled = true } },
 })
 vim.cmd.colorscheme("catppuccin-mocha")

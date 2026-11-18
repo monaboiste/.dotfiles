@@ -5,6 +5,7 @@ vim.opt.winborder = "rounded"
 vim.pack.add({
   "https://github.com/rcarriga/nvim-notify",
   "https://github.com/nvim-mini/mini.icons",
+  "https://github.com/nvim-mini/mini.indentscope",
   "https://github.com/nvim-mini/mini.pick",
   "https://github.com/nvim-mini/mini.clue",
   "https://github.com/nvim-mini/mini.extra",
@@ -27,6 +28,14 @@ vim.notify = notify
 
 -- Icons
 require("mini.icons").setup()
+
+local indentscope = require("mini.indentscope")
+indentscope.setup({
+  symbol = "│",
+  draw = {
+    animation = indentscope.gen_animation.none(),
+  },
+})
 
 -- Picker
 local pick = require("mini.pick")
