@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("keybindings").setup()
 require("ui.styling")
 require("ui.interface")
+require("markdown")
 require("lsp")
 
 vim.schedule(function()

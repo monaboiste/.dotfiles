@@ -19,6 +19,15 @@ M.clue_triggers = {
   { mode = "n", keys = "<C-w>" },
 }
 
+local function is_markdown(buf)
+  local extension =
+    vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":e"):lower()
+  return vim.b[buf].md_render
+    or vim.bo[buf].filetype == "markdown"
+    or extension == "md"
+    or extension == "mmd"
+end
+
 function M.clues(miniclue)
   return {
     { mode = "n", keys = "<leader>c", desc = "+Code (LSP)" },
@@ -27,6 +36,12 @@ function M.clues(miniclue)
     { mode = "n", keys = "<leader>t", desc = "+Tabs" },
     { mode = "n", keys = "<leader>g", desc = "+Goto" },
     { mode = "n", keys = "<leader>h", desc = "+Git hunks" },
+    function()
+      if is_markdown(0) then
+        return { mode = "n", keys = "<leader>m", desc = "+Markdown" }
+      end
+      return {}
+    end,
     { mode = { "n", "x" }, keys = "<leader>y", desc = "+Yank" },
 
     miniclue.gen_clues.square_brackets(),
@@ -59,6 +74,33 @@ function M.setup()
   )
   vim.keymap.set("n", "<C-d>", "5j", { desc = "Jump down by 5 lines" })
   vim.keymap.set("n", "<C-e>", "5k", { desc = "Jump up by 5 lines" })
+
+  vim.api.nvim_create_autocmd({ "BufEnter", "FileType", "BufFilePost" }, {
+    group = vim.api.nvim_create_augroup(
+      "keybindings.markdown",
+      { clear = true }
+    ),
+    callback = function(args)
+      if not is_markdown(args.buf) then
+        if vim.b[args.buf].markdown_preview_keymaps then
+          pcall(vim.keymap.del, "n", "<leader>mp", { buffer = args.buf })
+          pcall(vim.keymap.del, "n", "<leader>ms", { buffer = args.buf })
+          vim.b[args.buf].markdown_preview_keymaps = false
+        end
+        return
+      end
+
+      vim.keymap.set("n", "<leader>mp", "<cmd>MdRender toggle<cr>", {
+        buffer = args.buf,
+        desc = "Toggle Markdown preview",
+      })
+      vim.keymap.set("n", "<leader>ms", "<cmd>vert MdRender split<cr>", {
+        buffer = args.buf,
+        desc = "Split Markdown preview",
+      })
+      vim.b[args.buf].markdown_preview_keymaps = true
+    end,
+  })
 
   -- +Tabs
   vim.keymap.set(

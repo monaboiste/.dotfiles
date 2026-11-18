@@ -82,7 +82,9 @@
       "gh"
       "git"
       "herdr"
+      "imagemagick",
       "jq"
+      "mermaid-cli",
       "neovim"
       "nixfmt"
       "pi-coding-agent"
