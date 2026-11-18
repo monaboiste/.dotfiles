@@ -84,6 +84,7 @@
       "herdr"
       "imagemagick"
       "jq"
+      "llama.cpp"
       "mermaid-cli"
       "neovim"
       "nixfmt"
