@@ -1,0 +1,31 @@
+{
+  "providers": {
+    "llama.cpp": {
+      "modelOverrides": {
+        "ggml-org/Qwen3.8-27B-GGUF:Q8_0": {
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "off",
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": null,
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "compat": {
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": { "$var": "thinking.enabled" },
+              "preserve_thinking": true,
+              "reasoning_effort": {
+                "$var": "thinking.effort",
+                "omitWhenOff": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
