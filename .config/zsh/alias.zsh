@@ -21,6 +21,8 @@ alias lta1='eza -agT --icons auto --level=1'
 alias lta2='eza -agT --icons auto --level=2'
 alias lta3='eza -agT --icons auto --level=3'
 
+alias lroute='llama serve --no-models-autoload -ngl all'
+
 # Helpers
 zinit::update() {
   echo "🔄 Updating Zinit and plugins..."
