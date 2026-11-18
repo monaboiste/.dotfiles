@@ -18,6 +18,7 @@
   "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
   "enabledModels": [
+    "smart/auto",
     "openai-codex/gpt-5.6-luna",
     "openai-codex/gpt-6-astra",
     "openai-codex/gpt-6-luna",
@@ -40,9 +41,8 @@
       }
     }
   },
-  "extensions": [
-    "-builtin:mcp"
-  ],
+  "defaultTools": ["+codemode"],
+  "extensions": ["-builtin:mcp"],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
     "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.1.0",
