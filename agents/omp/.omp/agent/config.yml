@@ -34,3 +34,5 @@ dev:
   autoqaConsent: denied
 update:
   auto: false
+task:
+  perCallModel: "on"
