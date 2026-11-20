@@ -1,0 +1,8 @@
+{
+  "maxConcurrent": 3,
+  "maxConcurrentNested": 2,
+  "defaultJoinMode": "smart",
+  "reportUsage": true,
+  "toolDescriptionMode": "compact",
+  "scopeModels": true
+}

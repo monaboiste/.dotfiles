@@ -9,7 +9,9 @@
     {
       "source": "npm:agent-ste",
       "extensions": []
-    }
+    },
+    "npm:@tintinweb/pi-subagents",
+    "npm:@tintinweb/pi-tasks"
   ],
   "lastChangelogVersion": "1.5.2",
   "theme": "dark",
@@ -45,6 +47,8 @@
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
     "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.2.0",
     "{\"source\":\"npm:pi-herdr-agents\",\"scope\":\"user\"}": "3.7.2",
-    "{\"source\":\"npm:pi-cuttle\",\"scope\":\"user\"}": "0.6.0"
+    "{\"source\":\"npm:pi-cuttle\",\"scope\":\"user\"}": "0.6.0",
+    "{\"source\":\"npm:@tintinweb/pi-subagents\",\"scope\":\"user\"}": "0.26.1",
+    "{\"source\":\"npm:@tintinweb/pi-tasks\",\"scope\":\"user\"}": "0.9.1"
   }
 }
