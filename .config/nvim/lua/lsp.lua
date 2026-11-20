@@ -89,6 +89,7 @@ conform.setup({
     xml = { "xmlformatter" },
     json = { "prettier" },
     jsonc = { "prettier" },
+    yaml = { "prettier" },
   },
   formatters = {
     sqlfluff = {
