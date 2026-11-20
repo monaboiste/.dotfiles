@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+WORDCHARS=${WORDCHARS//\//}
+
 # NOTE:
 #  For a complete list of shell bindings, run: `zle -la`.
 #  List existing keymap namesL `bindkey -l`
