@@ -4,5 +4,7 @@
   "defaultJoinMode": "smart",
   "reportUsage": true,
   "toolDescriptionMode": "compact",
-  "scopeModels": true
+  "scopeModels": true,
+  "showCost": true,
+  "showModel": true
 }
