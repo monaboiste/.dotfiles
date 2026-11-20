@@ -10,8 +10,7 @@
     {
       "source": "npm:agent-ste",
       "extensions": []
-    },
-    "npm:pi-cuttle"
+    }
   ],
   "lastChangelogVersion": "1.5.2",
   "theme": "dark",
@@ -37,8 +36,12 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultTools": ["+codemode"],
-  "extensions": ["-builtin:mcp"],
+  "defaultTools": [
+    "+codemode"
+  ],
+  "extensions": [
+    "-builtin:mcp"
+  ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
     "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.2.0",
