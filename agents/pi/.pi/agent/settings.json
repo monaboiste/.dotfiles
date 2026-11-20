@@ -6,12 +6,9 @@
     "npm:@latentminds/pi-quotas",
     "npm:pi-zentui",
     "npm:@gotgenes/pi-permission-system",
-    {
-      "source": "npm:agent-ste",
-      "extensions": []
-    },
     "npm:@tintinweb/pi-subagents",
-    "npm:@tintinweb/pi-tasks"
+    "npm:@tintinweb/pi-tasks",
+    "npm:pi-caveman"
   ],
   "lastChangelogVersion": "1.5.2",
   "theme": "dark",
