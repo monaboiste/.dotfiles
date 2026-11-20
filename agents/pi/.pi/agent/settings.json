@@ -20,13 +20,7 @@
     "radius/recursive/flint",
     "openai-codex/gpt-6.2-astra",
     "openai-codex/gpt-6.2-sol",
-    "openai-codex/gpt-6.1-terra",
-    "cuttle/auto",
-    "cuttle/local",
-    "cuttle/cloud",
-    "cuttle/fast-local",
-    "cuttle/big-local",
-    "cuttle/orchestrator"
+    "openai-codex/gpt-6.1-terra"
   ],
   "hideThinkingBlock": false,
   "compaction": {
@@ -34,17 +28,12 @@
     "reserveTokens": 16384,
     "keepRecentTokens": 20000
   },
-  "defaultTools": [
-    "+codemode"
-  ],
-  "extensions": [
-    "-builtin:mcp"
-  ],
+  "defaultTools": ["+codemode"],
+  "extensions": ["-builtin:mcp"],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
     "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "42.2.0",
     "{\"source\":\"npm:pi-herdr-agents\",\"scope\":\"user\"}": "3.7.2",
-    "{\"source\":\"npm:pi-cuttle\",\"scope\":\"user\"}": "0.6.0",
     "{\"source\":\"npm:@tintinweb/pi-subagents\",\"scope\":\"user\"}": "0.26.2",
     "{\"source\":\"npm:@tintinweb/pi-tasks\",\"scope\":\"user\"}": "0.9.1"
   }
