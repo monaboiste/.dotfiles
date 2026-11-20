@@ -2,7 +2,8 @@ local M = {}
 
 M.blink = {
   preset = "default",
-  ["<tab>"] = { "accept", "fallback" },
+  ["<tab>"] = { "fallback" },
+  ["<C-f>"] = { "accept", "fallback" },
   ["<C><Space>"] = { "show" },
 }
 
