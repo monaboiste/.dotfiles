@@ -1,0 +1,11 @@
+[tracking]
+enabled = true
+history_days = 90
+
+[filters]
+ignore_dirs = [".git", "node_modules", "target", "build", "__pycache__", ".venv", "vendor"]
+ignore_files = ["*.lock", "*.min.js", "*.min.css"]
+
+[telemetry]
+enabled = false
+
