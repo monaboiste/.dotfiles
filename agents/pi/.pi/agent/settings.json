@@ -6,7 +6,6 @@
     "npm:@latentminds/pi-quotas",
     "npm:pi-zentui",
     "npm:@gotgenes/pi-permission-system",
-    "npm:pi-herdr-agents",
     {
       "source": "npm:agent-ste",
       "extensions": []
