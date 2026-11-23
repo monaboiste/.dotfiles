@@ -39,6 +39,7 @@ require("ui.styling")
 require("ui.interface")
 require("markdown")
 require("lsp")
+require("surround")
 
 vim.schedule(function()
   require("git")

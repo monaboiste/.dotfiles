@@ -20,6 +20,17 @@ M.clue_triggers = {
   { mode = "n", keys = "<C-w>" },
 }
 
+M.surround = {
+  add = "sa", -- add surrounding: saiw)
+  delete = "sd", -- delete surrounding: sd)
+  replace = "sr", -- replace surrounding: sr)(
+  find = "sf", -- find surrounding to the right
+  find_left = "sF", -- find surrounding to the left
+  highlight = "sh", -- highlight surrounding
+  suffix_last = "l", -- prefix for "last" variant (e.g. sdl)
+  suffix_next = "n", -- prefix for "next" variant (e.g. sdn)
+}
+
 local function is_markdown(buf)
   local extension =
     vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":e"):lower()

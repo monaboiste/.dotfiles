@@ -65,6 +65,10 @@
       "rev": "32ead2c8016a68487de87f23d604135843b0196d",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
+    "mini.surround": {
+      "rev": "77f376bdebb3440ad13bc40b48062b29bccb7577",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "mini.visits": {
       "rev": "aaad04a8ea87985b69d173b255e1d29f6a898735",
       "src": "https://github.com/nvim-mini/mini.visits"
