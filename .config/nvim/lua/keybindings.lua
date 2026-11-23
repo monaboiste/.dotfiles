@@ -18,6 +18,7 @@ M.clue_triggers = {
   { mode = { "n", "x" }, keys = '"' },
   { mode = "i", keys = "<C-x>" },
   { mode = "n", keys = "<C-w>" },
+  { mode = "n", keys = "s" },
 }
 
 M.surround = {
@@ -27,8 +28,8 @@ M.surround = {
   find = "sf", -- find surrounding to the right
   find_left = "sF", -- find surrounding to the left
   highlight = "sh", -- highlight surrounding
-  suffix_last = "l", -- prefix for "last" variant (e.g. sdl)
-  suffix_next = "n", -- prefix for "next" variant (e.g. sdn)
+  suffix_last = "l", -- suffix for "last" variant (e.g. sdl)
+  suffix_next = "n", -- suffix for "next" variant (e.g. sdn)
 }
 
 local function is_markdown(buf)
@@ -55,6 +56,33 @@ function M.clues(miniclue)
       return {}
     end,
     { mode = { "n", "x" }, keys = "<leader>y", desc = "+Yank" },
+    { mode = "n", keys = "s", desc = "+Surround" },
+    { mode = "n", keys = M.surround.add, desc = "Add surrounding" },
+    { mode = "n", keys = M.surround.delete, desc = "Delete surrounding" },
+    {
+      mode = "n",
+      keys = M.surround.delete .. M.surround.suffix_next,
+      desc = "Delete next surrounding",
+    },
+    {
+      mode = "n",
+      keys = M.surround.delete .. M.surround.suffix_last,
+      desc = "Delete last surrounding",
+    },
+    { mode = "n", keys = M.surround.replace, desc = "Replace surrounding" },
+    {
+      mode = "n",
+      keys = M.surround.replace .. M.surround.suffix_next,
+      desc = "Replace next surrounding",
+    },
+    {
+      mode = "n",
+      keys = M.surround.replace .. M.surround.suffix_last,
+      desc = "Replace last surrounding",
+    },
+    { mode = "n", keys = M.surround.find, desc = "Find surrounding right" },
+    { mode = "n", keys = M.surround.find_left, desc = "Find surrounding left" },
+    { mode = "n", keys = M.surround.highlight, desc = "Highlight surrounding" },
 
     miniclue.gen_clues.square_brackets(),
     miniclue.gen_clues.builtin_completion(),
