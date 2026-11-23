@@ -1,7 +1,7 @@
 {
   "plugins": {
-    "agent-ste": {
-      "version": "0.5.2",
+    "pi-caveman": {
+      "version": "1.0.12",
       "enabledFeatures": null,
       "enabled": true
     }
