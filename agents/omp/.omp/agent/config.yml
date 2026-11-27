@@ -2,7 +2,7 @@ modelRoles:
   default: litellm/glm-5p3:high
   slow: litellm/claude-opus-5-5:high
   smol: litellm/claude-haiku-5-5:high
-  task: litellm/glm-5p3-flash
+  task: litellm/bedrock/openai.gpt-6.2-sol
 symbolPreset: nerd
 composer:
   shape: band
