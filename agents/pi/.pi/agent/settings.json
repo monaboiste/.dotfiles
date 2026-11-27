@@ -7,10 +7,9 @@
     "npm:pi-zentui",
     "npm:@gotgenes/pi-permission-system",
     "npm:@tintinweb/pi-subagents",
-    "npm:@tintinweb/pi-tasks",
-    "npm:pi-caveman"
+    "npm:@tintinweb/pi-tasks"
   ],
-  "lastChangelogVersion": "1.6.0",
+  "lastChangelogVersion": "1.6.1",
   "theme": "dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.2-sol",
@@ -36,7 +35,7 @@
   ],
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
-    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "43.0.0",
+    "{\"source\":\"npm:@gotgenes/pi-permission-system\",\"scope\":\"user\"}": "44.0.2",
     "{\"source\":\"npm:pi-herdr-agents\",\"scope\":\"user\"}": "3.7.2",
     "{\"source\":\"npm:@tintinweb/pi-subagents\",\"scope\":\"user\"}": "0.26.3",
     "{\"source\":\"npm:@tintinweb/pi-tasks\",\"scope\":\"user\"}": "0.9.1"

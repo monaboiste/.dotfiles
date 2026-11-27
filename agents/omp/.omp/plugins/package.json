@@ -1,7 +1,4 @@
 {
   "name": "omp-plugins",
-  "private": true,
-  "dependencies": {
-    "omp-caveman": "github:pjsny/omp-caveman"
-  }
+  "private": true
 }
